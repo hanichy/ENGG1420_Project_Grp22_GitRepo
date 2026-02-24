@@ -6,8 +6,8 @@
 <!--im using gridpane for my container because it is flexible with its layouts-->
 <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
           prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="com.example.bookingsys.HelloController">
-<!--the controller file is specified in thje line fx:controller="com.example.bookingsys.HelloController.
+          fx:controller="com.example.bookingsys.appController">
+<!--the controller file is specified in thje line fx:controller="com.example.bookingsys.appController.
 note: you can get the file reference like i did here in intellij by right clicking on a file, click copy path/reference, click copy reference.-->
 <!--gridpane is divided into rows and columns and you place objects into the rows and columns-->
     <columnConstraints>
