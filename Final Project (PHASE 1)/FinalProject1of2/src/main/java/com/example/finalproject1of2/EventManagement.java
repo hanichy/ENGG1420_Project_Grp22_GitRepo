@@ -1,34 +1,32 @@
 package com.example.finalproject1of2;
 
+import java.lang.reflect.Array;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+//Manages the Saving Events Asppect
+//Specifically the List and File
 public class EventManagement {
+    private List<Event> eventList;
 
     //Use ArrayList to Save the different Events
+    //This will store the events with ArrayLists and CSV FIles
 
-    //Objects
-    protected int EventId;
-    public String Title;
-    public int DateTime; //DD/MM/YYYY Hour:Min
-    public String Location;
-    public int Capacity;
-    public boolean Status; //True = active False = Cancelled
-
-    //Create an event
-
-    //Update Event Information
-
-    //Cancel Event (Status = false) (Can be same for all types of events)
-
-    //List Events
-
-    //Search and Filter (PHASE 2)
-
-    public EventManagement(int eventId, String title, int dateTime, String location, int capacity){
-        EventId = eventId;
-        Title = title;
-        DateTime = dateTime;
-        Location = location;
-        Capacity = capacity;
-        Status = true;
+    //Create Event Function Here
+    public void createEvent(Event newEvent){
+        //Check for capacity < 0
+        //Check for Duplicate ID
+        eventList.add(newEvent);
     }
+
+    //Constructor
+    public EventManagement(){
+        this.eventList = new ArrayList<>();
+    }
+
 
 }
