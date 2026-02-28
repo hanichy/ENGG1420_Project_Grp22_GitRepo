@@ -3,12 +3,23 @@
 //Ex showing the text fields for create Event Button vs showing just a list of events for the list events button
 package com.example.finalproject1of2;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 //For What Each Button Will Do
 public class EventsPageController {
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     //The Text fields to create/update an event
     @FXML
 private TextField eventTitle = new TextField("Title");
@@ -44,6 +55,13 @@ EventManagement event = new EventManagement();
             //Loop and fix it
         }
 
+    }
+    public void backToMenuE(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
