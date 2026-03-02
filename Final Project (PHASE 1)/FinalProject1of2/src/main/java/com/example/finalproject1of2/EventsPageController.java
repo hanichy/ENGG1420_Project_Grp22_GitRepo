@@ -19,12 +19,14 @@ import java.io.IOException;
 //For What Each Button Will Do
 public class EventsPageController {
     @FXML
-    public VBox container = new VBox();
+    public VBox container;
 
     private Stage stage;
     private Scene scene;
     private Parent root;
     //The Text fields to create/update an event
+    @FXML
+    private TextField eventID = new TextField();
     @FXML
 private TextField eventTitle = new TextField();
     @FXML
@@ -135,6 +137,41 @@ EventManagement event = EventManagement.getInstance();
 
             container.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl,capLbl, statusLbl);
         }
+    }
+
+    //Cancel Event
+    public void search(ActionEvent ev){
+        String eventCancel = eventID.getText();
+
+        Event e = Event.findEventById(eventCancel);
+
+        if (e != null) {
+            container.getChildren().clear();
+            //Display the event
+            container.setStyle("-fx-padding: 10; -fx-border-color: #cccccc; -fx-background-color: #f9f9f9; -fx-border-radius: 5;");
+
+            //Title Label
+            Label titlelbl = new Label("Title: " + e.getTitle());
+            titlelbl.setStyle("-fx-padding:10; -fx-border-color: gray;");
+
+            Label idLbl = new Label("ID: " + e.getEventId());
+            Label dateLbl = new Label("Date: " + e.getDateTime());
+            Label locationLbl = new Label("Loction: " + e.getLocation());
+            Label capLbl = new Label("Capacity: " + e.getCapacity());
+
+            Label statusLbl = new Label("Status: " + (e.getStatus() ? "Active" : "Cancelled"));
+            statusLbl.setStyle(e.getStatus() ? "-fx-text-fill:green;" : "-fx-text-fill:red;");
+
+            container.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl, capLbl, statusLbl);
+        }
+
+    }
+
+    public void cancelEventButton(ActionEvent ev){
+        String eventCancel = eventID.getText();
+        Event e = Event.findEventById(eventCancel);
+
+        e.cancelEvent();
     }
 
     //Sends user back to the Main Menu

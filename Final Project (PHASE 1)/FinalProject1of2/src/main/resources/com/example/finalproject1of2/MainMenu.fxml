@@ -46,7 +46,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="211.0" layoutY="210.0" mnemonicParsing="false" text="Cancel Event">
+      <Button layoutX="211.0" layoutY="210.0" mnemonicParsing="false" onAction="#switchToCancelEvent" text="Cancel Event">
          <font>
             <Font size="18.0" />
          </font>

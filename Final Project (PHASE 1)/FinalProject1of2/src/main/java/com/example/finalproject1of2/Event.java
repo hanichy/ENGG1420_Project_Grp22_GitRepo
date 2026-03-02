@@ -92,9 +92,10 @@ public abstract class Event {
     }
 
     //Cancel Event (Status = false) (Can be same for all types of events)
-    public void cancelEvent(){
+    public boolean cancelEvent(){
         this.status = false;
         System.out.println("Event " + title + " has been canceled");
+        return false;
     }
 
     //List Events
