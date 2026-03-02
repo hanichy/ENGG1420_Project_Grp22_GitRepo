@@ -23,7 +23,7 @@ public class MainMenuController {
     //Now figure out how to make it so click button
     public void switchToEvent(ActionEvent event) throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("EventsPage.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateEventsPage.fxml"));
         root = loader.load();
 
         EventsPageController eventsPageController = loader.getController();

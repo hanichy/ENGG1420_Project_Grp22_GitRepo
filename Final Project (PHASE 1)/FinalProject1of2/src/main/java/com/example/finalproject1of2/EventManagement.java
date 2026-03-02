@@ -11,7 +11,8 @@ import java.util.List;
 //Manages the Saving Events Asppect
 //Specifically the List and File
 public class EventManagement {
-    private List<Event> eventList;
+    private static EventManagement instance;
+    private ArrayList<Event> eventList;
 
     //Use ArrayList to Save the different Events
     //This will store the events with ArrayLists and CSV FIles
@@ -23,8 +24,20 @@ public class EventManagement {
         eventList.add(newEvent);
     }
 
+    public static EventManagement getInstance(){
+        if (instance == null){
+            instance = new EventManagement();
+        }
+        return instance;
+    }
+    //Gives the ArrayList of the events
+    public ArrayList<Event> getEventList(){
+        return eventList;
+    }
+
     //Constructor
-    public EventManagement(){
+    private EventManagement(){
+
         this.eventList = new ArrayList<>();
     }
 

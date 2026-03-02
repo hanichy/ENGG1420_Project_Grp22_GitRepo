@@ -22,32 +22,45 @@ public class EventsPageController {
     private Parent root;
     //The Text fields to create/update an event
     @FXML
-private TextField eventTitle = new TextField("Title");
-private TextField eventDate = new TextField("Date (YYYY/MM/DD)");
-private TextField eventLocation = new TextField("Location");
-private TextField eventCapacity = new TextField("Capacity");
-private TextField eventType = new TextField("Workshop/Seminar/Concert");
-EventManagement event = new EventManagement();
+private TextField eventTitle = new TextField();
+    @FXML
+private TextField eventDate = new TextField();
+    @FXML
+private TextField eventLocation = new TextField();
+    @FXML
+private TextField eventCapacity = new TextField();
+private String eventType = "";
+    @FXML
+    private TextField eventTopic = new TextField();
+    @FXML
+    private TextField eventSpeaker = new TextField();
+    @FXML
+    private TextField eventAgeRestriction = new TextField();
+
+    //Change to the thingy that it was before get...()
+EventManagement event = EventManagement.getInstance();
+
     @FXML
     private void handleCreateEvent(){
-        String type = eventType.getText();
         String title = eventTitle.getText();
         String date = eventDate.getText();
         String location = eventLocation.getText();
         String capacity = eventCapacity.getText();
 
+        //Add something to catch cap<0 and cap != number
+        int cap = Integer.parseInt(capacity);
+
         //Create Event based on user inputs
-        if (type.equals("Workshop") || type.equals("workshop")){
-            String topic = "Fart";
-            int cap = Integer.parseInt(capacity);
-            Workshop workshop = new Workshop("ID", title, date, location, cap, topic);
+        if (eventType.equals("Workshop")){
+            String topic = eventTopic.getText();
+            Workshop workshop = new Workshop(title, date, location, cap, topic);
             event.createEvent(workshop);
         }
-        else if (type.equals("Seminar")|| type.equals("seminar"))
+        else if (eventType.equals("Seminar"))
         {
 
         }
-        else if (type.equals("Concert")|| type.equals("concert")){
+        else if (eventType.equals("Concert")){
 
         }
         else{
@@ -55,7 +68,41 @@ EventManagement event = new EventManagement();
             //Loop and fix it
         }
 
+        //Add event successfully created statement
+        //Clear old input (and makes specific type button invisible again)
+        //If it does create event then put a mistake message
     }
+
+    //Workshop button (Makes textField visible)
+    @FXML
+    public void workShopButton(ActionEvent e){
+        if (eventType.equals("")){
+            eventTopic.setOpacity(1);
+            eventType = "Workshop";
+        }
+    }
+
+    //Seminar button (Makes textField visible)
+    @FXML
+    public void seminarButton(ActionEvent e){
+        if (eventType.equals("")){
+            eventSpeaker.setOpacity(1);
+            eventType = "Seminar";
+        }
+    }
+
+    //Concert button (Makes textField visible)
+    @FXML
+    public void concertButton(ActionEvent e){
+        if (eventType.equals("")){
+            eventAgeRestriction.setOpacity(1);
+            eventType = "Concert";
+        }
+    }
+
+    //List Events
+
+    //Sends user back to the Main Menu
     public void backToMenuE(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
