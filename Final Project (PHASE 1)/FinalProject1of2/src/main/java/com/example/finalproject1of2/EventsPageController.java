@@ -11,12 +11,16 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 //For What Each Button Will Do
 public class EventsPageController {
+    @FXML
+    public VBox container = new VBox();
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -53,15 +57,20 @@ EventManagement event = EventManagement.getInstance();
         //Create Event based on user inputs
         if (eventType.equals("Workshop")){
             String topic = eventTopic.getText();
-            Workshop workshop = new Workshop(title, date, location, cap, topic);
-            event.createEvent(workshop);
+            Workshop w = new Workshop(title, date, location, cap, topic);
+            event.createEvent(w);
         }
         else if (eventType.equals("Seminar"))
         {
-
+            String speaker = eventSpeaker.getText();
+            Seminar s = new Seminar(title, date, location, cap, speaker);
+            event.createEvent(s);
         }
         else if (eventType.equals("Concert")){
-
+            String ageRestriction = eventAgeRestriction.getText();
+            int aR = Integer.parseInt(ageRestriction);
+            Concert c = new Concert(title, date, location, cap, aR);
+            event.createEvent(c);
         }
         else{
             //Input for type is wrong
@@ -101,6 +110,32 @@ EventManagement event = EventManagement.getInstance();
     }
 
     //List Events
+    @FXML
+    public void displayList(ActionEvent ev){
+        //Clear old VBox items
+        container.getChildren().clear();
+
+        //Loop through List
+        for(Event e :event.getEventList()){
+            VBox card = new VBox(5);
+            card.setStyle("-fx-padding: 10; -fx-border-color: #cccccc; -fx-background-color: #f9f9f9; -fx-border-radius: 5;");
+
+            //Title Lable
+            Label titlelbl = new Label("Title: "+e.getTitle());
+            titlelbl.setStyle("-fx-padding:10; -fx-border-color: gray;");
+
+            Label idLbl = new Label("ID: "+ e.getEventId());
+            Label dateLbl = new Label("Date: "+e.getDateTime());
+            Label locationLbl = new Label("Loction: "+ e.getLocation());
+            Label capLbl = new Label("Capacity: " +e.getCapacity());
+
+            Label statusLbl = new Label("Status: "+ (e.getStatus()? "Active" : "Cancelled"));
+            statusLbl.setStyle(e.getStatus()? "-fx-text-fill:green;":"-fx-text-fill:red;");
+
+
+            container.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl,capLbl, statusLbl);
+        }
+    }
 
     //Sends user back to the Main Menu
     public void backToMenuE(ActionEvent event) throws IOException {

@@ -36,7 +36,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="212.0" layoutY="92.0" mnemonicParsing="false" onAction="#switchToEvent" text="Create Event">
+      <Button layoutX="212.0" layoutY="92.0" mnemonicParsing="false" onAction="#switchToCreateEvent" text="Create Event">
          <font>
             <Font size="18.0" />
          </font>
@@ -66,7 +66,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="220.0" layoutY="270.0" mnemonicParsing="false" text="List Events">
+      <Button layoutX="220.0" layoutY="270.0" mnemonicParsing="false" onAction="#switchToListEvents" text="List Events">
          <font>
             <Font size="18.0" />
          </font>

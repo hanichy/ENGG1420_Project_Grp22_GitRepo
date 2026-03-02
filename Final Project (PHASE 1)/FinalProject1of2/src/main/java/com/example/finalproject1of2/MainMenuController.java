@@ -18,12 +18,20 @@ public class MainMenuController {
     private Scene scene;
     private Parent root;
 
-    //The buttons now go to the place they are supposed to
-    //Will have to do this for each button/scene
-    //Now figure out how to make it so click button
-    public void switchToEvent(ActionEvent event) throws IOException {
+    public void switchToCreateEvent(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateEventsPage.fxml"));
+        root = loader.load();
+
+        EventsPageController eventsPageController = loader.getController();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void switchToListEvents(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListEventsPage.fxml"));
         root = loader.load();
 
         EventsPageController eventsPageController = loader.getController();
