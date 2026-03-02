@@ -120,7 +120,7 @@ EventManagement event = EventManagement.getInstance();
             VBox card = new VBox(5);
             card.setStyle("-fx-padding: 10; -fx-border-color: #cccccc; -fx-background-color: #f9f9f9; -fx-border-radius: 5;");
 
-            //Title Lablel
+            //Title Label
             Label titlelbl = new Label("Title: "+e.getTitle());
             titlelbl.setStyle("-fx-padding:10; -fx-border-color: gray;");
 
