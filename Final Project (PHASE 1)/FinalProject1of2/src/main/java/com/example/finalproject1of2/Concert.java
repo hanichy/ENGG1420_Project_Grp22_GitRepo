@@ -4,8 +4,8 @@ public class Concert extends Event{
     public int AgeRestriction;
 
     //Constructor
-    public Concert(String eventId, String title, String dateTime, String location, int capacity, int ageRestriction) {
-        super(eventId, title, dateTime, location, capacity);
-        AgeRestriction = ageRestriction;
+    public Concert(String title, String dateTime, String location, int capacity, int ageRestriction) {
+        super(title, dateTime, location, capacity);
+        this.AgeRestriction = ageRestriction;
     }
 }
