@@ -36,6 +36,7 @@ public abstract class Event {
         totalEventCount++;
     }
 
+    //Getters
     public String getDateTime() {
 
         return dateTime;
@@ -60,6 +61,7 @@ public abstract class Event {
 
         return status;
     }
+
     //Generate random event id
     private String uniqueId(){
         Random rand = new Random();
