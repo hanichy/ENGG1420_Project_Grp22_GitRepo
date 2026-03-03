@@ -41,7 +41,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="198.0" layoutY="154.0" mnemonicParsing="false" text="Update Event Information">
+      <Button layoutX="198.0" layoutY="154.0" mnemonicParsing="false" onAction="#switchTOUpdateEvent" text="Update Event Information">
          <font>
             <Font size="18.0" />
          </font>

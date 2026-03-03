@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.finalproject1of2.EventsPageController">
+   <children>
+      <TextField fx:id="eventID" layoutX="14.0" layoutY="14.0" promptText="Enter Event ID" />
+      <Button layoutX="180.0" layoutY="14.0" mnemonicParsing="false" onAction="#search" text="Search" />
+      <ScrollPane layoutX="14.0" layoutY="57.0" prefHeight="200.0" prefWidth="200.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <VBox fx:id="container" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Button layoutX="274.0" layoutY="27.0" mnemonicParsing="false" onAction="#titleButton" text="Title" />
+      <Button layoutX="274.0" layoutY="60.0" mnemonicParsing="false" onAction="#dateButton" text="Date" />
+      <Button layoutX="268.0" layoutY="93.0" mnemonicParsing="false" onAction="#locationButton" text="Location" />
+      <TextField fx:id="eventTitle" layoutX="330.0" layoutY="27.0" opacity="0.0" promptText="Enter New Title" />
+      <TextField fx:id="eventDate" layoutX="324.0" layoutY="60.0" opacity="0.0" promptText="Enter New Date" />
+      <TextField fx:id="eventLocation" layoutX="341.0" layoutY="93.0" opacity="0.0" promptText="Enter New Location" />
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenuE" text="Back to Main Menu" />
+      <Button layoutX="88.0" layoutY="292.0" mnemonicParsing="false" onAction="#updateEvent" text="Update Event">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button layoutX="273.0" layoutY="132.0" mnemonicParsing="false" onAction="#capacityButton" text="Capacity" />
+      <TextField fx:id="eventCapacity" layoutX="342.0" layoutY="132.0" opacity="0.0" promptText="Enter New Capacity" />
+      <TextField fx:id="eventTopic" layoutX="219.0" layoutY="175.0" opacity="0.0" prefHeight="26.0" prefWidth="105.0" promptText="Enter New Topic" />
+      <TextField fx:id="eventSpeaker" layoutX="343.0" layoutY="176.0" opacity="0.0" prefHeight="26.0" prefWidth="119.0" promptText="Enter New Speaker" />
+      <TextField fx:id="eventAgeRestriction" layoutX="474.0" layoutY="177.0" opacity="0.0" prefHeight="26.0" prefWidth="150.0" promptText="Enter New Age Restriction" />
+      <Button layoutX="373.0" layoutY="216.0" mnemonicParsing="false" onAction="#showSubEventAttribute" text="Topic/Seminar/Age Restriction" />
+   </children>
+</AnchorPane>

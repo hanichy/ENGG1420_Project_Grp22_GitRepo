@@ -84,10 +84,11 @@ public abstract class Event {
         return null;
     }
     //Update Event Information
-    public void updateEvent(String newTitle, String newTime, String newLocation){
+    public void updateEvent(String newTitle, String newTime, String newLocation, int newCapacity){
         title = newTitle;
         dateTime = newTime;
         location = newLocation;
+        capacity = newCapacity;
         System.out.println("Event " + title + " has been updated");
     }
 

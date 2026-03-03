@@ -134,8 +134,25 @@ EventManagement event = EventManagement.getInstance();
             Label statusLbl = new Label("Status: "+ (e.getStatus()? "Active" : "Cancelled"));
             statusLbl.setStyle(e.getStatus()? "-fx-text-fill:green;":"-fx-text-fill:red;");
 
+            container.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl,capLbl);
 
-            container.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl,capLbl, statusLbl);
+            if (e instanceof Workshop){
+                Workshop w =(Workshop) e;
+                Label topicLbl = new Label("Topic: "+w.getTopic());
+                container.getChildren().add(topicLbl);
+            }
+            else if (e instanceof Seminar){
+                Seminar s = (Seminar)e;
+                Label speakerLbl = new Label("Speaker: "+ s.getSpeaker());
+                container.getChildren().add(speakerLbl);
+            }
+            else if (e instanceof Concert){
+                Concert c = (Concert)e;
+                Label ageLbl = new Label(c.getAgeRestriction()+"+");
+                container.getChildren().add(ageLbl);
+            }
+
+            container.getChildren().add(statusLbl);
         }
     }
 
@@ -159,8 +176,30 @@ EventManagement event = EventManagement.getInstance();
             Label locationLbl = new Label("Loction: " + e.getLocation());
             Label capLbl = new Label("Capacity: " + e.getCapacity());
 
+
+
             Label statusLbl = new Label("Status: " + (e.getStatus() ? "Active" : "Cancelled"));
             statusLbl.setStyle(e.getStatus() ? "-fx-text-fill:green;" : "-fx-text-fill:red;");
+
+            container.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl,capLbl);
+
+            if (e instanceof Workshop){
+                Workshop w =(Workshop) e;
+                Label topicLbl = new Label("Topic: "+w.getTopic());
+                container.getChildren().add(topicLbl);
+            }
+            else if (e instanceof Seminar){
+                Seminar s = (Seminar)e;
+                Label speakerLbl = new Label("Speaker: "+ s.getSpeaker());
+                container.getChildren().add(speakerLbl);
+            }
+            else if (e instanceof Concert){
+                Concert c = (Concert)e;
+                Label ageLbl = new Label(c.getAgeRestriction()+"+");
+                container.getChildren().add(ageLbl);
+            }
+
+            container.getChildren().add(statusLbl);
 
             container.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl, capLbl, statusLbl);
         }
@@ -172,6 +211,77 @@ EventManagement event = EventManagement.getInstance();
         Event e = Event.findEventById(eventCancel);
 
         e.cancelEvent();
+    }
+
+    //Update Event
+    @FXML
+    public void titleButton(ActionEvent ev){
+        eventTitle.setOpacity(1);
+    }
+    @FXML
+    public void dateButton(ActionEvent ev){
+        eventDate.setOpacity(1);
+    }
+    @FXML
+    public void locationButton(ActionEvent ev){
+        eventLocation.setOpacity(1);
+    }
+    @FXML
+    public void capacityButton(ActionEvent ev){
+        eventCapacity.setOpacity(1);
+    }
+    @FXML
+    public void showSubEventAttribute(ActionEvent ev){
+        String eventCancel = eventID.getText();
+
+        Event e = Event.findEventById(eventCancel);
+
+        if (e instanceof Workshop){
+            eventTopic.setOpacity(1);
+        }
+        else if (e instanceof Seminar){
+            eventSpeaker.setOpacity(1);
+        }
+        else if (e instanceof Concert){
+            eventAgeRestriction.setOpacity(1);
+        }
+    }
+
+    @FXML
+    public void updateEvent(ActionEvent ev){
+        String updateCancel = eventID.getText();
+
+        Event e = Event.findEventById(updateCancel);
+        String title = eventTitle.getText();
+        if(title.isEmpty()){title = e.getTitle();}
+        String date = eventDate.getText();
+        if(date.isEmpty()){title = e.getDateTime();}
+        String location = eventLocation.getText();
+        if(location.isEmpty()){title = e.getLocation();}
+        String capacity = eventCapacity.getText();
+        if(capacity.isEmpty()){int cap = e.getCapacity();}
+        String topic = eventTopic.getText();
+        String speaker = eventSpeaker.getText();
+        String ageRestriction = eventAgeRestriction.getText();
+        int cap = Integer.parseInt(capacity);
+
+
+        if (e instanceof Workshop){
+            Workshop w = (Workshop) e;
+            if(topic.isEmpty()){topic = w.getTopic();}
+            w.updateEvent(title, date, location, cap, topic);
+        }
+        else if (e instanceof Seminar){
+            Seminar s = (Seminar) e;
+            if(speaker.isEmpty()){speaker = s.getSpeaker();}
+            s.updateEvent(title, date, location, cap, speaker);
+        }
+        else if (e instanceof Concert){
+            Concert c = (Concert)e;
+            if(ageRestriction.isEmpty()){ageRestriction = c.getAgeRestriction();}
+            int aR = Integer.parseInt(ageRestriction);
+            c.updateEvent(title, date, location, cap, aR);
+        }
     }
 
     //Sends user back to the Main Menu

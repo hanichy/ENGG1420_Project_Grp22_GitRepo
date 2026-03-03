@@ -42,6 +42,18 @@ public class MainMenuController {
         stage.show();
     }
 
+    //Switch to Update Event
+    public void switchTOUpdateEvent(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateEventsPage.fxml"));
+        root = loader.load();
+
+        EventsPageController eventsPageController = loader.getController();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void switchToListEvents(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ListEventsPage.fxml"));
         root = loader.load();

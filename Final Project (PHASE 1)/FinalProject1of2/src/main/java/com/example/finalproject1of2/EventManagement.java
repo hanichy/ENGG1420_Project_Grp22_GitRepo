@@ -35,7 +35,6 @@ public class EventManagement {
         return eventList;
     }
 
-
     //Constructor
     private EventManagement(){
 
