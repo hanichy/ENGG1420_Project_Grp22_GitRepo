@@ -51,12 +51,12 @@
                 <Font size="18.0" />
             </font>
         </Button>
-        <Button layoutX="411.0" layoutY="92.0" mnemonicParsing="false" text="Book Event">
+        <Button layoutX="411.0" layoutY="92.0" mnemonicParsing="false" onAction="#switchToBooking" text="Book Event">
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-        <Button layoutX="441.0" layoutY="154.0" mnemonicParsing="false" text="Cancel Booking">
+        <Button layoutX="441.0" layoutY="154.0" mnemonicParsing="false" onAction = "#switchToCancelBooking" text="Cancel Booking">
             <font>
                 <Font size="18.0" />
             </font>

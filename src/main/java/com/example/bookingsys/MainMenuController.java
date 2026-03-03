@@ -64,4 +64,25 @@ public class MainMenuController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void switchToBooking(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BookingEventPage.fxml"));
+        root = loader.load();
+
+        BookingPageController bookingPageController = loader.getController();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void switchToCancelBooking(ActionEvent event) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CancelBookingPage.fxml"));
+        root = loader.load();
+
+        BookingPageController bookingPageController = loader.getController();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
