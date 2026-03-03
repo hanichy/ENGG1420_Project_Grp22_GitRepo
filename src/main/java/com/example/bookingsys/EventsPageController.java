@@ -10,10 +10,19 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+import javafx.scene.control.Alert;
 import java.io.IOException;
 
 public class EventsPageController {
+
+    @FXML
+    //gets called on intitialization of the fxml (ex when the page is pulled up)
+    public void initialize() {
+        if (container != null) {
+            displayList();
+        }
+    }
+
     @FXML
     public VBox container;
 
@@ -42,26 +51,73 @@ public class EventsPageController {
 
     @FXML
     private void handleCreateEvent() {
-        String title = eventTitle.getText();
-        String date = eventDate.getText();
-        String location = eventLocation.getText();
-        int cap = Integer.parseInt(eventCapacity.getText());
+        try {
+            // input validation
+            if (eventTitle.getText().isEmpty() || eventDate.getText().isEmpty()) {
+                showError("Validation Error", "Title and Date cannot be empty.");
+                return;
+            }
 
-        if (eventType.equals("Workshop")) {
-            Workshop w = new Workshop(title, date, location, cap, eventTopic.getText());
-            eventManager.createEvent(w);
-        } else if (eventType.equals("Seminar")) {
-            Seminar s = new Seminar(title, date, location, cap, eventSpeaker.getText());
-            eventManager.createEvent(s);
-        } else if (eventType.equals("Concert")) {
-            int aR = Integer.parseInt(eventAgeRestriction.getText());
-            Concert c = new Concert(title, date, location, cap, aR);
-            eventManager.createEvent(c);
+            String title = eventTitle.getText();
+            String date = eventDate.getText();
+            String location = eventLocation.getText();
+
+            // Numeric validation
+            int cap = parseInteger(eventCapacity.getText(), "Capacity");
+
+            if (eventType.isEmpty()) {
+                showError("Selection Error", "Please select an event type (Workshop/Seminar/Concert).");
+                return;
+            }
+
+            // Logic-specific validation
+            if (eventType.equals("Workshop")) {
+                Workshop w = new Workshop(title, date, location, cap, eventTopic.getText());
+                eventManager.createEvent(w);
+            } else if (eventType.equals("Seminar")) {
+                Seminar s = new Seminar(title, date, location, cap, eventSpeaker.getText());
+                eventManager.createEvent(s);
+            } else if (eventType.equals("Concert")) {
+                int aR = parseInteger(eventAgeRestriction.getText(), "Age Restriction");
+                Concert c = new Concert(title, date, location, cap, aR);
+                eventManager.createEvent(c);
+            }
+
+            showInfo("Success", "Event created successfully!");
+
+        } catch (NumberFormatException e) {
+        } catch (IllegalArgumentException e) {
+            showError("Input Error", e.getMessage());
+        } catch (Exception e) {
+            showError("System Error", "An unexpected error occurred: " + e.getMessage());
         }
     }
 
+    private int parseInteger(String input, String fieldName) {
+        try {
+            return Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            showError("Invalid Input", fieldName + " must be a valid number.");
+            throw e;
+        }
+    }
+
+    private void showError(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    private void showInfo(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
     @FXML
-    public void displayList(ActionEvent ev) {
+    public void displayList() {
         container.getChildren().clear();
         for (Event e : Event.eventList) { // Accessing the shared list in Event
             Label info = new Label(e.getEventId() + ": " + e.getTitle() + " [" + (e.status ? "Active" : "Cancelled") + "]");

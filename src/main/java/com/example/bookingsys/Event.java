@@ -38,27 +38,21 @@ public abstract class Event {
 
     //Getters
     public String getDateTime() {
-
         return dateTime;
     }
     public String getEventId() {
-
         return eventId;
     }
     public String getLocation() {
-
         return location;
     }
     public String getTitle() {
-
         return title;
     }
     public int getCapacity() {
-
         return capacity;
     }
     public boolean getStatus() {
-
         return status;
     }
 
@@ -66,13 +60,12 @@ public abstract class Event {
     private String uniqueId(){
         Random rand = new Random();
         String newId;
-
-        do{
+        do {
             int num = 100000 + rand.nextInt(900000);
             newId = String.valueOf(num);
-        }while(findEventById(newId) != null);
-
+        } while(findEventById(newId) != null);
         return newId;
+
     }
     //find event by Id num to make sure each Id is unique
     public static Event findEventById(String id){
@@ -83,6 +76,7 @@ public abstract class Event {
         }
         return null;
     }
+
     //Update Event Information
     public void updateEvent(String newTitle, String newTime, String newLocation, int newCapacity){
         title = newTitle;
