@@ -2,7 +2,7 @@ package com.example.bookingsys;
 
 import java.util.ArrayList;
 
-//Manages the Saving Events Asppect
+//Manages the Saving Events Aspect
 //Specifically the List and File
 public class EventManagement {
     private static EventManagement instance;
@@ -34,6 +34,4 @@ public class EventManagement {
 
         this.eventList = new ArrayList<>();
     }
-
-
 }
