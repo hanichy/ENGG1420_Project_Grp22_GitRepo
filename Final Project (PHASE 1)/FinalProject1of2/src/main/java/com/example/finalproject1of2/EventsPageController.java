@@ -206,6 +206,7 @@ EventManagement event = EventManagement.getInstance();
 
     }
 
+    //Cancel the event
     public void cancelEventButton(ActionEvent ev){
         String eventCancel = eventID.getText();
         Event e = Event.findEventById(eventCancel);
@@ -232,8 +233,8 @@ EventManagement event = EventManagement.getInstance();
     }
     @FXML
     public void showSubEventAttribute(ActionEvent ev){
+        //Get the specific event
         String eventCancel = eventID.getText();
-
         Event e = Event.findEventById(eventCancel);
 
         if (e instanceof Workshop){
@@ -249,9 +250,11 @@ EventManagement event = EventManagement.getInstance();
 
     @FXML
     public void updateEvent(ActionEvent ev){
-        String updateCancel = eventID.getText();
+        //Get the specific event
+        String updateEvent = eventID.getText();
+        Event e = Event.findEventById(updateEvent);
 
-        Event e = Event.findEventById(updateCancel);
+        //Get updated fields otherwise keep them at their orginal
         String title = eventTitle.getText();
         if(title.isEmpty()){title = e.getTitle();}
         String date = eventDate.getText();
@@ -265,7 +268,7 @@ EventManagement event = EventManagement.getInstance();
         String ageRestriction = eventAgeRestriction.getText();
         int cap = Integer.parseInt(capacity);
 
-
+        //Check which type of event it is
         if (e instanceof Workshop){
             Workshop w = (Workshop) e;
             if(topic.isEmpty()){topic = w.getTopic();}
