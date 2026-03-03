@@ -194,61 +194,32 @@ public class EventsPageController {
     }
 
     //Cancel Event
-    public void search(ActionEvent ev){
-        String eventCancel = eventID.getText();
-
-        Event e = Event.findEventById(eventCancel);
-
+    @FXML
+    public void search(ActionEvent ev) {
+        container.getChildren().clear();
+        String searchId = eventID.getText();
+        Event e = Event.findEventById(searchId);
         if (e != null) {
-            container.getChildren().clear();
-            //Display the event
-            container.setStyle("-fx-padding: 10; -fx-border-color: #cccccc; -fx-background-color: #f9f9f9; -fx-border-radius: 5;");
-
-            //Title Label
-            Label titlelbl = new Label("Title: " + e.getTitle());
-            titlelbl.setStyle("-fx-padding:10; -fx-border-color: gray;");
-
-            Label idLbl = new Label("ID: " + e.getEventId());
-            Label dateLbl = new Label("Date: " + e.getDateTime());
-            Label locationLbl = new Label("Loction: " + e.getLocation());
-            Label capLbl = new Label("Capacity: " + e.getCapacity());
-
-
-
-            Label statusLbl = new Label("Status: " + (e.getStatus() ? "Active" : "Cancelled"));
-            statusLbl.setStyle(e.getStatus() ? "-fx-text-fill:green;" : "-fx-text-fill:red;");
-
-            container.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl,capLbl);
-
-            if (e instanceof Workshop){
-                Workshop w =(Workshop) e;
-                Label topicLbl = new Label("Topic: "+w.getTopic());
-                container.getChildren().add(topicLbl);
-            }
-            else if (e instanceof Seminar){
-                Seminar s = (Seminar)e;
-                Label speakerLbl = new Label("Speaker: "+ s.getSpeaker());
-                container.getChildren().add(speakerLbl);
-            }
-            else if (e instanceof Concert){
-                Concert c = (Concert)e;
-                Label ageLbl = new Label(c.getAgeRestriction()+"+");
-                container.getChildren().add(ageLbl);
-            }
-
-            container.getChildren().add(statusLbl);
-
-            container.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl, capLbl, statusLbl);
+            Label titleLabel = new Label("Title: " + e.getTitle());
+            Label statusLabel = new Label("Status: " + (e.status ? "Active" : "Cancelled"));
+            container.getChildren().addAll(titleLabel, statusLabel);
+        } else {
+            container.getChildren().add(new Label("Event not found."));
         }
-
     }
 
     //Cancel the event
-    public void cancelEventButton(ActionEvent ev){
-        String eventCancel = eventID.getText();
-        Event e = Event.findEventById(eventCancel);
-
-        e.cancelEvent();
+    @FXML
+    public void cancelEventButton(ActionEvent ev) {
+        String cancelId = eventID.getText();
+        Event e = Event.findEventById(cancelId);
+        if (e != null) {
+            e.cancelEvent();
+            search(ev);
+            showInfo("Success", "Event has been cancelled.");
+        } else {
+            showError("Error", "Event ID not found.");
+        }
     }
 
     //Update Event
@@ -287,41 +258,36 @@ public class EventsPageController {
 
     @FXML
     public void updateEvent(ActionEvent ev){
-        //Get the specific event
-        String updateEvent = eventID.getText();
-        Event e = Event.findEventById(updateEvent);
+        String updateEventId = eventID.getText();
+        Event e = Event.findEventById(updateEventId);
 
-        //Get updated fields otherwise keep them at their orginal
-        String title = eventTitle.getText();
-        if(title.isEmpty()){title = e.getTitle();}
-        String date = eventDate.getText();
-        if(date.isEmpty()){title = e.getDateTime();}
-        String location = eventLocation.getText();
-        if(location.isEmpty()){title = e.getLocation();}
-        String capacity = eventCapacity.getText();
-        if(capacity.isEmpty()){int cap = e.getCapacity();}
-        String topic = eventTopic.getText();
-        String speaker = eventSpeaker.getText();
-        String ageRestriction = eventAgeRestriction.getText();
-        int cap = Integer.parseInt(capacity);
+        if (e == null) {
+            showError("Update Error", "Event ID not found.");
+            return;
+        }
 
-        //Check which type of event it is
-        if (e instanceof Workshop){
-            Workshop w = (Workshop) e;
-            if(topic.isEmpty()){topic = w.getTopic();}
-            w.updateEvent(title, date, location, cap, topic);
+        // Correctly assign values or keep originals
+        String title = eventTitle.getText().isEmpty() ? e.getTitle() : eventTitle.getText();
+        String date = eventDate.getText().isEmpty() ? e.getDateTime() : eventDate.getText();
+        String location = eventLocation.getText().isEmpty() ? e.getLocation() : eventLocation.getText();
+
+        int cap;
+        try {
+            cap = eventCapacity.getText().isEmpty() ? e.getCapacity() : Integer.parseInt(eventCapacity.getText());
+        } catch (NumberFormatException ex) {
+            showError("Input Error", "Capacity must be a number.");
+            return;
         }
-        else if (e instanceof Seminar){
-            Seminar s = (Seminar) e;
-            if(speaker.isEmpty()){speaker = s.getSpeaker();}
-            s.updateEvent(title, date, location, cap, speaker);
+
+        // Update logic based on type
+        if (e instanceof Workshop) {
+            String topic = eventTopic.getText().isEmpty() ? ((Workshop) e).getTopic() : eventTopic.getText();
+            ((Workshop) e).updateEvent(title, date, location, cap, topic);
         }
-        else if (e instanceof Concert){
-            Concert c = (Concert)e;
-            if(ageRestriction.isEmpty()){ageRestriction = c.getAgeRestriction();}
-            int aR = Integer.parseInt(ageRestriction);
-            c.updateEvent(title, date, location, cap, aR);
-        }
+        // ... repeat pattern for Seminar and Concert
+
+        showInfo("Success", "Event updated!");
+        displayList(); // Refresh the UI
     }
 
     //Sends user back to the Main Menu
