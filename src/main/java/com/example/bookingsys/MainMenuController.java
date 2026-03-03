@@ -43,7 +43,7 @@ public class MainMenuController {
     }
 
     //Switch to Update Event
-    public void switchTOUpdateEvent(ActionEvent event) throws IOException{
+    public void switchToUpdateEvent(ActionEvent event) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateEventsPage.fxml"));
         root = loader.load();
 

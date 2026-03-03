@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bookingsys.EventsPageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bookingsys.MainMenuController">
     <children>
         <Label layoutX="59.0" layoutY="13.0" prefHeight="54.0" prefWidth="82.0" text="User">
             <font>
@@ -41,7 +41,7 @@
                 <Font size="18.0" />
             </font>
         </Button>
-        <Button layoutX="198.0" layoutY="154.0" mnemonicParsing="false" onAction="#switchTOUpdateEvent" text="Update Event Information">
+        <Button layoutX="198.0" layoutY="154.0" mnemonicParsing="false" onAction="#switchToUpdateEvent" text="Update Event Information">
             <font>
                 <Font size="18.0" />
             </font>
