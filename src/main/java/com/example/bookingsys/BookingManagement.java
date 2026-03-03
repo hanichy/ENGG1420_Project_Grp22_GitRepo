@@ -15,7 +15,7 @@ public class BookingManagement {
     //Use ArrayList to Save the different bookingList
     //This will store the events with ArrayLists and CSV Files
 
-    //Create Event Function Here
+    //Create booking Function Here
     public void bookEvent(Booking newBooking){
         bookingList.add(newBooking);
     }
