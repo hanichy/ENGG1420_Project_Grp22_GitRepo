@@ -43,7 +43,7 @@ public class BookingPageController {
     @FXML
     private TextField eventAgeRestriction = new TextField();
 
-    BookingManagement booking = BookingManagement.getInstance();
+    //BookingManagement booking = BookingManagement.getInstance();
     EventManagement event = EventManagement.getInstance();
 
     @FXML
