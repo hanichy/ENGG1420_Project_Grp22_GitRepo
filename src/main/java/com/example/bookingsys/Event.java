@@ -155,6 +155,15 @@ public abstract class Event {
             return b;
         }
     }
+    private Booking promoteWaitlist (){
+        Booking promoted = waitlist.RemRetBooking();
+        if (promoted == null) {
+            return null;
+        }
+        else{
+            return promoted;
+        }
+    }
 
 
     //Search and Filter (PHASE 2)
