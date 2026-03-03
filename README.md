@@ -2,7 +2,7 @@ Campus Booking & Waitlist System
 A robust Java-based application designed to manage campus resources, events, and user registrations. The system features an automated waitlist engine that ensures fair placement when event capacities are reached.
 
 Key Features
-User Management: Supports multiple roles (Students, Faculty, Admins).
+User Management: Supports multiple roles (Students, Staff, Guest).
 
 Event Scheduling: Create events with defined physical or virtual capacities.
 
@@ -34,11 +34,11 @@ Select your installed JDK (e.g., Java 17).
 
 Run the Application:
 
-Locate the Main.java file in the src directory.
+Locate the Laucnher.java file in the src directory.
 
 Click the Green Play Arrow in the gutter next to public static void main.
 
-The system console will open at the bottom of the IDE.
+The window will pop up and with the main menu showing all the functions.
 
 Technical Architecture
 Class Structure
