@@ -1,5 +1,28 @@
 package com.example.finalproject1of2;
 
-public class Guest {
-    //sub-class of User class*
+public class Guest extends User {
+    private String organization;
+
+    public Guest(String userId, String name, String email, String organization) {
+        super(userId, name, email);
+        this.organization = organization;
+    }
+
+    public String getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(String organization) {
+        this.organization = organization;
+    }
+
+    @Override
+    public String getUserType() {
+        return "Guest";
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(" | Organization: %s", organization);
+    }
 }
