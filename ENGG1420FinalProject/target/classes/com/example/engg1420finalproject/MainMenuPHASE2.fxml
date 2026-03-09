@@ -9,28 +9,35 @@
          <children>
             <BorderPane prefHeight="400.0" prefWidth="200.0" translateY="50.0">
                <center>
-                  <VBox fx:id="drawer" prefHeight="200.0" prefWidth="200.0" translateX="-200.0" BorderPane.alignment="CENTER">
+                  <VBox fx:id="drawer" prefHeight="251.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                      <children>
                         <Accordion>
                           <panes>
-                            <TitledPane animated="false" text="User">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
+                            <TitledPane animated="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="171.0" prefWidth="200.0" text="User">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="Button" />
+                                          <Button mnemonicParsing="false" text="Button" />
+                                          <Button mnemonicParsing="false" text="Button" />
+                                          <Button mnemonicParsing="false" text="Button" />
+                                       </children>
+                                    </VBox>
+                                 </content>
                             </TitledPane>
                             <TitledPane animated="false" text="Event">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0" />
+                                 </content>
                             </TitledPane>
                             <TitledPane animated="false" text="Booking">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
-                            </TitledPane>
-                              <TitledPane animated="false" layoutX="10.0" layoutY="60.0" text="WaitList">
                                  <content>
-                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                    <VBox prefHeight="200.0" prefWidth="100.0" />
+                                 </content>
+                            </TitledPane>
+                              <TitledPane animated="false" layoutX="10.0" layoutY="60.0" prefHeight="134.0" prefWidth="200.0" text="WaitList">
+                                 <content>
+                                    <VBox prefHeight="92.0" prefWidth="198.0" />
                                  </content>
                               </TitledPane>
                           </panes>
@@ -39,8 +46,8 @@
                   </VBox>
                </center>
             </BorderPane>
-            <Button mnemonicParsing="false" onAction="#openSideMenu" rotate="90.0" text="|||" translateX="-80.0" translateY="-50.0" />
          </children>
       </StackPane>
+      <Button mnemonicParsing="false" onAction="#openSideMenu" rotate="90.0" text="|||" />
    </children>
 </AnchorPane>
