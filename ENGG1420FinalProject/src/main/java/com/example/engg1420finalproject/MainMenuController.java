@@ -13,9 +13,9 @@ public class MainMenuController{
     @FXML
     private VBox drawer = new VBox();
 
-    //Open Side Menu
+    //Open/Close Side Menu
     @FXML
-    private void openSideMenu(ActionEvent e){
+    private void openMenu(ActionEvent e){
         //Check if Menu is already open
         double targetX = (drawer.getTranslateX() !=0)?0:-drawer.getPrefWidth();
 
@@ -24,5 +24,25 @@ public class MainMenuController{
         transition.setToX(targetX);
         transition.play();
     }
+
+    //USER BUTTONS
+    //Create User Menu
+    //View User Details Menu
+    //List All User Menus
+
+    //EVENT BUTTONS
+    //Create Event Menu
+    //Update Event Information Menu
+    //Cancel Event Menu
+    //View Events Roster Menu
+    //Search Events By Title Menu
+
+    //BOOKING BUTTONS
+    //Book an Event Menu
+    //Cancel a Booking Menu
+
+    //WAITLIST BUTTONS
+    //View Event Waitlist Menu
+    //Remove a Waitlist Booking Menu
 
 }
