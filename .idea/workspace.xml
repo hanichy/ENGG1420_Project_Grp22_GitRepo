@@ -4,24 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Added the buttons in scenebuilder that will be coded to go to each separate menu.">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ENGG1420_Project_Grp22_GitRepo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/ENGG1420FinalProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Buttons are added but not yet functional. If you press the 3 lines the drawer will either go on or off screen depending on where it originally started.">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/engg1420finalproject/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/engg1420finalproject/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/engg1420finalproject/MainMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MainMenuPHASE2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/engg1420finalproject/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/engg1420finalproject/MainMenuController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/engg1420finalproject/MainMenuPHASE2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/module-info.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773082349110</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Buttons are added but not yet functional. If you press the 3 lines the drawer will either go on or off screen depending on where it originally started.">
+      <option name="closed" value="true" />
+      <created>1773102926690</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1773102926690</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,6 +175,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed Main Menu from a jumble of buttons to a navagation drawer." />
     <MESSAGE value="Added the buttons in scenebuilder that will be coded to go to each separate menu." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the buttons in scenebuilder that will be coded to go to each separate menu." />
+    <MESSAGE value="Buttons are added but not yet functional. If you press the 3 lines the drawer will either go on or off screen depending on where it originally started." />
+    <option name="LAST_COMMIT_MESSAGE" value="Buttons are added but not yet functional. If you press the 3 lines the drawer will either go on or off screen depending on where it originally started." />
   </component>
 </project>
