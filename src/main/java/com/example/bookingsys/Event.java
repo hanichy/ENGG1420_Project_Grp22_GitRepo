@@ -112,7 +112,7 @@ public abstract class Event {
             System.out.println(state + "ID:" + e.eventId + "| Title:" + e.title + "| Location:" + e.location);
         }
     }
-    
+
     //Search and Filter (PHASE 2)
     //Search by title
     public static ArrayList<Event> searchByTitle(String title){
