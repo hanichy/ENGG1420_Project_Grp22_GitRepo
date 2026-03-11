@@ -6,7 +6,7 @@ public class Waitlist {
     private final ArrayList<Booking> waitlistBookings = new ArrayList<>();
 
     //checks if the waitlist is null
-    //if it is not then it removes and returns indez 0
+    //if it is not then it removes and returns index 0
     public Booking RemRetBooking(){
         if (waitlistBookings.isEmpty()) {
             return null;
@@ -14,10 +14,10 @@ public class Waitlist {
         return waitlistBookings.remove(0);
     }
 
-    //checks for null bookingid
+    //checks for null bookingId
     //loops through list to find the id that the user wants to delete
     //if the booking id exist, delete
-    //if its not found return null
+    //if it's not found return null
     public Booking removeId(String bookingId){
         if (bookingId == null || bookingId.isBlank()){
             throw new IllegalArgumentException("bookingId required");
