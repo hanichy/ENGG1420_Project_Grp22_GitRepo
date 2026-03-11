@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Random;
 
 //Gets Everything Set Up
-//Essentially a Blueprint
 public abstract class Event {
     //Objects
     public String eventId;
@@ -113,11 +112,36 @@ public abstract class Event {
             System.out.println(state + "ID:" + e.eventId + "| Title:" + e.title + "| Location:" + e.location);
         }
     }
+    //Search and Filter (PHASE 2)
+    //Search by title
+    public static ArrayList<Event> searchByTitle(String title){
+        ArrayList<Event> result = new ArrayList<>();
+        for(Event e : eventList){
+            if(e.title.toLowerCase().contains(title.toLowerCase())){
+                result.add(e);
+            }
+        }
+        return result;
+    }
 
-    //generate booking ID
-    private String generateBookingId(){
+    //Filter by Type
+    public static <T extends Event> ArrayList<T> filterByType(Class<T> type){
+        ArrayList<T> filteredResult = new ArrayList<>();
+        for(Event e : eventList){
+            if(type.isInstance(e)){
+                filteredResult.add(type.cast(e));
+            }
+        }
+        return filteredResult;
+    }
+
+    //Generate booking ID
+    private String generateBookingId()
+    {
+
         return "Booking ID: B" + (bookingCounter++);
     }
+
     // checks if the user already has a booking, if they're already
     // in the waitlist and if they cancelled their booking
     private boolean hasActiveBookingForUser(String userId){
@@ -164,9 +188,4 @@ public abstract class Event {
             return promoted;
         }
     }
-
-
-    //Search and Filter (PHASE 2)
-
-
 }
