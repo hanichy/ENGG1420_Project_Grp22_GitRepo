@@ -1,11 +1,15 @@
 package com.example.bookingsys;
+
 import java.util.ArrayList;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Random;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.*;
+import java.io.Serializable;
 
 //Gets Everything Set Up
-public abstract class Event {
+public abstract class Event implements Serializable {
     //Objects
     public String eventId;
     public String title;
@@ -65,6 +69,68 @@ public abstract class Event {
     }
     public boolean getStatus() {
         return status;
+    }
+
+    //File persistence
+    public static void loadEventsFromCSV(String fileName){
+        try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+            String line;
+            br.readLine(); //skip event info
+
+            while((line = br.readLine()) != null){
+                String[] data = line.split(",");
+
+                if(data.length < 9){
+                    continue;
+                }
+
+                //Mapping columns based on event info
+                String title = data[1];
+                String dateTime = data[2];
+                String location = data[3];
+                int capacity = Integer.parseInt(data[4]);
+                String statusValue = data[5];
+                String type = data[6];
+
+                //specific fields(based on types of event)
+                String topic =  data[7];
+                String speaker = data[8];
+                String ageReq =  data[9];
+
+                Event newEvent = null;
+
+                switch(type){
+                    case "Workshop":
+                        if(topic.isEmpty()) throw new IllegalArgumentException("Error: Topic is empty");
+                        newEvent = new Workshop(title, dateTime, location, capacity, topic);
+                        break;
+
+                    case "Seminar":
+                        if(speaker.isEmpty()) throw new IllegalArgumentException("Error: Speaker is empty");
+                        newEvent = new Seminar(title, dateTime, location, capacity, speaker);
+                        break;
+
+                    case "Concert":
+                        if(ageReq.isEmpty()) throw new IllegalArgumentException("Error: Concert requires age restriction");
+                        newEvent = new Concert(title, dateTime, location, capacity, ageReq);
+                        break;
+                }
+                if(newEvent != null && statusValue.equalsIgnoreCase("Cancelled")){
+                    newEvent.cancelEvent();
+                }
+            }
+        } catch(IOException e){
+            System.err.println("Error saving events to file: " + e.getMessage());
+        }
+    }
+
+    //save whole event state
+    public static void saveEventState(String fileName){
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
+            oos.writeObject(eventList);
+        } catch(IOException e){
+            System.err.println("Error saving events to file: " + e.getMessage());
+        }
     }
 
     //Generate random event id
