@@ -11,11 +11,11 @@
          <children>
             <BorderPane prefHeight="400.0" prefWidth="200.0" translateY="50.0">
                <center>
-                  <VBox fx:id="drawer" prefHeight="251.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                  <VBox fx:id="drawer" prefHeight="145.0" prefWidth="200.0" spacing="15.0" BorderPane.alignment="CENTER">
                      <children>
                         <Accordion>
                           <panes>
-                            <TitledPane animated="false" minHeight="-Infinity" minWidth="-Infinity" prefHeight="171.0" prefWidth="200.0" text="User">
+                            <TitledPane animated="false" minWidth="-Infinity" prefWidth="200.0" text="User">
                                  <content>
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
@@ -26,16 +26,17 @@
                                     </VBox>
                                  </content>
                             </TitledPane>
-                            <TitledPane animated="false" text="Event">
+                            <TitledPane animated="false" prefWidth="200.0" text="Event">
                                  <content>
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
-                                          <Button mnemonicParsing="false" text="Create Event" />
+                                          <Button mnemonicParsing="false" onAction="#switchToCreateEvent" text="Create Event" />
                                           <Button mnemonicParsing="false" text="Update Event Information" />
                                           <Button mnemonicParsing="false" text="Cancel Event" />
                                           <Button mnemonicParsing="false" text="View Event Roster" />
                                           <Button mnemonicParsing="false" text="Search Events By Title" />
-                                       </children></VBox>
+                                       </children>
+                                    </VBox>
                                  </content>
                             </TitledPane>
                             <TitledPane animated="false" text="Booking">
@@ -44,7 +45,8 @@
                                        <children>
                                           <Button mnemonicParsing="false" text="Book an Event" />
                                           <Button mnemonicParsing="false" text="Cancel a Booking" />
-                                       </children></VBox>
+                                       </children>
+                                    </VBox>
                                  </content>
                             </TitledPane>
                               <TitledPane animated="false" layoutX="10.0" layoutY="60.0" prefHeight="134.0" prefWidth="200.0" text="WaitList">
@@ -53,24 +55,24 @@
                                        <children>
                                           <Button mnemonicParsing="false" text="View Event Waitlist" />
                                           <Button mnemonicParsing="false" text="Remove a Waitlist Booking" />
-                                       </children></VBox>
+                                       </children>
+                                            </VBox>
                                  </content>
                               </TitledPane>
                           </panes>
                         </Accordion>
-                     </children>
-                  </VBox>
+                     </children></VBox>
                </center>
             </BorderPane>
          </children>
       </StackPane>
       <Button mnemonicParsing="false" onAction="#openMenu" rotate="90.0" text="|||" translateX="10.0" translateY="10.0" />
-      <ImageView fitHeight="197.0" fitWidth="278.0" layoutX="261.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="269.0" fitWidth="334.0" layoutX="230.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@2025_New_Gryphon_Logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="35.0" layoutY="232.0" prefHeight="60.0" prefWidth="528.0" text="Guelph Campus Booking System">
+      <Label layoutX="36.0" layoutY="308.0" prefHeight="60.0" prefWidth="528.0" text="Guelph Campus Booking System">
          <font>
             <Font name="Baskerville Old Face" size="39.0" />
          </font>

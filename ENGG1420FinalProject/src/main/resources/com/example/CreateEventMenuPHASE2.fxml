@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageConroller">
+   <children>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
+      <Button layoutX="14.0" layoutY="163.0" mnemonicParsing="false" text="Create Event!">
+         <font>
+            <Font name="Baskerville Old Face" size="40.0" />
+         </font></Button>
+      <TextField layoutX="14.0" layoutY="14.0" promptText="Event Title" />
+      <TextField layoutX="14.0" layoutY="50.0" promptText="Event Location" />
+      <DatePicker layoutX="14.0" layoutY="86.0" promptText="Event Date" />
+      <TextField layoutX="14.0" layoutY="122.0" promptText="Event Capacity" />
+      <TextField layoutX="189.0" layoutY="49.0" prefHeight="26.0" prefWidth="95.0" promptText="Speaker Name" />
+      <TextField layoutX="293.0" layoutY="50.0" prefWidth="95.0" promptText="Topic" />
+      <TextField layoutX="396.0" layoutY="50.0" prefWidth="95.0" promptText="Age Restriction" />
+      <Button layoutX="207.0" layoutY="14.0" mnemonicParsing="false" text="Seminar" />
+      <Button layoutX="305.0" layoutY="14.0" mnemonicParsing="false" text="Workshop" />
+      <Button layoutX="415.0" layoutY="14.0" mnemonicParsing="false" text="Concert" />
+      <Label layoutX="34.0" layoutY="247.0" text="Event Successfully Created!" textFill="#21dc10">
+         <font>
+            <Font name="Baskerville Old Face" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="280.0" text="Uh-Oh! Something Went Wrong! " textFill="#df0c0c">
+         <font>
+            <Font name="Baskerville Old Face" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="171.0" fitWidth="242.0" layoutX="323.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@2025_New_Gryphon_Logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
