@@ -12,17 +12,17 @@
          <font>
             <Font name="Baskerville Old Face" size="40.0" />
          </font></Button>
-      <TextField fx:id="eventTitle" layoutX="403.0" layoutY="133.0" promptText="Event Title" />
-      <TextField fx:id="eventLocation" layoutX="403.0" layoutY="169.0" promptText="Event Location" />
-      <DatePicker fx:id="eventDate" layoutX="403.0" layoutY="205.0" promptText="Event Date" />
-      <TextField fx:id="eventCapacity" layoutX="403.0" layoutY="241.0" promptText="Event Capacity" />
+      <TextField fx:id="eventTitle" layoutX="402.0" layoutY="88.0" promptText="Event Title" />
+      <TextField fx:id="eventLocation" layoutX="402.0" layoutY="124.0" promptText="Event Location" />
+      <DatePicker fx:id="eventDate" layoutX="402.0" layoutY="160.0" promptText="Event Date" />
+      <TextField fx:id="eventCapacity" layoutX="402.0" layoutY="196.0" promptText="Event Capacity" />
       <TextField fx:id="eventSpeaker" layoutX="189.0" layoutY="49.0" opacity="0.0" prefHeight="26.0" prefWidth="95.0" promptText="Speaker Name" />
       <TextField fx:id="eventTopic" layoutX="293.0" layoutY="50.0" opacity="0.0" prefWidth="95.0" promptText="Topic" />
       <TextField fx:id="eventAgeRestriction" layoutX="396.0" layoutY="50.0" opacity="0.0" prefWidth="95.0" promptText="Age Restriction" />
       <Button layoutX="207.0" layoutY="14.0" mnemonicParsing="false" text="Seminar" />
       <Button layoutX="305.0" layoutY="14.0" mnemonicParsing="false" text="Workshop" />
       <Button layoutX="415.0" layoutY="14.0" mnemonicParsing="false" text="Concert" />
-      <ImageView fitHeight="171.0" fitWidth="242.0" layoutX="155.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="199.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@2025_New_Gryphon_Logo.png" />
          </image>
@@ -30,27 +30,51 @@
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" rotate="90.0" text="|||" />
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <BorderPane layoutY="50.0" prefHeight="200.0" prefWidth="200.0">
                <center>
-                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                  <VBox layoutY="50.0" prefHeight="145.0" prefWidth="200.0" spacing="15.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Accordion>
+                        <Accordion translateY="50.0">
                           <panes>
                             <TitledPane animated="false" text="User">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="Create User" />
+                                          <Button mnemonicParsing="false" text="View User Details" />
+                                          <Button mnemonicParsing="false" text="List All Users" />
+                                       </children></VBox>
+                                 </content>
                             </TitledPane>
                             <TitledPane animated="false" text="Events">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="Update Event Information" />
+                                          <Button mnemonicParsing="false" text="Cancel Event" />
+                                          <Button mnemonicParsing="false" text="View Event Roster" />
+                                          <Button mnemonicParsing="false" text="Search Event By Title" />
+                                       </children></VBox>
+                                 </content>
                             </TitledPane>
                             <TitledPane animated="false" text="Booking">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="Book an Event" />
+                                          <Button mnemonicParsing="false" text="Cancel Booking" />
+                                       </children></VBox>
+                                 </content>
                             </TitledPane>
+                              <TitledPane animated="false" layoutX="10.0" layoutY="61.0" text="WaitList">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="View Event WaitList" />
+                                          <Button mnemonicParsing="false" text="Remove a WaitList Booking" />
+                                       </children></VBox>
+                                 </content>
+                              </TitledPane>
                           </panes>
                         </Accordion>
                      </children>
