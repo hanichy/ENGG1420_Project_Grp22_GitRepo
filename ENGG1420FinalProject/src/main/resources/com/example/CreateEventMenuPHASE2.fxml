@@ -8,34 +8,55 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageConroller">
    <children>
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
-      <Button layoutX="14.0" layoutY="163.0" mnemonicParsing="false" text="Create Event!">
+      <Button layoutX="305.0" layoutY="286.0" mnemonicParsing="false" text="Create Event!">
          <font>
             <Font name="Baskerville Old Face" size="40.0" />
          </font></Button>
-      <TextField layoutX="14.0" layoutY="14.0" promptText="Event Title" />
-      <TextField layoutX="14.0" layoutY="50.0" promptText="Event Location" />
-      <DatePicker layoutX="14.0" layoutY="86.0" promptText="Event Date" />
-      <TextField layoutX="14.0" layoutY="122.0" promptText="Event Capacity" />
-      <TextField layoutX="189.0" layoutY="49.0" prefHeight="26.0" prefWidth="95.0" promptText="Speaker Name" />
-      <TextField layoutX="293.0" layoutY="50.0" prefWidth="95.0" promptText="Topic" />
-      <TextField layoutX="396.0" layoutY="50.0" prefWidth="95.0" promptText="Age Restriction" />
+      <TextField fx:id="eventTitle" layoutX="403.0" layoutY="133.0" promptText="Event Title" />
+      <TextField fx:id="eventLocation" layoutX="403.0" layoutY="169.0" promptText="Event Location" />
+      <DatePicker fx:id="eventDate" layoutX="403.0" layoutY="205.0" promptText="Event Date" />
+      <TextField fx:id="eventCapacity" layoutX="403.0" layoutY="241.0" promptText="Event Capacity" />
+      <TextField fx:id="eventSpeaker" layoutX="189.0" layoutY="49.0" opacity="0.0" prefHeight="26.0" prefWidth="95.0" promptText="Speaker Name" />
+      <TextField fx:id="eventTopic" layoutX="293.0" layoutY="50.0" opacity="0.0" prefWidth="95.0" promptText="Topic" />
+      <TextField fx:id="eventAgeRestriction" layoutX="396.0" layoutY="50.0" opacity="0.0" prefWidth="95.0" promptText="Age Restriction" />
       <Button layoutX="207.0" layoutY="14.0" mnemonicParsing="false" text="Seminar" />
       <Button layoutX="305.0" layoutY="14.0" mnemonicParsing="false" text="Workshop" />
       <Button layoutX="415.0" layoutY="14.0" mnemonicParsing="false" text="Concert" />
-      <Label layoutX="34.0" layoutY="247.0" text="Event Successfully Created!" textFill="#21dc10">
-         <font>
-            <Font name="Baskerville Old Face" size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="24.0" layoutY="280.0" text="Uh-Oh! Something Went Wrong! " textFill="#df0c0c">
-         <font>
-            <Font name="Baskerville Old Face" size="20.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="171.0" fitWidth="242.0" layoutX="323.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="171.0" fitWidth="242.0" layoutX="155.0" layoutY="115.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@2025_New_Gryphon_Logo.png" />
          </image>
       </ImageView>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" rotate="90.0" text="|||" />
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Accordion>
+                          <panes>
+                            <TitledPane animated="false" text="User">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" text="Events">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                            </TitledPane>
+                            <TitledPane animated="false" text="Booking">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                            </TitledPane>
+                          </panes>
+                        </Accordion>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </children></StackPane>
    </children>
 </AnchorPane>

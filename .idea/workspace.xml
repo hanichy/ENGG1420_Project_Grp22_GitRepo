@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Added the Guelph logo and the Title of the system.">
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageConroller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateEventMenuPHASE2.fxml" afterDir="false" />
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/UpdateEventsMenuPHASE2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageConroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageConroller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MainMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MainMenuPHASE2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateEventMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateEventMenuPHASE2.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -140,7 +138,7 @@
       <option name="presentableId" value="Default" />
       <updated>1773068153343</updated>
       <workItem from="1773068157735" duration="5468000" />
-      <workItem from="1773325551729" duration="5440000" />
+      <workItem from="1773325551729" duration="10408000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Main Menu from a jumble of buttons to a navagation drawer.">
       <option name="closed" value="true" />
@@ -182,7 +180,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773107691447</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Added the new Create Events Page and added the buttons to traverse between them.">
+      <option name="closed" value="true" />
+      <created>1773361166616</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1773361166616</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +199,7 @@
     <MESSAGE value="Added the buttons in scenebuilder that will be coded to go to each separate menu." />
     <MESSAGE value="Buttons are added but not yet functional. If you press the 3 lines the drawer will either go on or off screen depending on where it originally started." />
     <MESSAGE value="Added the Guelph logo and the Title of the system." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added the Guelph logo and the Title of the system." />
+    <MESSAGE value="Added the new Create Events Page and added the buttons to traverse between them." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the new Create Events Page and added the buttons to traverse between them." />
   </component>
 </project>

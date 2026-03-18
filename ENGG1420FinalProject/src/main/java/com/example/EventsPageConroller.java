@@ -6,13 +6,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class EventsPageConroller {
-    //Labels
     //TextFields
+    @FXML
+    private TextField eventTitle;
+    @FXML
+    private TextField eventLocation;
+    @FXML
+    private DatePicker eventDate;
+    @FXML
+    private TextField eventCapacity;
+    @FXML
+    private TextField eventSpeaker;
+    @FXML
+    private TextField eventTopic;
+    @FXML
+    private TextField eventAgeRestriction;
+    @FXML
+    private TextField eventID;
+
+    //Event Type Storage
+    private String eventType ="";
 
     //Needed to Switch Scenes
     private Stage stage;
@@ -34,8 +55,29 @@ public class EventsPageConroller {
 
     //CREATE EVENT
     //Seminar Button
+    @FXML
+    public void seminarButton(ActionEvent e){
+        if (eventType.equals("")){
+            eventSpeaker.setOpacity(1);
+            eventType = "Seminar";
+        }
+    }
     //Workshop Button
+    @FXML
+    public void workShopButton(ActionEvent e){
+        if (eventType.equals("")){
+            eventTopic.setOpacity(1);
+            eventType = "Workshop";
+        }
+    }
     //Concert Button
+    @FXML
+    public void concertButton(ActionEvent e){
+        if (eventType.equals("")){
+            eventAgeRestriction.setOpacity(1);
+            eventType = "Concert";
+        }
+    }
     //Create Event Button
 
     //UPDATE EVENT INFORMATION
