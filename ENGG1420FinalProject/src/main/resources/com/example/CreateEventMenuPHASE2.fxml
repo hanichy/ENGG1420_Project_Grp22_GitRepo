@@ -27,60 +27,10 @@
             <Image url="@2025_New_Gryphon_Logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" rotate="90.0" text="|||" />
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
-            <BorderPane layoutY="50.0" prefHeight="200.0" prefWidth="200.0">
-               <center>
-                  <VBox layoutY="50.0" prefHeight="145.0" prefWidth="200.0" spacing="15.0" BorderPane.alignment="CENTER">
-                     <children>
-                        <Accordion translateY="50.0">
-                          <panes>
-                            <TitledPane animated="false" text="User">
-                                 <content>
-                                    <VBox prefHeight="200.0" prefWidth="100.0">
-                                       <children>
-                                          <Button mnemonicParsing="false" text="Create User" />
-                                          <Button mnemonicParsing="false" text="View User Details" />
-                                          <Button mnemonicParsing="false" text="List All Users" />
-                                       </children></VBox>
-                                 </content>
-                            </TitledPane>
-                            <TitledPane animated="false" text="Events">
-                                 <content>
-                                    <VBox prefHeight="200.0" prefWidth="100.0">
-                                       <children>
-                                          <Button mnemonicParsing="false" text="Update Event Information" />
-                                          <Button mnemonicParsing="false" text="Cancel Event" />
-                                          <Button mnemonicParsing="false" text="View Event Roster" />
-                                          <Button mnemonicParsing="false" text="Search Event By Title" />
-                                       </children></VBox>
-                                 </content>
-                            </TitledPane>
-                            <TitledPane animated="false" text="Booking">
-                                 <content>
-                                    <VBox prefHeight="200.0" prefWidth="100.0">
-                                       <children>
-                                          <Button mnemonicParsing="false" text="Book an Event" />
-                                          <Button mnemonicParsing="false" text="Cancel Booking" />
-                                       </children></VBox>
-                                 </content>
-                            </TitledPane>
-                              <TitledPane animated="false" layoutX="10.0" layoutY="61.0" text="WaitList">
-                                 <content>
-                                    <VBox prefHeight="200.0" prefWidth="100.0">
-                                       <children>
-                                          <Button mnemonicParsing="false" text="View Event WaitList" />
-                                          <Button mnemonicParsing="false" text="Remove a WaitList Booking" />
-                                       </children></VBox>
-                                 </content>
-                              </TitledPane>
-                          </panes>
-                        </Accordion>
-                     </children>
-                  </VBox>
-               </center>
-            </BorderPane>
-         </children></StackPane>
+            <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

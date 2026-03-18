@@ -4,7 +4,6 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageConroller">
    <children>
       <TextField layoutX="14.0" layoutY="14.0" promptText="Event ID" />
@@ -18,6 +17,9 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
         </content>
       </ScrollPane>
-      <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" text="Back">
+         <font>
+            <Font name="Baskerville Old Face" size="12.0" />
+         </font></Button>
    </children>
 </AnchorPane>

@@ -15,23 +15,45 @@
                         <Accordion>
                           <panes>
                             <TitledPane animated="false" text="User">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
-                                 <graphic>
-                                    <VBox prefHeight="200.0" prefWidth="100.0" />
-                                 </graphic>
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="Create User" />
+                                          <Button mnemonicParsing="false" text="View User Details" />
+                                          <Button mnemonicParsing="false" text="List All Users" />
+                                       </children></VBox>
+                                 </content>
                             </TitledPane>
                             <TitledPane animated="false" text="Events">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="Create Event" />
+                                          <Button mnemonicParsing="false" text="Update Event Information" />
+                                          <Button layoutX="20.0" layoutY="45.0" mnemonicParsing="false" text="Cancel Event" />
+                                          <Button layoutX="20.0" layoutY="71.0" mnemonicParsing="false" text="View Event Roster" />
+                                          <Button layoutX="20.0" layoutY="96.0" mnemonicParsing="false" text="Search Event By Title" />
+                                       </children></VBox>
+                                 </content>
                             </TitledPane>
                             <TitledPane animated="false" text="Booking">
-                              <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                              </content>
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="Book an Event" />
+                                          <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" text="Cancel a Booking" />
+                                       </children></VBox>
+                                 </content>
                             </TitledPane>
+                              <TitledPane animated="false" layoutX="10.0" layoutY="61.0" text="WaitList">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" text="View Event WaitList" />
+                                          <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" text="Remove a WaitList Booking" />
+                                       </children></VBox>
+                                 </content>
+                              </TitledPane>
                           </panes>
                         </Accordion>
                      </children>
