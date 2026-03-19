@@ -16,23 +16,21 @@ public abstract class User {
     public String email;
 
     public static ArrayList<User> userList = new ArrayList<User>();
+    protected static int userCount = 0;
 
     // Constructor
     public User(String name, String email) {
         this.userId = uniqueUserId();
+
         this.name = name;
         this.email = email;
 
         userList.add(this);
+        userCount++;
 
     }
 
-    // Getters and Setters
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
+    // Getters
     public String getName() {
         return name;
     }
@@ -45,9 +43,6 @@ public abstract class User {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     //generate random unique Id for user
     private String uniqueUserId() {
@@ -70,97 +65,67 @@ public abstract class User {
         return null;
     }
 
-
     // Abstract method: must be implemented by subclasses
     public abstract String getUserType();
 
+    //List Users
+    public static void listUser(){
+        System.out.println("User List:" + userCount + "Total User:");
+        for (User user : userList) {
+            System.out.println("ID" + user.userId + "| Name" + user.name + "| Email" + user.email + "| Type:" + user.getUserType());
+        }
+    }
+}
+
     // Optional: a display-friendly summary
-    @Override
+  /*  @Override
     public String toString() {
         return String.format("User ID: %s | Name: %s | Email: %s | Type: %s",
                 userId, name, email, getUserType());
     }
-}
+}*/
 
 //Subclasses for User class
 
 class Student extends User {
-    private int studentId;
+    public String userType;
 
-    public Student(String userId, String name, String email, int studentId) {
-        super(userId, name, email);
-        this.studentId = studentId;
-    }
-
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
-    @Override
     public String getUserType() {
-        return "Student";
+        userType =  "Student";
+        return  userType;
+    }
+    public Student(String name, String email, String userType) {
+        super(name, email);
+        this.userType = userType;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + String.format(" | Student ID: %d", studentId);
-    }
 }
 
 class Staff extends User {
-    private String department;
+    public String userType;
 
-    public Staff(String userId, String name, String email, String department) {
-        super(userId, name, email);
-        this.department = department;
-    }
-
-    public String getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(String department) {
-        this.department = department;
-    }
-
-    @Override
     public String getUserType() {
-        return "Staff";
+       userType =  "Staff";
+       return  userType;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + String.format(" | Department: %s", department);
+    public Staff(String name, String email, String userType) {
+        super(name, email);
+        this.userType = userType;
     }
 }
 
 class Guest extends User {
-    private String organization;
+    public String userType;
 
-    public Guest(String userId, String name, String email, String organization) {
-        super(userId, name, email);
-        this.organization = organization;
-    }
-
-    public String getOrganization() {
-        return organization;
-    }
-
-    public void setOrganization(String organization) {
-        this.organization = organization;
-    }
-
-    @Override
     public String getUserType() {
-        return "Guest";
+        userType =  "Guest";
+        return  userType;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() + String.format(" | Organization: %s", organization);
+    public Guest(String name, String email, String userType) {
+        super(name, email);
+        this.userType = userType;
     }
+
 }
