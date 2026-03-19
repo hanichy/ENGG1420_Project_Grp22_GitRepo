@@ -1,21 +1,33 @@
 package com.example.bookingsys;
 
+import java.util.ArrayList;
+import java.util.Random;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.*;
+import java.io.Serializable;
+
 public abstract class User {
     // Basic user info
-    protected String userId;
-    protected String name;
-    protected String email;
+    public String userId;
+
+    public String name;
+    public String email;
+
+    public static ArrayList<User> userList = new ArrayList<User>();
+
     // Constructor
-    public User(String userId, String name, String email) {
-        this.userId = userId;
+    public User(String name, String email) {
+        this.userId = uniqueUserId();
         this.name = name;
         this.email = email;
+
+        userList.add(this);
+
     }
 
     // Getters and Setters
-    public String getUserId() {
-        return userId;
-    }
 
     public void setUserId(String userId) {
         this.userId = userId;
@@ -36,6 +48,28 @@ public abstract class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    //generate random unique Id for user
+    private String uniqueUserId() {
+        Random rand = new Random();
+        String newId;
+        do{
+            int num = 300000 + rand.nextInt(900000);
+            newId = String.valueOf(num);
+        }while (findUserById(newId) == null);
+        return newId;
+    }
+
+    //find user by id num to make sure each id is unique
+    public static User findUserById(String id) {
+        for (User user : userList) {
+            if (user.userId.equals(id)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
 
     // Abstract method: must be implemented by subclasses
     public abstract String getUserType();

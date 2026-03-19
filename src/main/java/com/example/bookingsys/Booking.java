@@ -56,8 +56,7 @@ public class Booking {
         return "Booking ID: B" + (bookingCounter++);
     }
 
-    // checks if the user already has a booking, if they're already
-    // in the waitlist and if they cancelled their booking
+    // checks if the user already has a booking, if they're already in the waitlist and if they cancelled their booking
     private boolean hasActiveBookingForUser(String userId){
         for (Booking b : confirmedBookings) {
             if (b.userId.equals(userId) && !STATUS_CANCELLED.equals(b.bookingStatus)){

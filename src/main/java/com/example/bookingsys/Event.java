@@ -132,8 +132,8 @@ public abstract class Event implements Serializable {
         return newId;
 
     }
-    
-    //find event by Id num to make sure each Id is unique
+
+    //find event by ID num to make sure each ID is unique
     public static Event findEventById(String id){
         for(Event e : eventList){
             if(e.eventId.equals(id)){
