@@ -84,7 +84,7 @@ public class EventsPageController {
                 event.createEvent(s);
             } else if (eventType.equals("Concert")) {
                 int aR = parseInteger(eventAgeRestriction.getText(), "Age Restriction");
-                Concert c = new Concert(title, date, location, cap, aR);
+                Concert c = new Concert(title, date, location, cap, String.valueOf(aR));
                 event.createEvent(c);
             }
 
