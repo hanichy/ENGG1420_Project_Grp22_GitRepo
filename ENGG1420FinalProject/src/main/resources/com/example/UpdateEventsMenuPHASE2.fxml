@@ -6,20 +6,33 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageConroller">
    <children>
-      <TextField layoutX="14.0" layoutY="14.0" promptText="Event ID" />
-      <Button layoutX="174.0" layoutY="14.0" mnemonicParsing="false" text="Search">
+      <TextField layoutX="300.0" layoutY="14.0" promptText="Event ID" />
+      <Button layoutX="460.0" layoutY="14.0" mnemonicParsing="false" text="Search">
          <font>
             <Font name="Baskerville Old Face" size="14.0" />
          </font>
       </Button>
-      <ScrollPane layoutX="14.0" layoutY="49.0" prefHeight="286.0" prefWidth="279.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
-      </ScrollPane>
-      <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" text="Back">
+      <ScrollPane layoutX="245.0" layoutY="49.0" prefHeight="238.0" prefWidth="334.0">
+         <content>
+            <VBox prefHeight="240.0" prefWidth="333.0" />
+         </content></ScrollPane>
+      <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#backToMenu" text="Back">
          <font>
             <Font name="Baskerville Old Face" size="12.0" />
          </font></Button>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
+         </children>
+      </StackPane>
+      <Button layoutX="310.0" layoutY="314.0" mnemonicParsing="false" text="Update Event">
+         <font>
+            <Font name="Baskerville Old Face" size="30.0" />
+         </font>
+      </Button>
+      <DatePicker layoutX="14.0" layoutY="226.0" promptText="New Event Date" />
+      <TextField layoutX="14.0" layoutY="158.0" promptText="New Event Title" />
+      <TextField layoutX="14.0" layoutY="192.0" promptText="New Event Location" />
+      <TextField layoutX="15.0" layoutY="261.0" promptText="New Event Capacity" />
    </children>
 </AnchorPane>

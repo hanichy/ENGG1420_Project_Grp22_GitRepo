@@ -56,6 +56,17 @@ public class MainMenuController{
         stage.show();
     }
     //Update Event Information Menu
+    @FXML
+    private void switchToUpdateEvent(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateEventsMenuPHASE2.fxml"));
+        root = loader.load();
+
+        EventsPageConroller eventsPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     //Cancel Event Menu
     //View Events Roster Menu
     //Search Events By Title Menu
