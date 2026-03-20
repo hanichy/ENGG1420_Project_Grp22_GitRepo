@@ -11,9 +11,8 @@ public class Booking {
     public String eventId;
     public String createdAt; //date that the user has booked an event
     public String bookingStatus;
-    protected static ArrayList<Booking> bookingList = new ArrayList<>();
 
-    private static int bookingCounter = 1;
+    protected static ArrayList<Booking> bookingList = new ArrayList<>();
 
     //for waitlist
     protected final ArrayList<Booking> confirmedBookings = new ArrayList<>();
@@ -30,11 +29,13 @@ public class Booking {
 
     public Booking(String bookingId, String userId, String eventId, String createdAt, String bookingStatus)
     {
-        this.bookingId = bookingId;
+        this.bookingId = uniqueBookingId();
         this.userId = userId;
         this.eventId = eventId;
         this.createdAt = createdAt;
         this.bookingStatus = bookingStatus;
+
+        bookingList.add(this);
     }
 
     public void cancelBooking(){
@@ -49,11 +50,16 @@ public class Booking {
         return null;
     }
 
-    //Generate booking ID
-    private String generateBookingId()
+    //Generate random booking ID
+    private String uniqueBookingId()
     {
-
-        return "Booking ID: B" + (bookingCounter++);
+        Random rand = new Random();
+        String newId;
+        do{
+            int num = 300000 + rand.nextInt(900000);
+            newId = String.valueOf(num);
+        }while(findEventById(newId) == null);
+        return newId;
     }
 
     // checks if the user already has a booking, if they're already in the waitlist and if they cancelled their booking
@@ -76,8 +82,6 @@ public class Booking {
         if (hasActiveBookingForUser(userId) || waitlist.containsUser(userId)) {
             throw new IllegalArgumentException("User already booked or waitlisted for this event.");
         }
-        //creates booking ID
-        String bookingId = generateBookingId();
 
         //checks if there are seats available
         if (confirmedBookings.size() < this.capacity) {

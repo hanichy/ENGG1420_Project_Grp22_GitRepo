@@ -126,7 +126,7 @@ public abstract class Event implements Serializable {
         Random rand = new Random();
         String newId;
         do {
-            int num = 100000 + rand.nextInt(900000);
+            int num = 200000 + rand.nextInt(900000);
             newId = String.valueOf(num);
         } while(findEventById(newId) != null);
         return newId;

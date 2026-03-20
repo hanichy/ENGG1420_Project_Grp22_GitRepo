@@ -49,7 +49,7 @@ public abstract class User {
         Random rand = new Random();
         String newId;
         do{
-            int num = 300000 + rand.nextInt(900000);
+            int num = 100000 + rand.nextInt(900000);
             newId = String.valueOf(num);
         }while (findUserById(newId) == null);
         return newId;
