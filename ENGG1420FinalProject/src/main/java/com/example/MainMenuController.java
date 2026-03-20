@@ -39,8 +39,41 @@ public class MainMenuController{
 
     //USER BUTTONS
     //Create User Menu
+    @FXML
+    private void switchToCreateUser(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateUserMenuPHASE2.fxml"));
+        root = loader.load();
+
+        UserPageController userPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     //View User Details Menu
+    @FXML
+    private void switchToUserDetails(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserDetailsMenuPHASE2.fxml"));
+        root = loader.load();
+
+        UserPageController userPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     //List All User Menus
+    @FXML
+    private void switchToUserList(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListUserMenuPHASE2.fxml"));
+        root = loader.load();
+
+        UserPageController userPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     //EVENT BUTTONS
     //Create Event Menu
@@ -106,7 +139,29 @@ public class MainMenuController{
 
     //BOOKING BUTTONS
     //Book an Event Menu
+    @FXML
+    private void switchToCreateBooking(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateBookingMenuPHASE2.fxml"));
+        root = loader.load();
+
+        BookingPageController bookingPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     //Cancel a Booking Menu
+    @FXML
+    private void switchToCancelBooking(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CancelBookingMenuPHASE2.fxml"));
+        root = loader.load();
+
+        BookingPageController bookingPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     //WAITLIST BUTTONS
     //View Event Waitlist Menu

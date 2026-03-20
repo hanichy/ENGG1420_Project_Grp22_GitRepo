@@ -17,9 +17,9 @@
                                  <content>
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
-                                          <Button mnemonicParsing="false" text="Create User" />
-                                          <Button mnemonicParsing="false" text="View User Details" />
-                                          <Button mnemonicParsing="false" text="List All Users" />
+                                          <Button mnemonicParsing="false" onAction="#switchToCreateUser" text="Create User" />
+                                          <Button mnemonicParsing="false" onAction="#switchToUserDetails" text="View User Details" />
+                                          <Button mnemonicParsing="false" onAction="#switchToUserList" text="List All Users" />
                                        </children></VBox>
                                  </content>
                             </TitledPane>
