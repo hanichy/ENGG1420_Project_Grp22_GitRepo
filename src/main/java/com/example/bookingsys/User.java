@@ -20,7 +20,7 @@ public abstract class User {
 
     // Constructor
     public User(String name, String email) {
-        this.userId = uniqueUserId();
+        this.userId = "U" + uniqueUserId();
 
         this.name = name;
         this.email = email;
@@ -45,7 +45,7 @@ public abstract class User {
         Random rand = new Random();
         String newId;
         do{
-            int num = 100000 + rand.nextInt(900000);
+            int num = rand.nextInt(999);
             newId = String.valueOf(num);
         }while (findUserById(newId) == null);
         return newId;

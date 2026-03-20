@@ -27,7 +27,7 @@ public abstract class Event implements Serializable {
         if(capacity <= 0){
             throw new IllegalArgumentException("Error: Capacity must be greater than zero");
         }
-        this.eventId = uniqueId();
+        this.eventId = "E" + uniqueId();
 
         this.title = title;
         this.dateTime = dateTime;
@@ -126,7 +126,7 @@ public abstract class Event implements Serializable {
         Random rand = new Random();
         String newId;
         do {
-            int num = 200000 + rand.nextInt(900000);
+            int num = rand.nextInt(999);
             newId = String.valueOf(num);
         } while(findEventById(newId) != null);
         return newId;

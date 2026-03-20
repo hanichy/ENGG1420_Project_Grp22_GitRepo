@@ -29,7 +29,7 @@ public class Booking {
 
     public Booking(String bookingId, String userId, String eventId, String createdAt, String bookingStatus)
     {
-        this.bookingId = uniqueBookingId();
+        this.bookingId = "B" + uniqueBookingId();
         this.userId = userId;
         this.eventId = eventId;
         this.createdAt = createdAt;
@@ -56,7 +56,7 @@ public class Booking {
         Random rand = new Random();
         String newId;
         do{
-            int num = 300000 + rand.nextInt(900000);
+            int num = rand.nextInt(999);
             newId = String.valueOf(num);
         }while(findEventById(newId) == null);
         return newId;
