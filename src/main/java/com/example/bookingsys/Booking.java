@@ -96,6 +96,7 @@ public class Booking {
             return b;
         }
     }
+    //put user out of waitlist when there's a spot
     private Booking promoteWaitlist (){
         Booking promoted = waitlist.RemRetBooking();
         if (promoted == null) {

@@ -32,17 +32,13 @@ public abstract class User {
 
     // Getters
     public String getName() {
+
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getEmail() {
+
         return email;
     }
-
 
     //generate random unique Id for user
     private String uniqueUserId() {
@@ -77,16 +73,7 @@ public abstract class User {
     }
 }
 
-    // Optional: a display-friendly summary
-  /*  @Override
-    public String toString() {
-        return String.format("User ID: %s | Name: %s | Email: %s | Type: %s",
-                userId, name, email, getUserType());
-    }
-}*/
-
 //Subclasses for User class
-
 class Student extends User {
     public String userType;
 
