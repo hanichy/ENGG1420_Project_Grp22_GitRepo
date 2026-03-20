@@ -92,6 +92,17 @@ public class MainMenuController{
         stage.show();
     }
     //Search Events By Title Menu
+    @FXML
+    private void switchToEventSearch(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchEventMenuPHASE2.fxml"));
+        root = loader.load();
+
+        EventsPageConroller eventsPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     //BOOKING BUTTONS
     //Book an Event Menu

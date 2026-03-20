@@ -27,10 +27,6 @@
             <Image url="@2025_New_Gryphon_Logo.png" />
          </image>
       </ImageView>
-      <StackPane prefHeight="150.0" prefWidth="200.0">
-         <children>
-            <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
-         </children>
-      </StackPane>
+      <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
    </children>
 </AnchorPane>

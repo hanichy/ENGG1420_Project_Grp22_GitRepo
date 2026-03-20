@@ -6,11 +6,6 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageConroller">
    <children>
-      <StackPane prefHeight="150.0" prefWidth="200.0">
-         <children>
-            <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
-         </children>
-      </StackPane>
       <ScrollPane layoutX="245.0" layoutY="49.0" prefHeight="238.0" prefWidth="334.0">
          <content>
             <VBox prefHeight="238.0" prefWidth="334.0" />
@@ -35,5 +30,6 @@
             <Font name="Baskerville Old Face" size="15.0" />
          </font>
       </Label>
+      <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
    </children>
 </AnchorPane>
