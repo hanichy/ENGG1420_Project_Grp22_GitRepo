@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Added some things such as cancel event">
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventRosterMenuPHASE2.fxml" afterDir="false" />
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Added View Event Roster UI">
+      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/SearchEventMenuPHASE2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateEventMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateEventMenuPHASE2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventRosterMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventRosterMenuPHASE2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MenuPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MenuPanel.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +144,8 @@
       <workItem from="1773857111960" duration="1288000" />
       <workItem from="1773858773899" duration="1516000" />
       <workItem from="1773860314518" duration="3622000" />
-      <workItem from="1773956673586" duration="1522000" />
+      <workItem from="1773956673586" duration="1566000" />
+      <workItem from="1774029312722" duration="1916000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Main Menu from a jumble of buttons to a navagation drawer.">
       <option name="closed" value="true" />
@@ -238,6 +243,7 @@
     <MESSAGE value="Creating an FXML that will specifically support the menu panel in all the pages" />
     <MESSAGE value="Created the Menu Panel that can now appear on every page without having to manually create it for every page. Now I am adding to the pages here and seeing how I can remove the button corresponding with the page it is already on." />
     <MESSAGE value="Added some things such as cancel event" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added some things such as cancel event" />
+    <MESSAGE value="Added View Event Roster UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added View Event Roster UI" />
   </component>
 </project>

@@ -5,7 +5,6 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MainMenuController">
    <children>
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openMenu" rotate="90.0" text="|||" />
       <StackPane prefHeight="150.0" prefWidth="200.0" translateY="50.0">
          <children>
             <BorderPane prefHeight="200.0" prefWidth="200.0">
@@ -30,8 +29,8 @@
                                        <children>
                                           <Button mnemonicParsing="false" onAction="#switchToCreateEvent" text="Create Event" />
                                           <Button mnemonicParsing="false" onAction="#switchToUpdateEvent" text="Update Event Information" />
-                                          <Button layoutX="20.0" layoutY="45.0" mnemonicParsing="false" text="Cancel Event" />
-                                          <Button layoutX="20.0" layoutY="71.0" mnemonicParsing="false" text="View Event Roster" />
+                                          <Button layoutX="20.0" layoutY="45.0" mnemonicParsing="false" onAction="#switchToCancelEvent" text="Cancel Event" />
+                                          <Button layoutX="20.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToEventRoster" text="View Event Roster" />
                                           <Button layoutX="20.0" layoutY="96.0" mnemonicParsing="false" text="Search Event By Title" />
                                        </children></VBox>
                                  </content>
@@ -62,5 +61,6 @@
             </BorderPane>
          </children>
       </StackPane>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openMenu" rotate="90.0" text="|||" />
    </children>
 </AnchorPane>

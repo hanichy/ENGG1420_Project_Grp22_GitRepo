@@ -68,7 +68,29 @@ public class MainMenuController{
         stage.show();
     }
     //Cancel Event Menu
+    @FXML
+    private void switchToCancelEvent(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CancelEventMenuPHASE2.fxml"));
+        root = loader.load();
+
+        EventsPageConroller eventsPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     //View Events Roster Menu
+    @FXML
+    private void switchToEventRoster(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EventRosterMenuPHASE2.fxml"));
+        root = loader.load();
+
+        EventsPageConroller eventsPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     //Search Events By Title Menu
 
     //BOOKING BUTTONS
