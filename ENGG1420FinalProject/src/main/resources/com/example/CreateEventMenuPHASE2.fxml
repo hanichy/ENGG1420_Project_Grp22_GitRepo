@@ -7,11 +7,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageConroller">
    <children>
-      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
-      <Button layoutX="269.0" layoutY="211.0" mnemonicParsing="false" text="Create Event!">
-         <font>
-            <Font name="Baskerville Old Face" size="40.0" />
-         </font></Button>
+      <ImageView fitHeight="183.0" fitWidth="248.0" layoutX="14.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@2025_New_Gryphon_Logo.png" />
+         </image>
+      </ImageView>
+      <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
       <TextField fx:id="eventTitle" layoutX="217.0" layoutY="26.0" promptText="Event Title" />
       <TextField fx:id="eventLocation" layoutX="217.0" layoutY="62.0" promptText="Event Location" />
       <DatePicker fx:id="eventDate" layoutX="217.0" layoutY="98.0" promptText="Event Date" />
@@ -19,14 +20,13 @@
       <TextField fx:id="eventSpeaker" layoutX="477.0" layoutY="25.0" opacity="0.0" prefHeight="26.0" prefWidth="95.0" promptText="Speaker Name" />
       <TextField fx:id="eventTopic" layoutX="477.0" layoutY="62.0" opacity="0.0" prefWidth="95.0" promptText="Topic" />
       <TextField fx:id="eventAgeRestriction" layoutX="477.0" layoutY="98.0" opacity="0.0" prefWidth="95.0" promptText="Age Restriction" />
-      <Button layoutX="403.0" layoutY="26.0" mnemonicParsing="false" onAction="#seminarButton" text="Seminar" />
-      <Button layoutX="397.0" layoutY="62.0" mnemonicParsing="false" onAction="#workShopButton" text="Workshop" />
       <Button layoutX="403.0" layoutY="98.0" mnemonicParsing="false" onAction="#concertButton" text="Concert" />
-      <ImageView fitHeight="183.0" fitWidth="248.0" layoutX="14.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@2025_New_Gryphon_Logo.png" />
-         </image>
-      </ImageView>
-      <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
+      <Button layoutX="397.0" layoutY="62.0" mnemonicParsing="false" onAction="#workShopButton" text="Workshop" />
+      <Button layoutX="403.0" layoutY="26.0" mnemonicParsing="false" onAction="#seminarButton" text="Seminar" />
+      <Button layoutX="269.0" layoutY="211.0" mnemonicParsing="false" text="Create Event!">
+         <font>
+            <Font name="Baskerville Old Face" size="40.0" />
+         </font></Button>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
    </children>
 </AnchorPane>

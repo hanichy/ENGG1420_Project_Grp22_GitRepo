@@ -51,6 +51,8 @@ public class EventsPageConroller {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+        System.out.println("Switching...");
     }
 
     //CREATE EVENT
