@@ -70,6 +70,10 @@ public class EventsPageController {
             // Numeric validation
             int cap = parseInteger(eventCapacity.getText(), "Capacity");
 
+            String newId = event.uniqueEventID();
+            Event newEvent = null;
+
+
             if (eventType.isEmpty()) {
                 showError("Selection Error", "Please select an event type (Workshop/Seminar/Concert).");
                 return;
@@ -77,14 +81,14 @@ public class EventsPageController {
 
             // Logic-specific validation
             if (eventType.equals("Workshop")) {
-                Workshop w = new Workshop(title, date, location, cap, eventTopic.getText());
+                Workshop w = new Workshop(newId, title, date, location, cap, eventTopic.getText());
                 event.createEvent(w);
             } else if (eventType.equals("Seminar")) {
-                Seminar s = new Seminar(title, date, location, cap, eventSpeaker.getText());
+                Seminar s = new Seminar(newId, title, date, location, cap, eventSpeaker.getText());
                 event.createEvent(s);
             } else if (eventType.equals("Concert")) {
                 int aR = parseInteger(eventAgeRestriction.getText(), "Age Restriction");
-                Concert c = new Concert(title, date, location, cap, String.valueOf(aR));
+                Concert c = new Concert(newId, title, date, location, cap, String.valueOf(aR));
                 event.createEvent(c);
             }
 
@@ -198,7 +202,7 @@ public class EventsPageController {
     public void search(ActionEvent ev) {
         container.getChildren().clear();
         String searchId = eventID.getText();
-        Event e = Event.findEventById(searchId);
+        Event e = event.findEventById(searchId);
         if (e != null) {
             Label titleLabel = new Label("Title: " + e.getTitle());
             Label statusLabel = new Label("Status: " + (e.status ? "Active" : "Cancelled"));
@@ -212,7 +216,7 @@ public class EventsPageController {
     @FXML
     public void cancelEventButton(ActionEvent ev) {
         String cancelId = eventID.getText();
-        Event e = Event.findEventById(cancelId);
+        Event e = event.findEventById(cancelId);
         if (e != null) {
             e.cancelEvent();
             search(ev);
@@ -243,7 +247,7 @@ public class EventsPageController {
     public void showSubEventAttribute(ActionEvent ev){
         //Get the specific event
         String eventCancel = eventID.getText();
-        Event e = Event.findEventById(eventCancel);
+        Event e = event.findEventById(eventCancel);
 
         if (e instanceof Workshop){
             eventTopic.setOpacity(1);
@@ -259,7 +263,7 @@ public class EventsPageController {
     @FXML
     public void updateEvent(ActionEvent ev){
         String updateEventId = eventID.getText();
-        Event e = Event.findEventById(updateEventId);
+        Event e = event.findEventById(updateEventId);
 
         if (e == null) {
             showError("Update Error", "Event ID not found.");

@@ -7,29 +7,27 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.*;
 import java.io.Serializable;
-
-import static com.example.bookingsys.EventManagement.eventList;
+import java.util.UUID;
 
 //Gets Everything Set Up
 public abstract class Event implements Serializable {
     private static final long serialVersionUID = 1L;
     //Objects
-    public String eventId;
-    public String title;
-    public String dateTime; //DD/MM/YYYY Hour:Min (Will probably have to change cuz time is a pain)
-    public String location;
+    protected String eventId;
+    protected String title;
+    protected String dateTime; //DD/MM/YYYY Hour:Min (Will probably have to change cuz time is a pain)
+    protected String location;
     protected int capacity;
-    public boolean status; //True = active False = Cancelled
+    protected boolean status; //True = active False = Cancelled
 
     //protected static int totalEventCount = 0;
 
     //Constructor
-    public Event(String title, String dateTime, String location, int capacity) {
+    public Event(String eventId, String title, String dateTime, String location, int capacity) {
         if(capacity <= 0){
             throw new IllegalArgumentException("Error: Capacity must be greater than zero");
         }
-        this.eventId = "E" + uniqueId();
-
+        this.eventId = eventId;
         this.title = title;
         this.dateTime = dateTime;
         this.location = location;
@@ -58,31 +56,6 @@ public abstract class Event implements Serializable {
         return status;
     }
 
-    //Generate random event id
-    private String uniqueId(){
-        Random rand = new Random();
-        String newId;
-        do {
-            int num = rand.nextInt(999);
-            newId = String.valueOf(num);
-        } while(findEventById(newId) != null);
-        return newId;
-
-    }
-
-    //find event by ID num to make sure each ID is unique
-    public static Event findEventById(String id){
-        for(Event e : eventList){
-            if(e.eventId.equals(id)){
-                return e;
-            }
-        }
-        return null;
-    }
-
-
-
-
     //Update Event Information
     public void updateEvent(String newTitle, String newTime, String newLocation, int newCapacity){
         title = newTitle;
@@ -93,21 +66,19 @@ public abstract class Event implements Serializable {
     }
 
     //Cancel Event (Status = false) (Can be same for all types of events)
-    public boolean cancelEvent(){
+    public void cancelEvent(){
         this.status = false;
         System.out.println("Event " + title + " has been canceled");
-        return false;
     }
 
 }
 
 //Subclasses for Event class
 class Concert extends Event{
-    public String ageRestriction;
+    private String ageRestriction;
 
     public String getAgeRestriction(){
-        String aR = String.valueOf(ageRestriction);
-        return aR;
+        return ageRestriction;
     }
 
     public void updateEvent(String newTitle, String newTime, String newLocation,int newCapacity, String newAgeRestriction){
@@ -116,8 +87,8 @@ class Concert extends Event{
     }
 
     //Constructor
-    public Concert(String title, String dateTime, String location, int capacity, String ageRestriction) {
-        super(title, dateTime, location, capacity);
+    public Concert(String eventId, String title, String dateTime, String location, int capacity, String ageRestriction) {
+        super(eventId, title, dateTime, location, capacity);
         this.ageRestriction = ageRestriction;
     }
 }
@@ -125,8 +96,8 @@ class Concert extends Event{
 class Workshop extends Event {
     private String topic;
 
-    public Workshop(String title, String dateTime, String location, int capacity, String topic) {
-        super(title, dateTime, location, capacity);
+    public Workshop(String eventId, String title, String dateTime, String location, int capacity, String topic) {
+        super(eventId, title, dateTime, location, capacity);
         this.topic = topic;
     }
 
@@ -153,8 +124,8 @@ class Seminar extends Event {
     }
 
     //Constructor
-    public Seminar(String title, String dateTime, String location, int capacity, String speakerName) {
-        super(title, dateTime, location, capacity);
+    public Seminar(String eventId, String title, String dateTime, String location, int capacity, String speakerName) {
+        super(eventId, title, dateTime, location, capacity);
         this.speakerName = speakerName;
     }
 }

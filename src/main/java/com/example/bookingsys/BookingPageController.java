@@ -124,11 +124,10 @@ public class BookingPageController {
     public void search(ActionEvent ev) {
         container.getChildren().clear();
         String searchId = bookingID.getText();
-        Event e = Event.findEventById(searchId);
+        Booking e = Booking.findBookingById(searchId);
         if (e != null) {
-            Label titleLabel = new Label("Title: " + e.getTitle());
             Label statusLabel = new Label("Status: " + (e.status ? "Active" : "Cancelled"));
-            container.getChildren().addAll(titleLabel, statusLabel);
+            container.getChildren().addAll(statusLabel);
         } else {
             container.getChildren().add(new Label("Event not found."));
         }

@@ -3,23 +3,22 @@ package com.example.bookingsys;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.UUID;
 
 //Manages the Saving Events Aspect
 //Specifically the List and File
 public class EventManagement implements Serializable {
     private static final long serialVersionUID = 1L;
     private static EventManagement instance;
-    private static ArrayList<Event> eventList;
+    private ArrayList<Event> eventList;
 
     //Use ArrayList to Save the different Events
     //This will store the events with ArrayLists and CSV Files
 
     //Constructor
-   /* private EventManagement()
+    private EventManagement()
     {
         this.eventList = new ArrayList<>();
-    }*/
+    }
 
     public static EventManagement getInstance()
     {
@@ -29,15 +28,8 @@ public class EventManagement implements Serializable {
         return instance;
     }
 
-   /* //Create Event Function Here
-    public void createEvent(Event newEvent){
-        //Check for capacity < 0
-        //Check for Duplicate ID
-        eventList.add(newEvent);
-    }*/
-
     //startup functions
-    public static void startup(){
+    public void startup(){
         String stateFile = "system_state.ser";
         File file = new File(stateFile);
 
@@ -51,7 +43,7 @@ public class EventManagement implements Serializable {
 
     //file persistence
     //save whole event state
-    public static void saveEventState(String fileName){
+    public void saveEventState(String fileName){
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
             oos.writeObject(eventList);
         } catch(IOException e){
@@ -61,9 +53,9 @@ public class EventManagement implements Serializable {
 
     @SuppressWarnings("unchecked")
     //function to restore file
-    public static void restoreFullSystemState(String fileName){
+    public void restoreFullSystemState(String fileName){
         File file = new File(fileName);
-        if(file.exists()){
+        if(!file.exists()){
             return;
         }
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))){
@@ -84,7 +76,7 @@ public class EventManagement implements Serializable {
             while((line = br.readLine()) != null){
                 String[] data = line.split(",", -1); // keep empty trailing columns
 
-                if(data.length < 7){
+                if(data.length < 10){
                     continue;
                 }
 
@@ -103,23 +95,23 @@ public class EventManagement implements Serializable {
                     case "Workshop":
                         String topic =  data[7];
                         if(topic.isEmpty()) throw new IllegalArgumentException("Error: Topic is empty");
-                        event = new Workshop(title, dateTime, location, capacity, topic);
+                        newEvent = new Workshop(eventId, title, dateTime, location, capacity, topic);
                         break;
 
                     case "Seminar":
                         String speaker = data[8];
                         if(speaker.isEmpty()) throw new IllegalArgumentException("Error: Speaker is empty");
-                        event = new Seminar(title, dateTime, location, capacity, speaker);
+                        newEvent = new Seminar(eventId, title, dateTime, location, capacity, speaker);
                         break;
 
                     case "Concert":
                         String ageReq =  data[9];
                         if(ageReq.isEmpty()) throw new IllegalArgumentException("Error: Concert requires age restriction");
-                        event = new Concert(title, dateTime, location, capacity, ageReq);
+                        newEvent = new Concert(eventId, title, dateTime, location, capacity, ageReq);
                         break;
                 }
-                if(event != null && statusValue.equalsIgnoreCase("Cancelled")){
-                    event.cancelEvent();
+                if(newEvent != null && statusValue.equalsIgnoreCase("Cancelled")){
+                    newEvent.cancelEvent();
                 }
             }
         } catch(IOException e){
@@ -127,9 +119,15 @@ public class EventManagement implements Serializable {
         }
     }
 
+    //create events
+    public void createEvent(Event newEvent){
+        this.eventList.add(newEvent);
+        System.out.println("Event created successfully");
+    }
+
     //Search and Filter (PHASE 2)
     //Search by title
-    public static ArrayList<Event> searchByTitle(String title){
+    public ArrayList<Event> searchByTitle(String title){
         ArrayList<Event> result = new ArrayList<>();
         for(Event e : eventList){
             if(e.title.toLowerCase().contains(title.toLowerCase())){
@@ -140,7 +138,7 @@ public class EventManagement implements Serializable {
     }
 
     //Filter by Type
-    public static <T extends Event> ArrayList<T> filterByType(Class<T> type){
+    public <T extends Event> ArrayList<T> filterByType(Class<T> type){
         ArrayList<T> filteredResult = new ArrayList<>();
         for(Event e : eventList){
             if(type.isInstance(e)){
@@ -156,7 +154,7 @@ public class EventManagement implements Serializable {
     }
 
     //generates a unique event id for each event
-    private String uniqueEventID(){
+    public String uniqueEventID(){
         Random rand = new Random();
         String newId;
         boolean isDuplicate;
@@ -174,8 +172,21 @@ public class EventManagement implements Serializable {
         return newId;
     }
 
+    //make sure every event id is unique
+    public Event findEventById(String eventId){
+        if(eventId == null){
+            return null;
+        }
+        for(Event e : eventList){
+            if(e.getEventId().equalsIgnoreCase(eventId)){
+                return e;
+            }
+        }
+        return null;
+    }
+
     //List Events
-    public static void listEvents(){
+    public void listEvents(){
         System.out.println("Event List: " + eventList.size());
         if(eventList.isEmpty()){
             System.out.println("No events found");

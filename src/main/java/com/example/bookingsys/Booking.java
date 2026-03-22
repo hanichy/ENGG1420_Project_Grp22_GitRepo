@@ -58,7 +58,7 @@ public class Booking {
         do{
             int num = rand.nextInt(999);
             newId = String.valueOf(num);
-        }while(findEventById(newId) == null);
+        }while(findBookingById(newId) == null);
         return newId;
     }
 
