@@ -8,8 +8,11 @@ import java.io.IOException;
 import java.io.*;
 import java.io.Serializable;
 
+import static com.example.bookingsys.EventManagement.eventList;
+
 //Gets Everything Set Up
 public abstract class Event implements Serializable {
+    private static final long serialVersionUID = 1L;
     //Objects
     public String eventId;
     public String title;
@@ -18,9 +21,7 @@ public abstract class Event implements Serializable {
     protected int capacity;
     public boolean status; //True = active False = Cancelled
 
-    protected static int totalCapacityCount = 0;
-    protected static int totalEventCount = 0;
-    protected static ArrayList<Event> eventList = new ArrayList<>();
+    //protected static int totalEventCount = 0;
 
     //Constructor
     public Event(String title, String dateTime, String location, int capacity) {
@@ -35,8 +36,6 @@ public abstract class Event implements Serializable {
         this.capacity = capacity;
         this.status = true;
 
-        eventList.add(this);
-        totalEventCount++;
     }
 
     //Getters
@@ -57,95 +56,6 @@ public abstract class Event implements Serializable {
     }
     public boolean getStatus() {
         return status;
-    }
-
-    //load the event file and check if it's state
-    public static void startup(){
-        String stateFile = "system_state.ser";
-        File file = new File(stateFile);
-
-        if(file.exists()){
-            restoreFullSystemState(stateFile);
-        }
-        else{
-            loadEventsFromCSV("events.csv");
-        }
-    }
-    //function to restore file
-    public static void restoreFullSystemState(String fileName){
-        File file = new File(fileName);
-        if(file.exists()){
-            return;
-        }
-
-        try(ObjectOutputStream ois = new ObjectOutputStream(new ObjectInputStream(fileName))){
-            //restore static list
-            eventList = (ArrayList<Event>) ois.readObject();
-            totalEventCount = eventList.size();
-            System.out.println("Events restored successfully");
-        } catch (IOException e) {
-            System.err.println("Error restoring events from file");
-        }
-    }
-    //File persistence
-    public static void loadEventsFromCSV(String fileName){
-        try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
-            String line;
-            br.readLine(); //skip event info
-
-            while((line = br.readLine()) != null){
-                String[] data = line.split(",", -1); // keep empty trailing columns
-
-                if(data.length < 7){
-                    continue;
-                }
-
-                //Mapping columns based on event info
-                String eventId = data[0];
-                String title = data[1];
-                String dateTime = data[2];
-                String location = data[3];
-                int capacity = Integer.parseInt(data[4].trim());
-                String statusValue = data[5];
-                String type = data[6];
-
-                Event newEvent = null;
-
-                switch(type){
-                    case "Workshop":
-                        String topic =  data[7];
-                        if(topic.isEmpty()) throw new IllegalArgumentException("Error: Topic is empty");
-                        newEvent = new Workshop(title, dateTime, location, capacity, topic);
-                        break;
-
-                    case "Seminar":
-                        String speaker = data[8];
-                        if(speaker.isEmpty()) throw new IllegalArgumentException("Error: Speaker is empty");
-                        newEvent = new Seminar(title, dateTime, location, capacity, speaker);
-                        break;
-
-                    case "Concert":
-                        String ageReq =  data[9];
-                        if(ageReq.isEmpty()) throw new IllegalArgumentException("Error: Concert requires age restriction");
-                        newEvent = new Concert(title, dateTime, location, capacity, ageReq);
-                        break;
-                }
-                if(newEvent != null && statusValue.equalsIgnoreCase("Cancelled")){
-                    newEvent.cancelEvent();
-                }
-            }
-        } catch(IOException e){
-            System.err.println("Error saving events to file: " + e.getMessage());
-        }
-    }
-
-    //save whole event state
-    public static void saveEventState(String fileName){
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
-            oos.writeObject(eventList);
-        } catch(IOException e){
-            System.err.println("Error saving events to file: " + e.getMessage());
-        }
     }
 
     //Generate random event id
@@ -170,6 +80,9 @@ public abstract class Event implements Serializable {
         return null;
     }
 
+
+
+
     //Update Event Information
     public void updateEvent(String newTitle, String newTime, String newLocation, int newCapacity){
         title = newTitle;
@@ -184,38 +97,6 @@ public abstract class Event implements Serializable {
         this.status = false;
         System.out.println("Event " + title + " has been canceled");
         return false;
-    }
-
-    //List Events
-    public static void listEvents(){
-        System.out.println("Event List: " + totalEventCount + " Events Total." );
-        for(Event e : eventList){
-            String state = e.status ? "[ACTIVE]" : "[CANCELLED]";
-            System.out.println(state + "ID:" + e.eventId + "| Title:" + e.title + "| Location:" + e.location);
-        }
-    }
-
-    //Search and Filter (PHASE 2)
-    //Search by title
-    public static ArrayList<Event> searchByTitle(String title){
-        ArrayList<Event> result = new ArrayList<>();
-        for(Event e : eventList){
-            if(e.title.toLowerCase().contains(title.toLowerCase())){
-                result.add(e);
-            }
-        }
-        return result;
-    }
-
-    //Filter by Type
-    public static <T extends Event> ArrayList<T> filterByType(Class<T> type){
-        ArrayList<T> filteredResult = new ArrayList<>();
-        for(Event e : eventList){
-            if(type.isInstance(e)){
-                filteredResult.add(type.cast(e));
-            }
-        }
-        return filteredResult;
     }
 
 }

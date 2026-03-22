@@ -1,37 +1,191 @@
 package com.example.bookingsys;
 
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.UUID;
 
 //Manages the Saving Events Aspect
 //Specifically the List and File
-public class EventManagement {
+public class EventManagement implements Serializable {
+    private static final long serialVersionUID = 1L;
     private static EventManagement instance;
-    private ArrayList<Event> eventList;
+    private static ArrayList<Event> eventList;
 
     //Use ArrayList to Save the different Events
-    //This will store the events with ArrayLists and CSV FIles
+    //This will store the events with ArrayLists and CSV Files
 
-    //Create Event Function Here
-    public void createEvent(Event newEvent){
-        //Check for capacity < 0
-        //Check for Duplicate ID
-        eventList.add(newEvent);
-    }
+    //Constructor
+   /* private EventManagement()
+    {
+        this.eventList = new ArrayList<>();
+    }*/
 
-    public static EventManagement getInstance(){
+    public static EventManagement getInstance()
+    {
         if (instance == null){
             instance = new EventManagement();
         }
         return instance;
     }
+
+   /* //Create Event Function Here
+    public void createEvent(Event newEvent){
+        //Check for capacity < 0
+        //Check for Duplicate ID
+        eventList.add(newEvent);
+    }*/
+
+    //startup functions
+    public static void startup(){
+        String stateFile = "system_state.ser";
+        File file = new File(stateFile);
+
+        if(file.exists()){
+            restoreFullSystemState(stateFile);
+        }
+        else{
+            loadEventsFromCSV("events.csv");
+        }
+    }
+
+    //file persistence
+    //save whole event state
+    public static void saveEventState(String fileName){
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
+            oos.writeObject(eventList);
+        } catch(IOException e){
+            System.err.println("Error saving events to file: " + e.getMessage());
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    //function to restore file
+    public static void restoreFullSystemState(String fileName){
+        File file = new File(fileName);
+        if(file.exists()){
+            return;
+        }
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))){
+            //restore static list
+            eventList = (ArrayList<Event>) ois.readObject();
+            System.out.println("Events restored successfully from " + fileName);
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Error restoring events from file");
+        }
+    }
+
+    //CSV loading
+    public static void loadEventsFromCSV(String fileName){
+        try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+            String line;
+            br.readLine(); //skip event info
+
+            while((line = br.readLine()) != null){
+                String[] data = line.split(",", -1); // keep empty trailing columns
+
+                if(data.length < 7){
+                    continue;
+                }
+
+                //Mapping columns based on event info
+                String eventId = data[0];
+                String title = data[1];
+                String dateTime = data[2];
+                String location = data[3];
+                int capacity = Integer.parseInt(data[4].trim());
+                String statusValue = data[5];
+                String type = data[6];
+
+                Event newEvent = null;
+
+                switch(type){
+                    case "Workshop":
+                        String topic =  data[7];
+                        if(topic.isEmpty()) throw new IllegalArgumentException("Error: Topic is empty");
+                        event = new Workshop(title, dateTime, location, capacity, topic);
+                        break;
+
+                    case "Seminar":
+                        String speaker = data[8];
+                        if(speaker.isEmpty()) throw new IllegalArgumentException("Error: Speaker is empty");
+                        event = new Seminar(title, dateTime, location, capacity, speaker);
+                        break;
+
+                    case "Concert":
+                        String ageReq =  data[9];
+                        if(ageReq.isEmpty()) throw new IllegalArgumentException("Error: Concert requires age restriction");
+                        event = new Concert(title, dateTime, location, capacity, ageReq);
+                        break;
+                }
+                if(event != null && statusValue.equalsIgnoreCase("Cancelled")){
+                    event.cancelEvent();
+                }
+            }
+        } catch(IOException e){
+            System.err.println("Error saving events to file: " + e.getMessage());
+        }
+    }
+
+    //Search and Filter (PHASE 2)
+    //Search by title
+    public static ArrayList<Event> searchByTitle(String title){
+        ArrayList<Event> result = new ArrayList<>();
+        for(Event e : eventList){
+            if(e.title.toLowerCase().contains(title.toLowerCase())){
+                result.add(e);
+            }
+        }
+        return result;
+    }
+
+    //Filter by Type
+    public static <T extends Event> ArrayList<T> filterByType(Class<T> type){
+        ArrayList<T> filteredResult = new ArrayList<>();
+        for(Event e : eventList){
+            if(type.isInstance(e)){
+                filteredResult.add(type.cast(e));
+            }
+        }
+        return filteredResult;
+    }
+
     //Gives the ArrayList of the events
     public ArrayList<Event> getEventList(){
         return eventList;
     }
 
-    //Constructor
-    private EventManagement(){
+    //generates a unique event id for each event
+    private String uniqueEventID(){
+        Random rand = new Random();
+        String newId;
+        boolean isDuplicate;
 
-        this.eventList = new ArrayList<>();
+        do{
+            isDuplicate = false;
+            newId = "E" +(100 + rand.nextInt(999));
+
+            for(Event e : eventList){
+                if(e.getEventId().equals(newId)){
+                    isDuplicate = true;
+                }
+            }
+        }while(isDuplicate);
+        return newId;
     }
+
+    //List Events
+    public static void listEvents(){
+        System.out.println("Event List: " + eventList.size());
+        if(eventList.isEmpty()){
+            System.out.println("No events found");
+            return;
+        }
+
+        for(Event e : eventList){
+            String state = e.status ? "[ACTIVE]" : "[CANCELLED]";
+            System.out.println(state + "ID:" + e.getEventId() + "| Title:" + e.getTitle() + "| Location:" + e.getLocation());
+        }
+    }
+
 }
