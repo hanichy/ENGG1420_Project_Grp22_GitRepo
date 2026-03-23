@@ -21,7 +21,7 @@ public class Booking {
 
     public static final String Status_CONFIRMED = "Confirmed";
     public static final String Status_WAITLISTED = "WaitListed";
-    public static final String STATUS_CANCELLED = "Cancelled";
+    public static final String Status_CANCELLED = "Cancelled";
 
     protected int capacity;
     public boolean status; //True = active False = Cancelled
@@ -65,7 +65,7 @@ public class Booking {
     // checks if the user already has a booking, if they're already in the waitlist and if they cancelled their booking
     private boolean hasActiveBookingForUser(String userId){
         for (Booking b : confirmedBookings) {
-            if (b.userId.equals(userId) && !STATUS_CANCELLED.equals(b.bookingStatus)){
+            if (b.userId.equals(userId) && !Status_CANCELLED.equals(b.bookingStatus)){
                 return true;
             }
         }
