@@ -1,14 +1,12 @@
 package com.example;
 
 import javafx.animation.TranslateTransition;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Accordion;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -82,7 +80,7 @@ public class MainMenuController{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateEventMenuPHASE2.fxml"));
         root = loader.load();
 
-        EventsPageConroller eventsPageController = loader.getController();
+        EventsPageController eventsPageController = loader.getController();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -94,7 +92,7 @@ public class MainMenuController{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateEventsMenuPHASE2.fxml"));
         root = loader.load();
 
-        EventsPageConroller eventsPageController = loader.getController();
+        EventsPageController eventsPageController = loader.getController();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -106,7 +104,7 @@ public class MainMenuController{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CancelEventMenuPHASE2.fxml"));
         root = loader.load();
 
-        EventsPageConroller eventsPageController = loader.getController();
+        EventsPageController eventsPageController = loader.getController();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -118,7 +116,7 @@ public class MainMenuController{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("EventRosterMenuPHASE2.fxml"));
         root = loader.load();
 
-        EventsPageConroller eventsPageController = loader.getController();
+        EventsPageController eventsPageController = loader.getController();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -130,7 +128,7 @@ public class MainMenuController{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchEventMenuPHASE2.fxml"));
         root = loader.load();
 
-        EventsPageConroller eventsPageController = loader.getController();
+        EventsPageController eventsPageController = loader.getController();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);

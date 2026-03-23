@@ -5,28 +5,34 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageConroller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageController">
    <children>
-      <ImageView fitHeight="183.0" fitWidth="248.0" layoutX="14.0" layoutY="160.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="199.0" fitWidth="274.0" layoutX="312.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@2025_New_Gryphon_Logo.png" />
          </image>
       </ImageView>
       <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
-      <TextField fx:id="eventTitle" layoutX="217.0" layoutY="26.0" promptText="Event Title" />
-      <TextField fx:id="eventLocation" layoutX="217.0" layoutY="62.0" promptText="Event Location" />
-      <DatePicker fx:id="eventDate" layoutX="217.0" layoutY="98.0" promptText="Event Date" />
-      <TextField fx:id="eventCapacity" layoutX="217.0" layoutY="134.0" promptText="Event Capacity" />
-      <TextField fx:id="eventSpeaker" layoutX="477.0" layoutY="25.0" opacity="0.0" prefHeight="26.0" prefWidth="95.0" promptText="Speaker Name" />
-      <TextField fx:id="eventTopic" layoutX="477.0" layoutY="62.0" opacity="0.0" prefWidth="95.0" promptText="Topic" />
-      <TextField fx:id="eventAgeRestriction" layoutX="477.0" layoutY="98.0" opacity="0.0" prefWidth="95.0" promptText="Age Restriction" />
-      <Button layoutX="403.0" layoutY="98.0" mnemonicParsing="false" onAction="#concertButton" text="Concert" />
-      <Button layoutX="397.0" layoutY="62.0" mnemonicParsing="false" onAction="#workShopButton" text="Workshop" />
-      <Button layoutX="403.0" layoutY="26.0" mnemonicParsing="false" onAction="#seminarButton" text="Seminar" />
-      <Button layoutX="269.0" layoutY="211.0" mnemonicParsing="false" text="Create Event!">
+      <TextField fx:id="eventTitle" layoutX="55.0" layoutY="31.0" promptText="Event Title" />
+      <TextField fx:id="eventLocation" layoutX="55.0" layoutY="67.0" promptText="Event Location" />
+      <TextField fx:id="eventCapacity" layoutX="55.0" layoutY="139.0" promptText="Event Capacity" />
+      <TextField fx:id="eventSpeaker" layoutX="129.0" layoutY="173.0" opacity="0.0" prefHeight="26.0" prefWidth="95.0" promptText="Speaker Name" />
+      <TextField fx:id="eventTopic" layoutX="135.0" layoutY="215.0" opacity="0.0" prefWidth="95.0" promptText="Topic" />
+      <TextField fx:id="eventAgeRestriction" layoutX="124.0" layoutY="260.0" opacity="0.0" prefWidth="95.0" promptText="Age Restriction" />
+      <Button layoutX="55.0" layoutY="260.0" mnemonicParsing="false" onAction="#concertButton" text="Concert" />
+      <Button layoutX="55.0" layoutY="215.0" mnemonicParsing="false" onAction="#workShopButton" text="Workshop" />
+      <Button layoutX="55.0" layoutY="174.0" mnemonicParsing="false" onAction="#seminarButton" text="Seminar" />
+      <Button layoutX="300.0" layoutY="222.0" mnemonicParsing="false" text="Create Event!">
          <font>
             <Font name="Baskerville Old Face" size="40.0" />
          </font></Button>
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
+      <HBox layoutX="56.0" layoutY="104.0" prefHeight="26.0" prefWidth="292.0">
+         <children>
+            <DatePicker fx:id="eventDate" promptText="Event Date" />
+            <ComboBox prefWidth="150.0" promptText="Hour" />
+            <ComboBox prefHeight="26.0" prefWidth="142.0" promptText="Minute" />
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageConroller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageController">
    <children>
       <TextField layoutX="300.0" layoutY="14.0" promptText="Event ID" />
       <Button layoutX="460.0" layoutY="14.0" mnemonicParsing="false" text="Search">
@@ -25,10 +25,26 @@
             <Font name="Baskerville Old Face" size="30.0" />
          </font>
       </Button>
-      <DatePicker layoutX="14.0" layoutY="226.0" promptText="New Event Date" />
-      <TextField layoutX="14.0" layoutY="158.0" promptText="New Event Title" />
-      <TextField layoutX="14.0" layoutY="192.0" promptText="New Event Location" />
+      <TextField layoutX="15.0" layoutY="192.0" promptText="New Event Title" />
+      <TextField layoutX="15.0" layoutY="226.0" promptText="New Event Location" />
       <TextField layoutX="15.0" layoutY="261.0" promptText="New Event Capacity" />
       <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
+      <HBox layoutX="14.0" layoutY="300.0" prefHeight="26.0" prefWidth="286.0">
+         <children>
+            <DatePicker prefHeight="26.0" prefWidth="129.0" promptText="New Event Date" />
+            <ComboBox prefHeight="26.0" prefWidth="79.0" promptText="Hour" />
+            <ComboBox prefHeight="26.0" prefWidth="83.0" promptText="Minute" />
+         </children>
+      </HBox>
+      <Pane layoutX="15.0" layoutY="77.0" prefHeight="107.0" prefWidth="190.0">
+         <children>
+            <VBox prefHeight="107.0" prefWidth="190.0" />
+         </children>
+      </Pane>
+      <Label layoutX="20.0" layoutY="49.0" text="Event Currently Selected">
+         <font>
+            <Font name="Baskerville Old Face" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
