@@ -74,7 +74,7 @@ public class MainMenuController{
     }
 
     //EVENT BUTTONS
-    //Create Event Menu
+    //Create com.example.Event Menu
     @FXML
     private void switchToCreateEvent(ActionEvent e) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateEventMenuPHASE2.fxml"));
@@ -86,7 +86,7 @@ public class MainMenuController{
         stage.setScene(scene);
         stage.show();
     }
-    //Update Event Information Menu
+    //Update com.example.Event Information Menu
     @FXML
     private void switchToUpdateEvent(ActionEvent e) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateEventsMenuPHASE2.fxml"));
@@ -98,7 +98,7 @@ public class MainMenuController{
         stage.setScene(scene);
         stage.show();
     }
-    //Cancel Event Menu
+    //Cancel com.example.Event Menu
     @FXML
     private void switchToCancelEvent(ActionEvent e) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CancelEventMenuPHASE2.fxml"));
@@ -136,7 +136,7 @@ public class MainMenuController{
     }
 
     //BOOKING BUTTONS
-    //Book an Event Menu
+    //Book an com.example.Event Menu
     @FXML
     private void switchToCreateBooking(ActionEvent e) throws IOException{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateBookingMenuPHASE2.fxml"));
@@ -162,7 +162,7 @@ public class MainMenuController{
     }
 
     //WAITLIST BUTTONS
-    //View Event Waitlist Menu
+    //View com.example.Event Waitlist Menu
     //Remove a Waitlist Booking Menu
 
 }

@@ -25,7 +25,7 @@
                                     </VBox>
                                  </content>
                             </TitledPane>
-                            <TitledPane animated="false" text="Event">
+                            <TitledPane animated="false" text="com.example.Event">
                                  <content>
                                     <VBox prefHeight="200.0" prefWidth="100.0" />
                                  </content>

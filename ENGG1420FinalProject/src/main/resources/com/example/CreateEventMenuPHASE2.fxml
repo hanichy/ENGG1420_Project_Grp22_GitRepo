@@ -22,7 +22,7 @@
       <Button layoutX="55.0" layoutY="260.0" mnemonicParsing="false" onAction="#concertButton" text="Concert" />
       <Button layoutX="55.0" layoutY="215.0" mnemonicParsing="false" onAction="#workShopButton" text="Workshop" />
       <Button layoutX="55.0" layoutY="174.0" mnemonicParsing="false" onAction="#seminarButton" text="Seminar" />
-      <Button layoutX="300.0" layoutY="222.0" mnemonicParsing="false" text="Create Event!">
+      <Button layoutX="300.0" layoutY="222.0" mnemonicParsing="false" onAction="#createEvent" text="Create Event">
          <font>
             <Font name="Baskerville Old Face" size="40.0" />
          </font></Button>
@@ -30,8 +30,8 @@
       <HBox layoutX="56.0" layoutY="104.0" prefHeight="26.0" prefWidth="292.0">
          <children>
             <DatePicker fx:id="eventDate" promptText="Event Date" />
-            <ComboBox prefWidth="150.0" promptText="Hour" />
-            <ComboBox prefHeight="26.0" prefWidth="142.0" promptText="Minute" />
+            <ComboBox fx:id="hour" prefWidth="150.0" promptText="Hour" visibleRowCount="24" />
+            <ComboBox fx:id="minute" prefHeight="26.0" prefWidth="142.0" promptText="Minute" visibleRowCount="4" />
          </children>
       </HBox>
    </children>

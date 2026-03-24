@@ -25,15 +25,15 @@
             <Font name="Baskerville Old Face" size="30.0" />
          </font>
       </Button>
-      <TextField layoutX="15.0" layoutY="192.0" promptText="New Event Title" />
-      <TextField layoutX="15.0" layoutY="226.0" promptText="New Event Location" />
-      <TextField layoutX="15.0" layoutY="261.0" promptText="New Event Capacity" />
+      <TextField fx:id="eventTitle" layoutX="15.0" layoutY="192.0" promptText="New Event Title" />
+      <TextField fx:id="eventLocation" layoutX="15.0" layoutY="226.0" promptText="New Event Location" />
+      <TextField fx:id="eventCapacity" layoutX="15.0" layoutY="261.0" promptText="New Event Capacity" />
       <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
       <HBox layoutX="14.0" layoutY="300.0" prefHeight="26.0" prefWidth="286.0">
          <children>
-            <DatePicker prefHeight="26.0" prefWidth="129.0" promptText="New Event Date" />
-            <ComboBox prefHeight="26.0" prefWidth="79.0" promptText="Hour" />
-            <ComboBox prefHeight="26.0" prefWidth="83.0" promptText="Minute" />
+            <DatePicker fx:id="eventDate" prefHeight="26.0" prefWidth="129.0" promptText="New Event Date" />
+            <ComboBox fx:id="hour" prefHeight="26.0" prefWidth="79.0" promptText="Hour" />
+            <ComboBox fx:id="minute" prefHeight="26.0" prefWidth="83.0" promptText="Minute" />
          </children>
       </HBox>
       <Pane layoutX="15.0" layoutY="77.0" prefHeight="107.0" prefWidth="190.0">

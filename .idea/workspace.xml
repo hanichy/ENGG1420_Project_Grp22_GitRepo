@@ -4,18 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Assigned User and Events Button in Main Panel, then hid it. Next I will implement the back end of Events into the UI.">
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Fixed some of the spelling mistakes. Updated the date to include the time.">
+      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Event.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageConroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/WaitlistPageConrtoller.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/WaitlistPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CancelEventMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CancelEventMenuPHASE2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateEventMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateEventMenuPHASE2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventRosterMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventRosterMenuPHASE2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventWaitlistMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventWaitlistMenuPHASE2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MenuPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MenuPanel.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/SearchEventMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/SearchEventMenuPHASE2.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/UpdateEventsMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/UpdateEventsMenuPHASE2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/engg1420finalproject/MainMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/engg1420finalproject/MainMenuPHASE2.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -87,6 +87,9 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\grace\OneDrive\ENGG1420-Labs\ENGG1420_Project_Grp22_GitRepo\ENGG1420FinalProject\src\main\resources\com\example" />
       <recent name="C:\Users\grace\OneDrive\ENGG1420-Labs\ENGG1420_Project_Grp22_GitRepo\ENGG1420FinalProject\src\main\java\com\example" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -153,7 +156,7 @@
       <workItem from="1774032344310" duration="1540000" />
       <workItem from="1774033906966" duration="1366000" />
       <workItem from="1774054497457" duration="2777000" />
-      <workItem from="1774118746710" duration="1810000" />
+      <workItem from="1774118746710" duration="10918000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Main Menu from a jumble of buttons to a navagation drawer.">
       <option name="closed" value="true" />
@@ -267,7 +270,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774056033635</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed some of the spelling mistakes. Updated the date to include the time.">
+      <option name="closed" value="true" />
+      <created>1774231368690</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1774231368690</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -288,6 +299,7 @@
     <MESSAGE value="Added all the fxml files for the menu. Next going to assign the buttons in menu panel and then hide it so I can work on the UI looks." />
     <MESSAGE value="Assigned the user buttons in the main panel." />
     <MESSAGE value="Assigned User and Events Button in Main Panel, then hid it. Next I will implement the back end of Events into the UI." />
-    <option name="LAST_COMMIT_MESSAGE" value="Assigned User and Events Button in Main Panel, then hid it. Next I will implement the back end of Events into the UI." />
+    <MESSAGE value="Fixed some of the spelling mistakes. Updated the date to include the time." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some of the spelling mistakes. Updated the date to include the time." />
   </component>
 </project>
