@@ -1,13 +1,7 @@
 package com.example.bookingsys;
 
 import java.io.Serializable;
-import java.lang.reflect.Array;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 import java.io.*;
 
@@ -88,7 +82,8 @@ public class BookingManagement implements Serializable {
                 String date = data[3];
                 String status = data[4];
 
-                User newUser = null;
+                Booking b = new  Booking(eventId, userId, bookingId, date, status);
+                bookingList.add(b);
             }
         }catch(IOException e){
             System.err.println("Error saving user to file");
@@ -99,7 +94,7 @@ public class BookingManagement implements Serializable {
     public void createBooking(User user, Event event){
         //check for user type limit
         if(!canUserBookMore(user)){
-            throw new IllegalArgumentException(user.getUserType() + "has reached thier maximum booking limit");
+            throw new IllegalArgumentException(user.getUserType() + "has reached their maximum booking limit");
         }
         //check for duplicates
         if(isAlreadyBooked(user.getUserId(), event.getEventId())){
@@ -111,11 +106,11 @@ public class BookingManagement implements Serializable {
             status = Booking.Status_WAITLISTED;
         }
         //create and add
-        String bId  = "B" + uniqueBookingId();
+        String bId  = uniqueBookingId();
         Booking newBooking = new Booking(bId, user.getUserId(), event.getEventId(), event.getDateTime(), status);
 
         bookingList.add(newBooking);
-        saveBookingState("booking.csv");
+        saveBookingState("booking_state.ser");
     }
     //helper functions
 
