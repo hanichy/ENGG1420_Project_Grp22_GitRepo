@@ -11,6 +11,7 @@ public class UserManagement implements Serializable{
 
     private UserManagement()
     {
+
         userList = new ArrayList<>();
     }
 
@@ -25,20 +26,20 @@ public class UserManagement implements Serializable{
 
     //startup the file function
     public void startup(){
-        String stateFile = "system_state.ser";
+        String stateFile = "user_state.ser";
         File file = new File(stateFile);
 
         if(file.exists()){
             restoreFullSystemState(stateFile);
         }
         else{
-            loadEventsFromCSV("user.csv");
+            loadUsersFromCSV("user.csv");
         }
     }
 
     //File persistence
     public void saveUserState(String fileName){
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName)){
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
             oos.writeObject(userList);
         }catch(IOException e){
             System.err.println("Error printing events to file" + e.getMessage());
@@ -52,7 +53,7 @@ public class UserManagement implements Serializable{
         if(!file.exists()){
             return;
         }
-        try(ObjectIuputStream ois = new ObjectIuputStream(new FileInputStream(fileName))){
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))){
             //restore static list
             userList = (ArrayList<User>) ois.readObject();
             System.out.println("Events restored successfully from" + fileName);
@@ -62,7 +63,7 @@ public class UserManagement implements Serializable{
     }
 
     //CSV loading
-    public static void loadEventsFromCSV(String fileName){
+    public void loadUsersFromCSV(String fileName){
         try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
             String line;
             br.readLine();
@@ -102,6 +103,44 @@ public class UserManagement implements Serializable{
         }catch(IOException e){
             System.err.println("Error saving user to file");
         }
+    }
+
+    //keep the user list more organize
+    private User createUserByType(String type, String id, String name, String email){
+        return switch (type) {
+            case "Guest" -> new Guest(id, name, email);
+            case "Staff" -> new Staff(id, name, email);
+            case "Student" -> new Student(id, name, email);
+            default -> null;
+        };
+    }
+
+    //generate random unique Id for user
+    private String uniqueUserId() {
+        Random rand = new Random();
+        String newId;
+        boolean isDuplicated;
+        do{
+            isDuplicated = false;
+            newId = "U" + (100 + rand.nextInt(999));
+            for(User u: userList){
+                if(u.getUserId().equals(newId)){
+                    isDuplicated = true;
+                    break;
+                }
+            }
+        }while (isDuplicated);
+        return newId;
+    }
+
+    //find user by id num to make sure each id is unique
+    public User findUserById(String id) {
+        for (User u : userList) {
+            if (u.getUserId().equalsIgnoreCase(id)) {
+                return u;
+            }
+        }
+        return null;
     }
 
     public ArrayList<User> getUserList() {

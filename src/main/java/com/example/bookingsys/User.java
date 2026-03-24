@@ -11,26 +11,24 @@ import java.io.Serializable;
 public abstract class User {
     // Basic user info
     public String userId;
-
     public String name;
     public String email;
 
-    public static ArrayList<User> userList = new ArrayList<User>();
-    protected static int userCount = 0;
-
     // Constructor
-    public User(String name, String email) {
-        this.userId = "U" + uniqueUserId();
-
+    public User(String userId,String name, String email) {
+        this.userId = userId;
         this.name = name;
         this.email = email;
-
-        userList.add(this);
-        userCount++;
-
     }
 
+    public abstract String getUserType();
+
+    public abstract int getMaxBookings();
+
     // Getters
+    public String getUserId() {
+        return userId;
+    }
     public String getName() {
 
         return name;
@@ -39,80 +37,54 @@ public abstract class User {
 
         return email;
     }
-
-    //generate random unique Id for user
-    private String uniqueUserId() {
-        Random rand = new Random();
-        String newId;
-        do{
-            int num = rand.nextInt(999);
-            newId = String.valueOf(num);
-        }while (findUserById(newId) == null);
-        return newId;
-    }
-
-    //find user by id num to make sure each id is unique
-    public static User findUserById(String id) {
-        for (User user : userList) {
-            if (user.userId.equals(id)) {
-                return user;
-            }
-        }
-        return null;
-    }
-
-    // Abstract method: must be implemented by subclasses
-    public abstract String getUserType();
-
-    //List Users
-    public static void listUser(){
-        System.out.println("User List:" + userCount + "Total User:");
-        for (User user : userList) {
-            System.out.println("ID" + user.userId + "| Name" + user.name + "| Email" + user.email + "| Type:" + user.getUserType());
-        }
-    }
 }
 
 //Subclasses for User class
 class Student extends User {
-    public String userType;
+    public Student(String userId, String name, String email) {
+        super(userId, name, email);
+    }
 
+    @Override
     public String getUserType() {
-        userType =  "Student";
-        return  userType;
+        return  "Student";
     }
-    public Student(String name, String email, String userType) {
-        super(name, email);
-        this.userType = userType;
+    @Override
+    //max 3 bookings for students
+    public int getMaxBookings() {
+        return 3;
     }
+
 
 }
 
 class Staff extends User {
-    public String userType;
-
+    public Staff(String userId, String name, String email) {
+        super(userId, name, email);
+    }
+    @Override
     public String getUserType() {
-       userType =  "Staff";
-       return  userType;
+       return  "Staff";
+    }
+    @Override
+    //max 5 bookings for staff
+    public int getMaxBookings() {
+        return 5;
     }
 
-    public Staff(String name, String email, String userType) {
-        super(name, email);
-        this.userType = userType;
-    }
 }
 
 class Guest extends User {
-    public String userType;
-
+    public Guest(String userId, String name, String email) {
+        super(userId, name, email);
+    }
+    @Override
     public String getUserType() {
-        userType =  "Guest";
-        return  userType;
+        return  "Guest";
     }
-
-    public Guest(String name, String email, String userType) {
-        super(name, email);
-        this.userType = userType;
+    @Override
+    //max 1 booking for guest
+    public int getMaxBookings() {
+        return 1;
     }
-
 }
