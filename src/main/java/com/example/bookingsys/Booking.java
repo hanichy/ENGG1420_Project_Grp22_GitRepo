@@ -29,7 +29,7 @@ public class Booking {
 
     public Booking(String bookingId, String userId, String eventId, String createdAt, String bookingStatus)
     {
-        this.bookingId = "B" + uniqueBookingId();
+        this.bookingId = bookingId;
         this.userId = userId;
         this.eventId = eventId;
         this.createdAt = createdAt;
@@ -38,64 +38,24 @@ public class Booking {
         bookingList.add(this);
     }
 
-    public void cancelBooking(){
-        this.bookingStatus = "Cancelled";
+    //getters and setters
+
+    public void setBookingStatus(String bookingStatus) {
+        this.bookingStatus = bookingStatus;
     }
-    public static Booking findBookingById(String id){
-        for(Booking b : bookingList){
-            if(b.bookingId.equals(id)){
-                return b;
-            }
-        }
-        return null;
+    public String getBookingStatus() {
+        return bookingStatus;
+    }
+    public String getBookingId() {
+        return bookingId;
+    }
+    public String getEventId() {
+        return eventId;
+    }
+    public String getUserId() {
+        return userId;
     }
 
-    //Generate random booking ID
-    private String uniqueBookingId()
-    {
-        Random rand = new Random();
-        String newId;
-        do{
-            int num = rand.nextInt(999);
-            newId = String.valueOf(num);
-        }while(findBookingById(newId) == null);
-        return newId;
-    }
-
-    // checks if the user already has a booking, if they're already in the waitlist and if they cancelled their booking
-    private boolean hasActiveBookingForUser(String userId){
-        for (Booking b : confirmedBookings) {
-            if (b.userId.equals(userId) && !Status_CANCELLED.equals(b.bookingStatus)){
-                return true;
-            }
-        }
-        return false;
-    }
-
-    //booking method
-    public Booking bookUser(String userId, String createdAt) {
-        if (!this.status) throw new IllegalArgumentException("Event is cancelled. Cannot book.");
-        //check if the user has proper data entered
-        if (userId == null || userId.isBlank()) throw new IllegalArgumentException("userId required");
-        if (createdAt == null || createdAt.isBlank()) throw new IllegalArgumentException("createdAt required");
-        //makes sure the user doesn't already have a booking
-        if (hasActiveBookingForUser(userId) || waitlist.containsUser(userId)) {
-            throw new IllegalArgumentException("User already booked or waitlisted for this event.");
-        }
-
-        //checks if there are seats available
-        if (confirmedBookings.size() < this.capacity) {
-            Booking b = new Booking(bookingId, userId, eventId, createdAt, Status_CONFIRMED);
-            confirmedBookings.add(b);
-            return b;
-        }
-        //booking is created and status becomes confirmed
-        else {
-            Booking b = new Booking(bookingId, userId, eventId, createdAt, Status_WAITLISTED);
-            waitlistBookings.add(b);
-            return b;
-        }
-    }
     //put user out of waitlist when there's a spot
     private Booking promoteWaitlist (){
         Booking promoted = waitlist.RemRetBooking();

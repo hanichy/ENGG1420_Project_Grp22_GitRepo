@@ -1,5 +1,6 @@
 package com.example.bookingsys;
 
+import java.io.Serializable;
 import java.lang.reflect.Array;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -7,68 +8,171 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
+import java.io.*;
 
-public class BookingManagement {
+public class BookingManagement implements Serializable {
+    private static final long serialVersionUID = 1L;
     private static com.example.bookingsys.BookingManagement instance;
+    //Use ArrayList to Save the different bookingList
     private static ArrayList<Booking> bookingList;
 
-    //Use ArrayList to Save the different bookingList
-    //This will store the events with ArrayLists and CSV Files
-
     //Create booking Function Here
-    public void bookEvent(Booking newBooking){
-        bookingList.add(newBooking);
-    }
-
-    public static com.example.bookingsys.BookingManagement getInstance(){
-        if (instance == null){
-            instance = new com.example.bookingsys.BookingManagement();
-        }
-        return instance;
-    }
-    //Gives the ArrayList of the booking
-    public ArrayList<Booking> getBookingList(){
-        return bookingList;
-    }
-
     //Constructor
     private BookingManagement(){
         this.bookingList = new ArrayList<>();
     }
 
-    public static ArrayList<Booking> findByUserId(String userId) {
-        ArrayList<Booking> userBookingList;
-        userBookingList = new ArrayList<>();
-        for (Booking b : bookingList) {
-            if (b.userId.equals(userId)) {
-                userBookingList.add(b);
-            }
+    public static BookingManagement getInstance(){
+        if(instance == null){
+            instance = new BookingManagement();
         }
-        if (!userBookingList.isEmpty()){
-            return userBookingList;
+        return instance;
+    }
+
+    //startup the file function
+    public void startup(){
+        String stateFile = "booking_state.ser";
+        File file = new File(stateFile);
+
+        if(file.exists()){
+            restoreFullSystemState(stateFile);
         }
         else{
-            return null;
+            loadBookingsFromCSV("booking.csv");
         }
     }
 
-    public static ArrayList<Booking> findByEventId(String eventId) {
-        ArrayList<Booking> eventBookingList;
-        eventBookingList = new ArrayList<>();
-        for (Booking b : bookingList) {
-            if (b.eventId.equals(eventId)) {
-                eventBookingList.add(b);
-            }
-        }
-        if (!eventBookingList.isEmpty()){
-            return eventBookingList;
-        }
-        else{
-            return null;
+    //File persistence
+    public void saveBookingState(String fileName){
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
+            oos.writeObject(bookingList);
+        }catch(IOException e){
+            System.err.println("Error printing events to file" + e.getMessage());
         }
     }
 
+    @SuppressWarnings("unchecked")
+    //function to restore file
+    public void restoreFullSystemState(String fileName){
+        File file = new File(fileName);
+        if(!file.exists()){
+            return;
+        }
+        try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))){
+            //restore static list
+            bookingList = (ArrayList<Booking>) ois.readObject();
+            System.out.println("Events restored successfully from" + fileName);
+        }catch(IOException | ClassNotFoundException e){
+            System.err.println("Error printing events to file" + e.getMessage());
+        }
+    }
 
+    //CSV loading
+    public void loadBookingsFromCSV(String fileName){
+        try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+            String line;
+            br.readLine();
+
+            while((line = br.readLine()) != null){
+                String[] data = line.split(",", -1);
+
+                if(data.length < 6){
+                    continue;
+                }
+
+                //mapping columns based on booking info
+                String userId = data[0];
+                String eventId = data[1];
+                String bookingId = data[2];
+                String date = data[3];
+                String status = data[4];
+
+                User newUser = null;
+            }
+        }catch(IOException e){
+            System.err.println("Error saving user to file");
+        }
+    }
+
+    //Core booking logic
+    public void createBooking(User user, Event event){
+        //check for user type limit
+        if(!canUserBookMore(user)){
+            throw new IllegalArgumentException(user.getUserType() + "has reached thier maximum booking limit");
+        }
+        //check for duplicates
+        if(isAlreadyBooked(user.getUserId(), event.getEventId())){
+            throw new IllegalArgumentException("Event had been registered");
+        }
+        //determine status based on event capacity
+        String status = Booking.Status_CONFIRMED;
+        if(countConfirmedForEvent(event.getEventId()) >= event.getCapacity()){
+            status = Booking.Status_WAITLISTED;
+        }
+        //create and add
+        String bId  = "B" + uniqueBookingId();
+        Booking newBooking = new Booking(bId, user.getUserId(), event.getEventId(), event.getDateTime(), status);
+
+        bookingList.add(newBooking);
+        saveBookingState("booking.csv");
+    }
+    //helper functions
+
+    //check if user reached max bookings
+    public boolean canUserBookMore(User user){
+        int count = 0;
+        for(Booking booking : bookingList){
+            if(booking.getUserId().equals(user.getUserId()) && booking.getBookingStatus().equals(Booking.Status_CONFIRMED)){
+                count++;
+            }
+        }
+        return count < user.getMaxBookings();
+    }
+
+    //check if the booking is booked by the user
+    public boolean isAlreadyBooked(String userId, String eventId){
+        for(Booking booking : bookingList){
+            if(booking.getUserId().equals(userId) && booking.getEventId().equals(eventId) && !booking.getBookingStatus().equals(Booking.Status_CANCELLED)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //count the number of event that have been confirmed
+    public int countConfirmedForEvent(String eventId){
+        int count =0;
+        for(Booking booking : bookingList){
+            if(booking.getEventId().equals(eventId) && booking.getBookingStatus().equals(Booking.Status_CONFIRMED)){
+                count++;
+            }
+        }
+        return count;
+    }
+
+    //generate a unique booking id
+    private String uniqueBookingId(){
+        Random random = new Random();
+        String newId;
+        do{
+            newId = "B" + (100+random.nextInt(999));
+        }while(findBookingById(newId) != null);
+        return newId;
+    }
+    //find booking by id to make sure every id is unique
+    public Booking findBookingById(String id){
+        for(Booking booking : bookingList){
+            if(booking.getBookingId().equalsIgnoreCase(id)){
+                return booking;
+            }
+        }
+        return null;
+    }
+
+    public static ArrayList<Booking> getBookingList() {
+        return bookingList;
+    }
 }
 
 
