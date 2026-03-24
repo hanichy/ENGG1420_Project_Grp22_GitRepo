@@ -14,9 +14,6 @@ public class Booking implements Serializable {
     public static final String Status_WAITLISTED = "WaitListed";
     public static final String Status_CANCELLED = "Cancelled";
 
-    protected int capacity;
-    public boolean status; //True = active False = Cancelled
-
 
     public Booking(String bookingId, String userId, String eventId, String createdAt, String bookingStatus)
     {
@@ -44,15 +41,5 @@ public class Booking implements Serializable {
         return userId;
     }
 
-    //put user out of waitlist when there's a spot
-    private Booking promoteWaitlist (){
-        Booking promoted = waitlist.RemRetBooking();
-        if (promoted == null) {
-            return null;
-        }
-        else{
-            return promoted;
-        }
-    }
 }
 

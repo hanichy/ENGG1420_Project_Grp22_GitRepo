@@ -1,8 +1,12 @@
 package com.example.bookingsys;
-import java.util.ArrayList;
-public class Waitlist {
 
-    //
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Waitlist implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    //list of bookings that in the waitlist status
     private final ArrayList<Booking> waitlistBookings = new ArrayList<>();
 
     //checks if the waitlist is null
@@ -14,11 +18,18 @@ public class Waitlist {
         return waitlistBookings.remove(0);
     }
 
+    //add a new booking to the end of the waitlist
+    public void adBooking(Booking booking){
+        if(booking != null){
+            waitlistBookings.add(booking);
+        }
+    }
+
     //checks for null bookingId
     //loops through list to find the id that the user wants to delete
     //if the booking id exist, delete
     //if it's not found return null
-    public Booking removeId(String bookingId){
+    public Booking removeById(String bookingId){
         if (bookingId == null || bookingId.isBlank()){
             throw new IllegalArgumentException("bookingId required");
         }
@@ -36,22 +47,28 @@ public class Waitlist {
     //if there is the same userid and it sint cancelled then it returns true, owtherwise false
     public boolean containsUser(String userId) {
         for (Booking b : waitlistBookings){
-            if (b.userId.equals(userId) && !"Cancelled".equals(b.bookingStatus)) {
+            //check for active waitlisted status only
+            if (b.userId.equals(userId) && Booking.Status_WAITLISTED.equals(b.getBookingStatus())) {
                 return true;
             }
         }
         return false;
     }
+
     //size check
     public int size() {
+
         return waitlistBookings.size();
     }
+
     //returns a copy of the waitlist
-    public ArrayList<Booking> asListCopy(){
+    public ArrayList<Booking> asListCopy()
+    {
         return new ArrayList<>(waitlistBookings);
     }
     //clears waitlist
-    public void clear(){
+    public void clear()
+    {
         waitlistBookings.clear();
     }
 

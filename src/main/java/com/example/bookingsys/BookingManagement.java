@@ -8,6 +8,7 @@ import java.io.*;
 public class BookingManagement implements Serializable {
     private static final long serialVersionUID = 1L;
     private static com.example.bookingsys.BookingManagement instance;
+
     //Use ArrayList to Save the different bookingList
     private static ArrayList<Booking> bookingList;
 
@@ -163,6 +164,30 @@ public class BookingManagement implements Serializable {
             }
         }
         return null;
+    }
+
+    //create and promote user from waitlist
+    public void cancelAndPromote(String bookingId){
+        Booking toCancel = findBookingById(bookingId);
+
+        if(toCancel != null && !toCancel.getBookingStatus().equals(Booking.Status_CANCELLED)){
+            //mark the current booking as Cancelled
+            toCancel.setBookingStatus(Booking.Status_CANCELLED);
+            String eventId = toCancel.getEventId();
+
+            //find the next user on the waitlist to promote to this event
+            for(Booking booking : bookingList){
+                if(booking.getEventId().equals(eventId) &&  booking.getBookingStatus().equals(Booking.Status_WAITLISTED)){
+                    booking.setBookingStatus(Booking.Status_CONFIRMED);
+                    System.out.println("Booking has been confirmed");
+
+                    //promote one person only to fill onr empty spot
+                    break;
+                }
+            }
+            //save updated state to file
+            saveBookingState("booking_state.ser");
+        }
     }
 
     public static ArrayList<Booking> getBookingList() {
