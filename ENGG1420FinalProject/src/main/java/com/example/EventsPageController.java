@@ -215,13 +215,20 @@ public class EventsPageController {
     private void createEvent(ActionEvent e){
       try{
           //Check if any main fields are empty
-          if(eventTitle.getText().isBlank()||eventLocation.getText().isBlank()){
+          if(eventTitle.getText().isBlank()||eventLocation.getText().isBlank()||eventDate.getValue().toString().isBlank()){
               showError("Validation Error", "Field(s) are Incomplete");
               return;
           }
+          //Check if a time has been selected
+          Integer selectedHour = hour.getValue();
+          Integer selectedMintue = minute.getValue();
+          if(selectedHour == null || selectedMintue == null){
+              showError("Validation Error", "Field(s) are incomplete");
+              return;
+          }
           //Check if date is empty or in the past
-          if (getEventDate().isBlank()){
-              showError("Selection Error", "Cannot book an event in the past.");
+          if (getEventDate() == null){
+              showError("Selection Error", "Select a future date");
               return;
           }
           //Check that user has chosen an event type
@@ -257,6 +264,7 @@ public class EventsPageController {
           String newId = event.uniqueEventID();
           Event newEvent = null;
 
+
           //Create Event Based on Event Type
           if (eventType.equals("Workshop")) {
               Workshop w = new Workshop(newId, eventTitle.getText(), getEventDate(), eventLocation.getText(), cap, eventTopic.getText());
@@ -285,10 +293,17 @@ public class EventsPageController {
 
         //Get Hour from ComboBox
         Integer selectedHour = hour.getValue();
-        String eventHour = selectedHour.toString();
         //Get Minute from ComboBox
         Integer selectedMinute = minute.getValue();
-        String eventMinute = selectedMinute.toString();
+        //Only create a string if the field is not empty
+        if(selectedMinute != null || selectedHour != null){
+            String eventMinute = selectedMinute.toString();
+            String eventHour = selectedHour.toString();
+            String dateTime = date+"T"+eventHour+":"+eventMinute;
+
+            return dateTime;
+        }
+
 
         //Check that user is booking in the future
         if(eventDate.getValue().isBefore(eventDate.getValue().now())){
@@ -297,14 +312,12 @@ public class EventsPageController {
         else if (eventDate.getValue().equals(LocalDate.now())){
             LocalTime selectedTime = LocalTime.of(selectedHour, selectedMinute);
             if (selectedTime.isBefore(LocalTime.now())) {
-                showError("Time Error", "That time has already passed today.");
                 return null;
             }
         }
 
-        String dateTime = date+"T"+eventHour+":"+eventMinute;
 
-        return dateTime;
+        return null;
     }
     //Shows Information of Successfully created event
     private void showInfo(String title, String content) {
