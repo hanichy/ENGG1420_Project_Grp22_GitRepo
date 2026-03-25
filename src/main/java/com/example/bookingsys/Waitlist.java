@@ -15,7 +15,7 @@ public class Waitlist implements Serializable {
         if (waitlistBookings.isEmpty()) {
             return null;
         }
-        return waitlistBookings.remove(0);
+        return waitlistBookings.removeFirst();
     }
 
     //add a new booking to the end of the waitlist

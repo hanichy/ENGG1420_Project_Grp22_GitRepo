@@ -3,6 +3,7 @@ package com.example.bookingsys;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.io.BufferedWriter;
 
 //Manages the Saving Events Aspect
 //Specifically the List and File
@@ -44,8 +45,33 @@ public class EventManagement implements Serializable {
     //file persistence
     //save whole event state
     public void saveEventState(String fileName){
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
-            oos.writeObject(eventList);
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
+            for (Event event : eventList){
+                StringBuilder sb = new StringBuilder();
+
+                sb.append(event.getEventId()).append(",");
+                sb.append(event.getTitle()).append(",");
+                sb.append(event.getDateTime()).append(",");
+                sb.append(event.getLocation()).append(",");
+                sb.append(event.getCapacity()).append(",");
+                sb.append(event.status ? "Active" : "Cancelled").append(",");
+
+                // Subtype specific logic (Columns 7-9)
+                if (event instanceof Workshop)
+                {
+                    sb.append("Workshop,").append(((Workshop) event).getTopic()).append(",,");
+                }
+                else if (event instanceof Seminar) {
+                    sb.append("Seminar,,").append(((Seminar) event).getSpeaker()).append(",");
+                }
+                else if (event instanceof Concert) {
+                    sb.append("Concert,,,") .append(((Concert) event).getAgeRestriction());
+                }
+
+                bw.write(sb.toString());
+                bw.newLine();
+            }
+            System.out.println("Event saved successfully");
         } catch(IOException e){
             System.err.println("Error saving events to file: " + e.getMessage());
         }
