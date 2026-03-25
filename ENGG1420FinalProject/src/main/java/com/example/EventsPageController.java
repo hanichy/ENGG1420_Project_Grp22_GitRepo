@@ -59,6 +59,7 @@ public class EventsPageController {
     @FXML
     private void initialize() {
         if (eventsContainer != null) {
+            EventManagement.loadEventsFromCSV("events.csv");
             displayList();
         }
         hourInitialize();
@@ -269,13 +270,16 @@ public class EventsPageController {
           if (eventType.equals("Workshop")) {
               Workshop w = new Workshop(newId, eventTitle.getText(), getEventDate(), eventLocation.getText(), cap, eventTopic.getText());
               event.createEvent(w);
+              event.saveEventState("events.csv");
           } else if (eventType.equals("Seminar")) {
               Seminar s = new Seminar(newId, eventTitle.getText(), getEventDate(), eventLocation.getText(), cap, eventSpeaker.getText());
               event.createEvent(s);
+              event.saveEventState("events.csv");
           } else if (eventType.equals("Concert")) {
               int aR = parseInteger(eventAgeRestriction.getText(), "Age Restriction");
               Concert c = new Concert(newId, eventTitle.getText(), getEventDate(), eventLocation.getText(), cap, String.valueOf(aR));
               event.createEvent(c);
+              event.saveEventState("events.csv");
           }
 
           showInfo("Success", "Event created successfully!");

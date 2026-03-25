@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Added input validation for the DateTime. CreateEvent is completed for both GUI and backend currently.">
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Fixed Error with the DatePicker.">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CancelEventMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CancelEventMenuPHASE2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventRosterMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventRosterMenuPHASE2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/SearchEventMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/SearchEventMenuPHASE2.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/events.csv" beforeDir="false" afterPath="$PROJECT_DIR$/events.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +154,7 @@
       <workItem from="1774032344310" duration="1540000" />
       <workItem from="1774033906966" duration="1366000" />
       <workItem from="1774054497457" duration="2777000" />
-      <workItem from="1774118746710" duration="20373000" />
+      <workItem from="1774118746710" duration="22001000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Main Menu from a jumble of buttons to a navagation drawer.">
       <option name="closed" value="true" />
@@ -295,7 +300,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774462696814</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixed Error with the DatePicker.">
+      <option name="closed" value="true" />
+      <created>1774464478507</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1774464478507</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -320,6 +333,7 @@
     <MESSAGE value="Added the Input validation for create event. Next I will add the verification that the date chosen is in the future. As well as make the showInfo show all the events information when informing the user they created an event successfully." />
     <MESSAGE value="Fixed error with CSV not loading into the eventList ArrayList" />
     <MESSAGE value="Added input validation for the DateTime. CreateEvent is completed for both GUI and backend currently." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added input validation for the DateTime. CreateEvent is completed for both GUI and backend currently." />
+    <MESSAGE value="Fixed Error with the DatePicker." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Error with the DatePicker." />
   </component>
 </project>
