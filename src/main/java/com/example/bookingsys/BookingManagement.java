@@ -10,7 +10,7 @@ public class BookingManagement implements Serializable {
     private static com.example.bookingsys.BookingManagement instance;
 
     //Use ArrayList to Save the different bookingList
-    private static ArrayList<Booking> bookingList;
+    private ArrayList<Booking> bookingList;
 
     //Create booking Function Here
     //Constructor
@@ -85,6 +85,10 @@ public class BookingManagement implements Serializable {
 
                 Booking b = new  Booking(eventId, userId, bookingId, date, status);
                 bookingList.add(b);
+
+                getInstance().getBookingList().add(b);
+
+
             }
         }catch(IOException e){
             System.err.println("Error saving user to file");

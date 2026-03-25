@@ -86,14 +86,17 @@ public class UserManagement implements Serializable{
                 switch(type){
                     case "Guest":
                         newUser = new Guest(userId, name, email);
+                        getInstance().getUserList().add(newUser);
                         break;
 
                     case "Staff":
                         newUser = new Staff(userId, name, email);
+                        getInstance().getUserList().add(newUser);
                         break;
 
                         case "Student":
                         newUser = new Student(userId, name, email);
+                        getInstance().getUserList().add(newUser);
                         break;
                 }
                 if(newUser != null){
