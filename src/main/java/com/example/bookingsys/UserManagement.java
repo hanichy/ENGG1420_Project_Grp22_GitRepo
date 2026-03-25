@@ -3,6 +3,7 @@ package com.example.bookingsys;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.io.BufferedWriter;
 
 public class UserManagement implements Serializable{
     private static final long serialVersionUID = 1L;
@@ -39,8 +40,30 @@ public class UserManagement implements Serializable{
 
     //File persistence
     public void saveUserState(String fileName){
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
-            oos.writeObject(userList);
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
+            for (User u : userList){
+                StringBuilder sb = new StringBuilder();
+
+                sb.append(u.getUserId()).append(",");
+                sb.append(u.getName()).append(",");
+                sb.append(u.getEmail()).append(",");
+
+                // Subtype
+                if (u instanceof Staff)
+                {
+                    sb.append("Staff");
+                }
+                else if (u instanceof Student) {
+                    sb.append("Student");
+                }
+                else if (u instanceof Guest) {
+                    sb.append("Guest");
+                }
+
+                bw.write(sb.toString());
+                bw.newLine();
+            }
+            System.out.println("Event saved successfully");
         }catch(IOException e){
             System.err.println("Error printing events to file" + e.getMessage());
         }

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 import java.io.*;
+import java.io.BufferedWriter;
 
 public class BookingManagement implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -40,8 +41,19 @@ public class BookingManagement implements Serializable {
 
     //File persistence
     public void saveBookingState(String fileName){
-        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
-            oos.writeObject(bookingList);
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
+            for (Booking b : bookingList){
+                StringBuilder sb = new StringBuilder();
+
+                sb.append(b.getUserId()).append(",");
+                sb.append(b.getEventId()).append(",");
+                sb.append(b.getBookingId()).append(",");
+                sb.append(b.getBookingStatus()).append(",");
+
+                bw.write(sb.toString());
+                bw.newLine();
+            }
+            System.out.println("Event saved successfully");
         }catch(IOException e){
             System.err.println("Error printing events to file" + e.getMessage());
         }
@@ -194,7 +206,7 @@ public class BookingManagement implements Serializable {
         }
     }
 
-    public static ArrayList<Booking> getBookingList() {
+    public ArrayList<Booking> getBookingList() {
         return bookingList;
     }
 }
