@@ -96,18 +96,21 @@ public class EventManagement implements Serializable {
                         String topic =  data[7];
                         if(topic.isEmpty()) throw new IllegalArgumentException("Error: Topic is empty");
                         newEvent = new Workshop(eventId, title, dateTime, location, capacity, topic);
+                        getInstance().getEventList().add(newEvent);
                         break;
 
                     case "Seminar":
                         String speaker = data[8];
                         if(speaker.isEmpty()) throw new IllegalArgumentException("Error: Speaker is empty");
                         newEvent = new Seminar(eventId, title, dateTime, location, capacity, speaker);
+                        getInstance().getEventList().add(newEvent);
                         break;
 
                     case "Concert":
                         String ageReq =  data[9];
                         if(ageReq.isEmpty()) throw new IllegalArgumentException("Error: Concert requires age restriction");
                         newEvent = new Concert(eventId, title, dateTime, location, capacity, ageReq);
+                        getInstance().getEventList().add(newEvent);
                         break;
                 }
                 if(newEvent != null && statusValue.equalsIgnoreCase("Cancelled")){

@@ -70,7 +70,7 @@ public class EventsPageController {
         eventsContainer.getChildren().clear();
 
         //Loop through List
-        for(Event e :event.getEventList()){
+        for(Event e : event.getEventList()){
             VBox card = new VBox(5);
             card.setStyle("-fx-padding: 10; -fx-border-color: #cccccc; -fx-background-color: #f9f9f9; -fx-border-radius: 5;");
 
