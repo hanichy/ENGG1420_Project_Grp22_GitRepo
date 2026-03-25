@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class EventsPageController {
     //ComboBox Hour
@@ -62,6 +63,7 @@ public class EventsPageController {
         }
         hourInitialize();
         minuteInitialize();
+        dateInitialization();
     }
     //List Events
     @FXML
@@ -120,13 +122,13 @@ public class EventsPageController {
         stage.setScene(scene);
         stage.show();
 
-        System.out.println("Switching...");
     }
     //Hour ComboBox Initialization
     @FXML
     private void hourInitialize(){
         //Populate the options
         for (int i = 0; i< 24;i++){
+            //Make sure there is a Combo Box
             if(hour!=null) {
                 hour.getItems().add(i);
             }
@@ -137,9 +139,32 @@ public class EventsPageController {
     private void minuteInitialize(){
         //Populate the options
         for (int i = 0; i<46; i=i+15){
+            //Make sure there is a Combo Box
             if (minute!=null) {
                 minute.getItems().add(i);
             }
+        }
+    }
+    //DatePicker Initialization
+    @FXML
+    private void dateInitialization(){
+        //Make sure there is a DatePicker
+        if (eventDate!=null) {
+            eventDate.setDayCellFactory(picker -> new DateCell() {
+                @Override
+                public void updateItem(LocalDate date, boolean empty) {
+                    super.updateItem(date, empty);
+
+                    // Disable all dates before today
+                    if (date.isBefore(LocalDate.now())) {
+                        //eventDate.setDisable(true);
+                        setStyle("-fx-background-color: #FF0000;"); // Optional: grey out the past dates
+                    }
+                }
+            });
+
+            //Prevent User from Typing in a Past Date
+            eventDate.setEditable(false);
         }
     }
     //Show Error
@@ -190,8 +215,13 @@ public class EventsPageController {
     private void createEvent(ActionEvent e){
       try{
           //Check if any main fields are empty
-          if(eventTitle.getText().isBlank()||eventLocation.getText().isBlank()|| getEventDate().isBlank()){
+          if(eventTitle.getText().isBlank()||eventLocation.getText().isBlank()){
               showError("Validation Error", "Field(s) are Incomplete");
+              return;
+          }
+          //Check if date is empty or in the past
+          if (getEventDate().isBlank()){
+              showError("Selection Error", "Cannot book an event in the past.");
               return;
           }
           //Check that user has chosen an event type
@@ -202,7 +232,7 @@ public class EventsPageController {
           //Check if the event has its Topic/Speaker/Age Restriction
           else{
               if (eventType == "Workshop"){
-                  if (eventTopic.getText().isBlank()){
+                  if (eventTopic.getText().isEmpty()){
                       showError("Validation Error", "Field(s) are Incomplete");
                       return;
                   }
@@ -251,8 +281,8 @@ public class EventsPageController {
     //Get Date Time in YYYY/MM/DDTHH:MM
     private String getEventDate(){
         //Get Date from Datepicker
-        LocalDate selectedDate = eventDate.getValue();
-        String date = selectedDate.toString();
+        String date = eventDate.getValue().toString();
+
         //Get Hour from ComboBox
         Integer selectedHour = hour.getValue();
         String eventHour = selectedHour.toString();
@@ -260,11 +290,21 @@ public class EventsPageController {
         Integer selectedMinute = minute.getValue();
         String eventMinute = selectedMinute.toString();
 
+        //Check that user is booking in the future
+        if(eventDate.getValue().isBefore(eventDate.getValue().now())){
+            return null;
+        }
+        else if (eventDate.getValue().equals(LocalDate.now())){
+            LocalTime selectedTime = LocalTime.of(selectedHour, selectedMinute);
+            if (selectedTime.isBefore(LocalTime.now())) {
+                showError("Time Error", "That time has already passed today.");
+                return null;
+            }
+        }
+
         String dateTime = date+"T"+eventHour+":"+eventMinute;
 
         return dateTime;
-
-
     }
     //Shows Information of Successfully created event
     private void showInfo(String title, String content) {
