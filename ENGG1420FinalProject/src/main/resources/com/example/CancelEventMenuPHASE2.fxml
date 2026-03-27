@@ -11,8 +11,8 @@
             <VBox fx:id="eventsContainer" prefHeight="238.0" prefWidth="334.0" />
          </content>
       </ScrollPane>
-      <TextField layoutX="300.0" layoutY="14.0" promptText="Event ID" />
-      <Button layoutX="460.0" layoutY="14.0" mnemonicParsing="false" text="Search">
+      <TextField fx:id="eventID" layoutX="300.0" layoutY="14.0" promptText="Event ID" />
+      <Button layoutX="460.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchByID" text="Search">
          <font>
             <Font name="Baskerville Old Face" size="14.0" />
          </font></Button>
@@ -21,11 +21,11 @@
          <font>
             <Font name="Baskerville Old Face" size="30.0" />
          </font></Button>
-      <Pane layoutX="14.0" layoutY="251.0" prefHeight="90.0" prefWidth="115.0">
+      <Pane layoutX="14.0" layoutY="80.0" prefHeight="200.0" prefWidth="200.0">
          <children>
-            <VBox prefHeight="90.0" prefWidth="115.0" />
+            <VBox fx:id="selectedEventContainer" prefHeight="200.0" prefWidth="200.0" />
          </children></Pane>
-      <Label layoutX="14.0" layoutY="234.0" text="Event Currently Selected">
+      <Label layoutX="14.0" layoutY="50.0" text="Event Currently Selected">
          <font>
             <Font name="Baskerville Old Face" size="15.0" />
          </font>

@@ -6,8 +6,8 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageController">
    <children>
-      <TextField layoutX="300.0" layoutY="14.0" promptText="Event ID" />
-      <Button layoutX="460.0" layoutY="14.0" mnemonicParsing="false" text="Search">
+      <TextField fx:id="eventID" layoutX="300.0" layoutY="14.0" promptText="Event ID" />
+      <Button layoutX="460.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchByID" text="Search">
          <font>
             <Font name="Baskerville Old Face" size="14.0" />
          </font>

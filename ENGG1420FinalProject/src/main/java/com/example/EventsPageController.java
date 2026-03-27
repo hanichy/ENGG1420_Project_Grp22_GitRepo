@@ -47,6 +47,8 @@ public class EventsPageController {
     private TextField eventAgeRestriction;
     @FXML
     private TextField eventID;
+    @FXML
+    private TextField eventSearchTitle;
 
     //Event Type Storage
     private String eventType ="";
@@ -73,14 +75,16 @@ public class EventsPageController {
         minuteInitialize();
         dateInitialization();
 
-        eventTopic.setVisible(false);
-        eventTopic.setManaged(false);
-        eventSpeaker.setVisible(false);
-        eventSpeaker.setManaged(false);
-        eventAgeRestriction.setVisible(false);
-        eventAgeRestriction.setManaged(false);
+        if (eventTopic != null||eventSpeaker != null || eventAgeRestriction != null) {
+            eventTopic.setVisible(false);
+            eventTopic.setManaged(false);
+            eventSpeaker.setVisible(false);
+            eventSpeaker.setManaged(false);
+            eventAgeRestriction.setVisible(false);
+            eventAgeRestriction.setManaged(false);
+        }
 
-        // Optional: If you have a container for these fields, hide it too
+        // Empty Selected Events Container
         if (selectedEventContainer != null) {
             selectedEventContainer.getChildren().clear();
         }
@@ -417,12 +421,16 @@ public class EventsPageController {
 
         // Update logic based on type
         if (e instanceof Workshop) {
-            String topic = eventTopic.getText().isEmpty() ? ((Workshop) e).getTopic() : eventTopic.getText();
+            String topic = eventTopic.getText().isBlank() ? ((Workshop) e).getTopic() : eventTopic.getText();
             ((Workshop) e).updateEvent(title, date, location, cap, topic);
         }
         else if (e instanceof Seminar){
-            String speakerName = eventSpeaker.getText().isEmpty() ? ((Seminar) e).getSpeaker() : eventSpeaker.getText();
+            String speakerName = eventSpeaker.getText().isBlank() ? ((Seminar) e).getSpeaker() : eventSpeaker.getText();
             ((Seminar) e).updateEvent(title, date, location, cap, speakerName);
+        }
+        else if (e instanceof Concert){
+            String aR = eventAgeRestriction.getText().isBlank() ? ((Concert) e).getAgeRestriction() : eventAgeRestriction.getText();
+            ((Concert) e).updateEvent(title, date, location, cap, aR);
         }
 
         showInfo("Success", "Event updated!");
@@ -457,10 +465,115 @@ public class EventsPageController {
             eventAgeRestriction.setManaged(true);
         }
     }
+    //Search By ID Button
+    @FXML
+    private void searchByID(ActionEvent ev) {
+        eventsContainer.getChildren().clear();
+        String searchId = eventID.getText();
+        Event e = event.findEventById(searchId);
+        if (e != null) {
+            VBox card = new VBox(5);
+            card.setStyle("-fx-padding: 10; -fx-border-color: #cccccc; -fx-background-color: #f9f9f9; -fx-border-radius: 5;");
+
+            //Title Label
+            Label titlelbl = new Label("Title: "+e.getTitle());
+            titlelbl.setStyle("-fx-padding:10; -fx-border-color: gray;");
+
+            Label idLbl = new Label("ID: "+ e.getEventId());
+            Label dateLbl = new Label("Date: "+e.getDateTime());
+            Label locationLbl = new Label("Loction: "+ e.getLocation());
+            Label capLbl = new Label("Capacity: " +e.getCapacity());
+
+            Label statusLbl = new Label("Status: "+ (e.getStatus()? "Active" : "Cancelled"));
+            statusLbl.setStyle(e.getStatus()? "-fx-text-fill:green;":"-fx-text-fill:red;");
+
+            eventsContainer.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl,capLbl);
+
+            if (e instanceof Workshop){
+                Workshop w =(Workshop) e;
+                Label topicLbl = new Label("Topic: "+w.getTopic());
+                eventsContainer.getChildren().add(topicLbl);
+            }
+            else if (e instanceof Seminar){
+                Seminar s = (Seminar)e;
+                Label speakerLbl = new Label("Speaker: "+ s.getSpeaker());
+                eventsContainer.getChildren().add(speakerLbl);
+            }
+            else if (e instanceof Concert){
+                Concert c = (Concert)e;
+                Label ageLbl = new Label(c.getAgeRestriction()+"+");
+                eventsContainer.getChildren().add(ageLbl);
+            }
+
+            //Allows this to be clickable
+            titlelbl.setOnMouseClicked(event -> {
+                showSelectedEvent(e);
+                if (eventTopic != null){
+                    //Show Sub Attribute if necessary
+                    showSubEventAttribute(e);
+                }
+            });
+            eventsContainer.getChildren().addAll(statusLbl);
+        } else {
+            eventsContainer.getChildren().add(new Label("Event not found."));
+        }
+    }
 
     //CANCEL EVENT
 
     //VIEW EVENT ROSTER
 
     //SEARCH EVENTS BY TITLE
+    @FXML
+    private void searchByTitle(ActionEvent ev) {
+        eventsContainer.getChildren().clear();
+        String searchTitle = eventSearchTitle.getText();
+        Event e = event.searchByTitle(searchTitle);
+        if (e != null) {
+            VBox card = new VBox(5);
+            card.setStyle("-fx-padding: 10; -fx-border-color: #cccccc; -fx-background-color: #f9f9f9; -fx-border-radius: 5;");
+
+            //Title Label
+            Label titlelbl = new Label("Title: "+e.getTitle());
+            titlelbl.setStyle("-fx-padding:10; -fx-border-color: gray;");
+
+            Label idLbl = new Label("ID: "+ e.getEventId());
+            Label dateLbl = new Label("Date: "+e.getDateTime());
+            Label locationLbl = new Label("Loction: "+ e.getLocation());
+            Label capLbl = new Label("Capacity: " +e.getCapacity());
+
+            Label statusLbl = new Label("Status: "+ (e.getStatus()? "Active" : "Cancelled"));
+            statusLbl.setStyle(e.getStatus()? "-fx-text-fill:green;":"-fx-text-fill:red;");
+
+            eventsContainer.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl,capLbl);
+
+            if (e instanceof Workshop){
+                Workshop w =(Workshop) e;
+                Label topicLbl = new Label("Topic: "+w.getTopic());
+                eventsContainer.getChildren().add(topicLbl);
+            }
+            else if (e instanceof Seminar){
+                Seminar s = (Seminar)e;
+                Label speakerLbl = new Label("Speaker: "+ s.getSpeaker());
+                eventsContainer.getChildren().add(speakerLbl);
+            }
+            else if (e instanceof Concert){
+                Concert c = (Concert)e;
+                Label ageLbl = new Label(c.getAgeRestriction()+"+");
+                eventsContainer.getChildren().add(ageLbl);
+            }
+
+            //Allows this to be clickable
+            titlelbl.setOnMouseClicked(event -> {
+                showSelectedEvent(e);
+                if (eventTopic != null){
+                    //Show Sub Attribute if necessary
+                    showSubEventAttribute(e);
+                }
+            });
+            eventsContainer.getChildren().addAll(statusLbl);
+        } else {
+            eventsContainer.getChildren().add(new Label("Event not found."));
+        }
+    }
 }

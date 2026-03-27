@@ -155,14 +155,14 @@ public class EventManagement implements Serializable {
 
     //Search and Filter (PHASE 2)
     //Search by title
-    public ArrayList<Event> searchByTitle(String title){
-        ArrayList<Event> result = new ArrayList<>();
+    public Event searchByTitle(String title){
+        //Event result;
         for(Event e : eventList){
             if(e.title.toLowerCase().contains(title.toLowerCase())){
-                result.add(e);
+                return e;
             }
         }
-        return result;
+        return null;
     }
 
     //Filter by Type

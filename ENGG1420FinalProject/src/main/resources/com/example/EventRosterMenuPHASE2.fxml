@@ -35,9 +35,9 @@
             <VBox fx:id="eventsContainer" prefHeight="240.0" prefWidth="156.0" />
          </content>
       </ScrollPane>
-      <TextField layoutX="55.0" layoutY="14.0" prefHeight="26.0" prefWidth="101.0" promptText="Event ID" />
+      <TextField fx:id="eventID" layoutX="55.0" layoutY="14.0" prefHeight="26.0" prefWidth="101.0" promptText="Event ID" />
       <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
-      <Button layoutX="167.0" layoutY="15.0" mnemonicParsing="false" text="Search">
+      <Button layoutX="167.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchByID" text="Search">
          <font>
             <Font name="Baskerville Old Face" size="14.0" />
          </font>
