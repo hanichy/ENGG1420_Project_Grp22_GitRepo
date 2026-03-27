@@ -26,6 +26,10 @@ public class EventsPageController {
     //VBox to Show All Events
     @FXML
     private VBox eventsContainer;
+
+    //VBox for Selected Items
+    @FXML
+    private VBox selectedEventContainer;
     //TextFields
     @FXML
     private TextField eventTitle;
@@ -44,8 +48,11 @@ public class EventsPageController {
     @FXML
     private TextField eventID;
 
-    //com.example.Event Type Storage
+    //Event Type Storage
     private String eventType ="";
+
+    //Selected Event ID
+    private String selectedEventID;
 
     //Needed to Switch Scenes
     private Stage stage;
@@ -65,6 +72,18 @@ public class EventsPageController {
         hourInitialize();
         minuteInitialize();
         dateInitialization();
+
+        eventTopic.setVisible(false);
+        eventTopic.setManaged(false);
+        eventSpeaker.setVisible(false);
+        eventSpeaker.setManaged(false);
+        eventAgeRestriction.setVisible(false);
+        eventAgeRestriction.setManaged(false);
+
+        // Optional: If you have a container for these fields, hide it too
+        if (selectedEventContainer != null) {
+            selectedEventContainer.getChildren().clear();
+        }
     }
     //List Events
     @FXML
@@ -107,8 +126,47 @@ public class EventsPageController {
                 eventsContainer.getChildren().add(ageLbl);
             }
 
-            eventsContainer.getChildren().add(statusLbl);
+            //Allows this to be clickable
+            titlelbl.setOnMouseClicked(event -> {
+                showSelectedEvent(e);
+                if (eventTopic != null){
+                    //Show Sub Attribute if necessary
+                    showSubEventAttribute(e);
+                }
+            });
+            eventsContainer.getChildren().addAll(statusLbl);
         }
+    }
+
+    //Show the Selected Event from list
+    private void showSelectedEvent(Event e){
+        //Clear Old Vbox Item
+        selectedEventContainer.getChildren().clear();
+        //Title Label
+        Label titlelbl = new Label("Title: "+e.getTitle());
+        titlelbl.setStyle("-fx-padding:10; -fx-border-color: gray;");
+
+        Label details = new Label(
+
+                "ID: " + e.getEventId() + "\n" +
+                        "Location: " + e.getLocation() + "\n" +
+                        "Date/Time: " + e.getDateTime() + "\n" +
+                        "Capacity: " + e.getCapacity()
+        );
+
+        selectedEventContainer.getChildren().addAll(titlelbl, details);
+
+        // Handle Type-Specific Info (Workshop/Seminar/Concert)
+        if (e instanceof Workshop) {
+            selectedEventContainer.getChildren().add(new Label("Topic: " + ((Workshop) e).getTopic()));
+        } else if (e instanceof Seminar) {
+            selectedEventContainer.getChildren().add(new Label("Speaker: " + ((Seminar) e).getSpeaker()));
+        } else if (e instanceof Concert) {
+            selectedEventContainer.getChildren().add(new Label("Age: " + ((Concert) e).getAgeRestriction()));
+        }
+
+        //Update Selected ID for functionality
+        selectedEventID = e.getEventId();
     }
 
     //Back to Main Menu
@@ -282,7 +340,7 @@ public class EventsPageController {
               event.saveEventState("events.csv");
           }
 
-          showInfo("Success", "Event created successfully!");
+          showInfo("Success", "Event created successfully! \n Event ID: "+ newId);
       } catch (NumberFormatException ev) {
     } catch (IllegalArgumentException ev) {
         showError("Input Error", ev.getMessage());
@@ -332,6 +390,73 @@ public class EventsPageController {
     }
 
     //UPDATE EVENT INFORMATION
+    //Update Event Button
+    @FXML
+    private void updateEvent(ActionEvent ev){
+        //Use Event Selected
+        Event e = event.findEventById(selectedEventID);
+
+
+        if (e == null) {
+            showError("Update Error", "Event ID not found.");
+            return;
+        }
+
+        // Correctly assign values or keep originals
+        String title = eventTitle.getText().isEmpty() ? e.getTitle() : eventTitle.getText();
+        String date = getEventDate()==null ? e.getDateTime() : getEventDate();
+        String location = eventLocation.getText().isEmpty() ? e.getLocation() : eventLocation.getText();
+
+        int cap;
+        try {
+            cap = eventCapacity.getText().isEmpty() ? e.getCapacity() : Integer.parseInt(eventCapacity.getText());
+        } catch (NumberFormatException ex) {
+            showError("Input Error", "Capacity must be a number.");
+            return;
+        }
+
+        // Update logic based on type
+        if (e instanceof Workshop) {
+            String topic = eventTopic.getText().isEmpty() ? ((Workshop) e).getTopic() : eventTopic.getText();
+            ((Workshop) e).updateEvent(title, date, location, cap, topic);
+        }
+        else if (e instanceof Seminar){
+            String speakerName = eventSpeaker.getText().isEmpty() ? ((Seminar) e).getSpeaker() : eventSpeaker.getText();
+            ((Seminar) e).updateEvent(title, date, location, cap, speakerName);
+        }
+
+        showInfo("Success", "Event updated!");
+        displayList(); // Refresh the UI
+    }
+    //Show the Sub Attribute for Editing
+    private void showSubEventAttribute(Event e){
+        //Initialize Hidden
+        eventTopic.setVisible(false);
+        eventTopic.setManaged(false);
+
+        eventSpeaker.setVisible(false);
+        eventSpeaker.setManaged(false);
+
+        eventAgeRestriction.setVisible(false);
+        eventAgeRestriction.setManaged(false);
+
+        if (e instanceof Workshop){
+            //Show Topic TextField
+            eventTopic.setVisible(true);
+            eventTopic.setManaged(true);
+        }
+        else if (e instanceof Seminar){
+            //Show Speaker TextField
+            eventSpeaker.setVisible(true);
+            eventSpeaker.setManaged(true);
+
+        }
+        else if (e instanceof Concert){
+            //Show Age Restriction TextField
+            eventAgeRestriction.setVisible(true);
+            eventAgeRestriction.setManaged(true);
+        }
+    }
 
     //CANCEL EVENT
 

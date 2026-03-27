@@ -20,7 +20,7 @@
          <font>
             <Font name="Baskerville Old Face" size="12.0" />
          </font></Button>
-      <Button layoutX="310.0" layoutY="314.0" mnemonicParsing="false" text="Update Event">
+      <Button layoutX="310.0" layoutY="314.0" mnemonicParsing="false" onAction="#updateEvent" text="Update Event">
          <font>
             <Font name="Baskerville Old Face" size="30.0" />
          </font>
@@ -37,7 +37,7 @@
       </HBox>
       <Pane layoutX="15.0" layoutY="77.0" prefHeight="107.0" prefWidth="190.0">
          <children>
-            <VBox prefHeight="107.0" prefWidth="190.0" />
+            <VBox fx:id="selectedEventContainer" prefHeight="107.0" prefWidth="190.0" />
          </children>
       </Pane>
       <Label layoutX="20.0" layoutY="49.0" text="Event Currently Selected">
@@ -46,5 +46,8 @@
          </font>
       </Label>
       <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
+      <TextField fx:id="eventTopic" layoutX="16.0" layoutY="330.0" promptText="New Event Topic" visible="false" />
+      <TextField fx:id="eventSpeaker" layoutX="16.0" layoutY="330.0" promptText="New Event Speaker" visible="false" />
+      <TextField fx:id="eventAgeRestriction" layoutX="16.0" layoutY="330.0" prefHeight="26.0" prefWidth="166.0" promptText="New Event Age Restriction" visible="false" />
    </children>
 </AnchorPane>
