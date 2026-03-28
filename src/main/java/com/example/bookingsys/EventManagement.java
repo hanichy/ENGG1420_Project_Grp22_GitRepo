@@ -77,6 +77,16 @@ public class EventManagement implements Serializable {
         }
     }
 
+    //saves the lists of events in file
+    public void saveFullSystemState(String fileName){
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
+            oos.writeObject(eventList);
+            System.out.println("Event saved successfully");
+        }catch(IOException e){
+            System.err.println("Error saving events to file: " + e.getMessage());
+        }
+    }
+
     @SuppressWarnings("unchecked")
     //function to restore file
     public void restoreFullSystemState(String fileName){
@@ -94,7 +104,7 @@ public class EventManagement implements Serializable {
     }
 
     //CSV loading
-    public static void loadEventsFromCSV(String fileName){
+    public void loadEventsFromCSV(String fileName){
         try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
             String line;
             br.readLine(); //skip event info
@@ -102,7 +112,7 @@ public class EventManagement implements Serializable {
             while((line = br.readLine()) != null){
                 String[] data = line.split(",", -1); // keep empty trailing columns
 
-                if(data.length < 10){
+                if(data.length < 7){
                     continue;
                 }
 
@@ -212,6 +222,16 @@ public class EventManagement implements Serializable {
             }
         }
         return null;
+    }
+
+    //cancelled event
+    public void cancelEvent(String eventId){
+        Event e = findEventById(eventId);
+        if(e != null){
+            e.cancelEvent();
+            e.setStatus(false);
+            saveFullSystemState("system_state.ser");
+        }
     }
 
     //List Events

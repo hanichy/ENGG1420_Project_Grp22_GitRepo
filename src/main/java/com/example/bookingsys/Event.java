@@ -33,7 +33,6 @@ public abstract class Event implements Serializable {
         this.location = location;
         this.capacity = capacity;
         this.status = true;
-
     }
 
     //Getters
@@ -63,6 +62,12 @@ public abstract class Event implements Serializable {
         location = newLocation;
         capacity = newCapacity;
         System.out.println("Event " + title + " has been updated");
+
+    }
+
+    //set status for events
+    public void setStatus(boolean status){
+        this.status = status;
     }
 
     //Cancel Event (Status = false) (Can be same for all types of events)
