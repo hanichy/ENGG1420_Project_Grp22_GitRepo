@@ -112,7 +112,7 @@ public class EventManagement implements Serializable {
             while((line = br.readLine()) != null){
                 String[] data = line.split(",", -1); // keep empty trailing columns
 
-                if(data.length < 7){
+                if(data.length < 10){
                     continue;
                 }
 
