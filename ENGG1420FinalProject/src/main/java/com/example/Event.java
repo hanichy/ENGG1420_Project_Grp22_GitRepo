@@ -15,7 +15,7 @@ public abstract class Event implements Serializable {
     //Objects
     protected String eventId;
     protected String title;
-    protected String dateTime; //DD/MM/YYYY Hour:Min (Will probably have to change cuz time is a pain)
+    protected String dateTime;
     protected String location;
     protected int capacity;
     protected boolean status; //True = active False = Cancelled
@@ -63,6 +63,11 @@ public abstract class Event implements Serializable {
         location = newLocation;
         capacity = newCapacity;
         System.out.println("Event " + title + " has been updated");
+    }
+
+    //set status for events
+    public void setStatus(boolean status){
+        this.status = status;
     }
 
     //Cancel Event (Status = false) (Can be same for all types of events)

@@ -3,15 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="150.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MainMenuController">
+<AnchorPane pickOnBounds="false" prefHeight="150.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MainMenuController">
    <children>
-      <StackPane prefHeight="150.0" prefWidth="200.0" translateY="50.0">
+      <StackPane pickOnBounds="false" prefHeight="150.0" prefWidth="200.0" translateY="50.0">
          <children>
-            <BorderPane prefHeight="200.0" prefWidth="200.0">
+            <BorderPane pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">
                <center>
-                  <VBox fx:id="drawer" prefHeight="200.0" prefWidth="200.0" translateX="-200.0" BorderPane.alignment="CENTER">
+                  <VBox fx:id="drawer" pickOnBounds="false" prefHeight="200.0" prefWidth="200.0" translateX="-200.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Accordion>
+                        <Accordion pickOnBounds="false">
                           <panes>
                             <TitledPane animated="false" text="User">
                                  <content>

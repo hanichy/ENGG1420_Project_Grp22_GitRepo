@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 public class EventsPageController {
     //ComboBox Hour
@@ -49,6 +50,12 @@ public class EventsPageController {
     private TextField eventID;
     @FXML
     private TextField eventSearchTitle;
+    @FXML
+    private TextField createEventTopic;
+    @FXML
+    private TextField createEventSpeaker;
+    @FXML
+    private TextField createEventAgeRestriction;
 
     //Event Type Storage
     private String eventType ="";
@@ -68,7 +75,7 @@ public class EventsPageController {
     @FXML
     private void initialize() {
         if (eventsContainer != null) {
-            EventManagement.loadEventsFromCSV("events.csv");
+            //EventManagement.loadEventsFromCSV("events.csv");
             displayList();
         }
         hourInitialize();
@@ -253,7 +260,7 @@ public class EventsPageController {
     @FXML
     public void seminarButton(ActionEvent e){
         if (eventType.equals("")){
-            eventSpeaker.setOpacity(1);
+            createEventSpeaker.setOpacity(1);
             eventType = "Seminar";
         }
     }
@@ -261,7 +268,7 @@ public class EventsPageController {
     @FXML
     public void workShopButton(ActionEvent e){
         if (eventType.equals("")){
-            eventTopic.setOpacity(1);
+            createEventTopic.setOpacity(1);
             eventType = "Workshop";
         }
     }
@@ -269,7 +276,7 @@ public class EventsPageController {
     @FXML
     public void concertButton(ActionEvent e){
         if (eventType.equals("")){
-            eventAgeRestriction.setOpacity(1);
+            createEventAgeRestriction.setOpacity(1);
             eventType = "Concert";
         }
     }
@@ -302,20 +309,20 @@ public class EventsPageController {
           //Check if the event has its Topic/Speaker/Age Restriction
           else{
               if (eventType == "Workshop"){
-                  if (eventTopic.getText().isEmpty()){
+                  if (createEventTopic.getText().isEmpty()){
                       showError("Validation Error", "Field(s) are Incomplete");
                       return;
                   }
               }
               else if (eventType == "Seminar"){
-                  if (eventSpeaker.getText().isBlank()){
+                  if (createEventSpeaker.getText().isBlank()){
                       showError("Validation Error", "Field(s) are Incomplete");
                       return;
                   }
               }
               else if (eventType == "Concert"){
                   //Check if Field is blank
-                  if (eventAgeRestriction.getText().isBlank()){
+                  if (createEventAgeRestriction.getText().isBlank()){
                       showError("Validation Error", "Field(s) are Incomplete");
                       return;
                   }
@@ -330,15 +337,15 @@ public class EventsPageController {
 
           //Create Event Based on Event Type
           if (eventType.equals("Workshop")) {
-              Workshop w = new Workshop(newId, eventTitle.getText(), getEventDate(), eventLocation.getText(), cap, eventTopic.getText());
+              Workshop w = new Workshop(newId, eventTitle.getText(), getEventDate(), eventLocation.getText(), cap, createEventTopic.getText());
               event.createEvent(w);
               event.saveEventState("events.csv");
           } else if (eventType.equals("Seminar")) {
-              Seminar s = new Seminar(newId, eventTitle.getText(), getEventDate(), eventLocation.getText(), cap, eventSpeaker.getText());
+              Seminar s = new Seminar(newId, eventTitle.getText(), getEventDate(), eventLocation.getText(), cap, createEventSpeaker.getText());
               event.createEvent(s);
               event.saveEventState("events.csv");
           } else if (eventType.equals("Concert")) {
-              int aR = parseInteger(eventAgeRestriction.getText(), "Age Restriction");
+              int aR = parseInteger(createEventAgeRestriction.getText(), "Age Restriction");
               Concert c = new Concert(newId, eventTitle.getText(), getEventDate(), eventLocation.getText(), cap, String.valueOf(aR));
               event.createEvent(c);
               event.saveEventState("events.csv");
@@ -520,6 +527,11 @@ public class EventsPageController {
     }
 
     //CANCEL EVENT
+    @FXML
+    private void cancelEvent(ActionEvent ev){
+        //Use Event Selected
+        Event e = event.findEventById(selectedEventID);
+    }
 
     //VIEW EVENT ROSTER
 
@@ -528,52 +540,52 @@ public class EventsPageController {
     private void searchByTitle(ActionEvent ev) {
         eventsContainer.getChildren().clear();
         String searchTitle = eventSearchTitle.getText();
-        Event e = event.searchByTitle(searchTitle);
-        if (e != null) {
-            VBox card = new VBox(5);
-            card.setStyle("-fx-padding: 10; -fx-border-color: #cccccc; -fx-background-color: #f9f9f9; -fx-border-radius: 5;");
+        ArrayList<Event> searchEvents = EventManagement.getInstance().searchByTitle(searchTitle);
+        for(Event e: searchEvents) {
+            if (e != null) {
+                VBox card = new VBox(5);
+                card.setStyle("-fx-padding: 10; -fx-border-color: #cccccc; -fx-background-color: #f9f9f9; -fx-border-radius: 5;");
 
-            //Title Label
-            Label titlelbl = new Label("Title: "+e.getTitle());
-            titlelbl.setStyle("-fx-padding:10; -fx-border-color: gray;");
+                //Title Label
+                Label titlelbl = new Label("Title: " + e.getTitle());
+                titlelbl.setStyle("-fx-padding:10; -fx-border-color: gray;");
 
-            Label idLbl = new Label("ID: "+ e.getEventId());
-            Label dateLbl = new Label("Date: "+e.getDateTime());
-            Label locationLbl = new Label("Loction: "+ e.getLocation());
-            Label capLbl = new Label("Capacity: " +e.getCapacity());
+                Label idLbl = new Label("ID: " + e.getEventId());
+                Label dateLbl = new Label("Date: " + e.getDateTime());
+                Label locationLbl = new Label("Loction: " + e.getLocation());
+                Label capLbl = new Label("Capacity: " + e.getCapacity());
 
-            Label statusLbl = new Label("Status: "+ (e.getStatus()? "Active" : "Cancelled"));
-            statusLbl.setStyle(e.getStatus()? "-fx-text-fill:green;":"-fx-text-fill:red;");
+                Label statusLbl = new Label("Status: " + (e.getStatus() ? "Active" : "Cancelled"));
+                statusLbl.setStyle(e.getStatus() ? "-fx-text-fill:green;" : "-fx-text-fill:red;");
 
-            eventsContainer.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl,capLbl);
+                eventsContainer.getChildren().addAll(titlelbl, idLbl, dateLbl, locationLbl, capLbl);
 
-            if (e instanceof Workshop){
-                Workshop w =(Workshop) e;
-                Label topicLbl = new Label("Topic: "+w.getTopic());
-                eventsContainer.getChildren().add(topicLbl);
-            }
-            else if (e instanceof Seminar){
-                Seminar s = (Seminar)e;
-                Label speakerLbl = new Label("Speaker: "+ s.getSpeaker());
-                eventsContainer.getChildren().add(speakerLbl);
-            }
-            else if (e instanceof Concert){
-                Concert c = (Concert)e;
-                Label ageLbl = new Label(c.getAgeRestriction()+"+");
-                eventsContainer.getChildren().add(ageLbl);
-            }
-
-            //Allows this to be clickable
-            titlelbl.setOnMouseClicked(event -> {
-                showSelectedEvent(e);
-                if (eventTopic != null){
-                    //Show Sub Attribute if necessary
-                    showSubEventAttribute(e);
+                if (e instanceof Workshop) {
+                    Workshop w = (Workshop) e;
+                    Label topicLbl = new Label("Topic: " + w.getTopic());
+                    eventsContainer.getChildren().add(topicLbl);
+                } else if (e instanceof Seminar) {
+                    Seminar s = (Seminar) e;
+                    Label speakerLbl = new Label("Speaker: " + s.getSpeaker());
+                    eventsContainer.getChildren().add(speakerLbl);
+                } else if (e instanceof Concert) {
+                    Concert c = (Concert) e;
+                    Label ageLbl = new Label(c.getAgeRestriction() + "+");
+                    eventsContainer.getChildren().add(ageLbl);
                 }
-            });
-            eventsContainer.getChildren().addAll(statusLbl);
-        } else {
-            eventsContainer.getChildren().add(new Label("Event not found."));
+
+                //Allows this to be clickable
+                titlelbl.setOnMouseClicked(event -> {
+                    showSelectedEvent(e);
+                    if (eventTopic != null) {
+                        //Show Sub Attribute if necessary
+                        showSubEventAttribute(e);
+                    }
+                });
+                eventsContainer.getChildren().addAll(statusLbl);
+            } else {
+                eventsContainer.getChildren().add(new Label("Event not found."));
+            }
         }
     }
 }

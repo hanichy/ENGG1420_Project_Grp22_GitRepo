@@ -12,13 +12,12 @@
             <Image url="@2025_New_Gryphon_Logo.png" />
          </image>
       </ImageView>
-      <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
       <TextField fx:id="eventTitle" layoutX="55.0" layoutY="31.0" promptText="Event Title" />
       <TextField fx:id="eventLocation" layoutX="55.0" layoutY="67.0" promptText="Event Location" />
       <TextField fx:id="eventCapacity" layoutX="55.0" layoutY="139.0" promptText="Event Capacity" />
-      <TextField fx:id="eventSpeaker" layoutX="129.0" layoutY="173.0" opacity="0.0" prefHeight="26.0" prefWidth="95.0" promptText="Speaker Name" />
-      <TextField fx:id="eventTopic" layoutX="135.0" layoutY="215.0" opacity="0.0" prefWidth="95.0" promptText="Topic" />
-      <TextField fx:id="eventAgeRestriction" layoutX="124.0" layoutY="260.0" opacity="0.0" prefWidth="95.0" promptText="Age Restriction" />
+      <TextField fx:id="createEventSpeaker" layoutX="129.0" layoutY="173.0" opacity="0.0" prefHeight="26.0" prefWidth="95.0" promptText="Speaker Name" />
+      <TextField fx:id="createEventTopic" layoutX="135.0" layoutY="215.0" opacity="0.0" prefWidth="95.0" promptText="Topic" />
+      <TextField fx:id="createEventAgeRestriction" layoutX="124.0" layoutY="260.0" opacity="0.0" prefWidth="95.0" promptText="Age Restriction" />
       <Button layoutX="55.0" layoutY="260.0" mnemonicParsing="false" onAction="#concertButton" text="Concert" />
       <Button layoutX="55.0" layoutY="215.0" mnemonicParsing="false" onAction="#workShopButton" text="Workshop" />
       <Button layoutX="55.0" layoutY="174.0" mnemonicParsing="false" onAction="#seminarButton" text="Seminar" />
@@ -34,5 +33,6 @@
             <ComboBox fx:id="minute" prefHeight="26.0" prefWidth="142.0" promptText="Minute" visibleRowCount="4" />
          </children>
       </HBox>
+      <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
    </children>
 </AnchorPane>
