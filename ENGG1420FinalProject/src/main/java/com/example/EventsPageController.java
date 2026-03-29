@@ -368,8 +368,11 @@ public class EventsPageController {
     //Get Date Time in YYYY/MM/DDTHH:MM
     private String getEventDate(){
         //Get Date from Datepicker
-        String date = eventDate.getValue().toString();
-
+        LocalDate selectedDate = eventDate.getValue();
+        if(selectedDate == null){
+            return null;
+        }
+        String date = selectedDate.toString();
         //Get Hour from ComboBox
         Integer selectedHour = hour.getValue();
         //Get Minute from ComboBox

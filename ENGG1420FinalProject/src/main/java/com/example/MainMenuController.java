@@ -39,10 +39,10 @@ public class MainMenuController{
     //Create User Menu
     @FXML
     private void switchToCreateUser(ActionEvent e) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateUserMenuPHASE2.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateUser.fxml"));
         root = loader.load();
 
-        UserPageController userPageController = loader.getController();
+        CreateUserController userPageController = loader.getController();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -51,10 +51,10 @@ public class MainMenuController{
     //View User Details Menu
     @FXML
     private void switchToUserDetails(ActionEvent e) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserDetailsMenuPHASE2.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("viewUserDetails.fxml"));
         root = loader.load();
 
-        UserPageController userPageController = loader.getController();
+        ViewUserDetailsController userPageController = loader.getController();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
@@ -63,10 +63,10 @@ public class MainMenuController{
     //List All User Menus
     @FXML
     private void switchToUserList(ActionEvent e) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ListUserMenuPHASE2.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("listUsers.fxml"));
         root = loader.load();
 
-        UserPageController userPageController = loader.getController();
+        ListAllUserController userPageController = loader.getController();
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
