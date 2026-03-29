@@ -57,6 +57,9 @@ public abstract class Event implements Serializable {
 
     //Update Event Information
     public void updateEvent(String newTitle, String newTime, String newLocation, int newCapacity){
+        if(newCapacity <= 0){
+            throw new IllegalArgumentException("Error: Capacity must be greater than zero");
+        }
         title = newTitle;
         dateTime = newTime;
         location = newLocation;
