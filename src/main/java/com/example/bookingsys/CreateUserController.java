@@ -101,6 +101,7 @@ public class CreateUserController {
 
         //Save user
         UserManager.addUser(user);
+        UserManager.saveToCSV();
 
         System.out.println("User created successfully: " + user);
 

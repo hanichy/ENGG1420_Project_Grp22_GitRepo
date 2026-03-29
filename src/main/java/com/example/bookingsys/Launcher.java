@@ -17,6 +17,7 @@ public class Launcher extends Application {
         stage.setTitle("GROUP 22 EVENT SYSTEM");
         stage.setScene(scene);
         stage.show();
+        UserManager.loadFromCSV();
     }
 
     public static void main(String[] args) {
