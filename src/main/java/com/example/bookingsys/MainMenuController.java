@@ -85,4 +85,57 @@ public class MainMenuController {
         stage.setScene(scene);
         stage.show();
     }
+
+    //My code starts here for my buttons
+    @FXML
+    private void switchToCreateUser(ActionEvent event) {
+
+        try {
+            Parent root = FXMLLoader.load(
+                    getClass().getResource("CreateUser.fxml"));
+
+            Stage stage = (Stage) ((Node) event.getSource())
+                    .getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void viewUserDetails(ActionEvent event) {
+
+        try {
+            Parent root = FXMLLoader.load(
+                    getClass().getResource("viewUserDetails.fxml"));
+
+            Stage stage = (Stage) ((Node) event.getSource())
+                    .getScene().getWindow();
+
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+   @FXML
+   private void listUsers(ActionEvent event) {
+       try {
+           Parent root = FXMLLoader.load(
+                   getClass().getResource("listUsers.fxml"));
+
+           Stage stage = (Stage) ((Node) event.getSource())
+                   .getScene().getWindow();
+
+           stage.setScene(new Scene(root));
+           stage.show();
+
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+   }
 }

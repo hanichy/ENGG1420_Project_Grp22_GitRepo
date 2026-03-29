@@ -21,17 +21,18 @@
                 <Font size="36.0" />
             </font>
         </Label>
-        <Button layoutX="35.0" layoutY="92.0" mnemonicParsing="false" text="Create a User">
+        <Button layoutX="35.0" layoutY="92.0" mnemonicParsing="false" onAction="#switchToCreateUser" text="Create a User">
+
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-        <Button layoutX="19.0" layoutY="154.0" mnemonicParsing="false" text="View User Details">
+        <Button layoutX="19.0" layoutY="154.0" mnemonicParsing="false" onAction="#viewUserDetails" text="View User Details">
             <font>
                 <Font size="18.0" />
             </font>
         </Button>
-        <Button layoutX="37.0" layoutY="210.0" mnemonicParsing="false" text="List All Users">
+        <Button layoutX="37.0" layoutY="210.0" mnemonicParsing="false" onAction="#listUsers" text="List All Users">
             <font>
                 <Font size="18.0" />
             </font>
@@ -56,7 +57,7 @@
                 <Font size="18.0" />
             </font>
         </Button>
-        <Button layoutX="441.0" layoutY="154.0" mnemonicParsing="false" onAction = "#switchToCancelBooking" text="Cancel Booking">
+        <Button layoutX="441.0" layoutY="154.0" mnemonicParsing="false" onAction="#switchToCancelBooking" text="Cancel Booking">
             <font>
                 <Font size="18.0" />
             </font>

@@ -8,6 +8,10 @@ public class Guest extends User {
         this.organization = organization;
     }
 
+    public Guest(String number, String charlie, String mail) {
+        super(number, charlie, mail);
+    }
+
     public String getOrganization() {
         return organization;
     }

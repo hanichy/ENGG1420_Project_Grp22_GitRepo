@@ -1,7 +1,10 @@
 package com.example.bookingsys;
 
+import javafx.fxml.FXML;
+
 public abstract class User {
     // Basic user info
+    @FXML
     protected String userId;
     protected String name;
     protected String email;
