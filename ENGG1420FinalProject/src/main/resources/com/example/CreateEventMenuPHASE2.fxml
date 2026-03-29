@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageController">
+   <children>
+      <ImageView fitHeight="199.0" fitWidth="274.0" layoutX="312.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@2025_New_Gryphon_Logo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="eventTitle" layoutX="55.0" layoutY="31.0" promptText="Event Title" />
+      <TextField fx:id="eventLocation" layoutX="55.0" layoutY="67.0" promptText="Event Location" />
+      <TextField fx:id="eventCapacity" layoutX="55.0" layoutY="139.0" promptText="Event Capacity" />
+      <TextField fx:id="createEventSpeaker" layoutX="129.0" layoutY="173.0" opacity="0.0" prefHeight="26.0" prefWidth="95.0" promptText="Speaker Name" />
+      <TextField fx:id="createEventTopic" layoutX="135.0" layoutY="215.0" opacity="0.0" prefWidth="95.0" promptText="Topic" />
+      <TextField fx:id="createEventAgeRestriction" layoutX="124.0" layoutY="260.0" opacity="0.0" prefWidth="95.0" promptText="Age Restriction" />
+      <Button layoutX="55.0" layoutY="260.0" mnemonicParsing="false" onAction="#concertButton" text="Concert" />
+      <Button layoutX="55.0" layoutY="215.0" mnemonicParsing="false" onAction="#workShopButton" text="Workshop" />
+      <Button layoutX="55.0" layoutY="174.0" mnemonicParsing="false" onAction="#seminarButton" text="Seminar" />
+      <Button layoutX="300.0" layoutY="222.0" mnemonicParsing="false" onAction="#createEvent" text="Create Event">
+         <font>
+            <Font name="Baskerville Old Face" size="40.0" />
+         </font></Button>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
+      <HBox layoutX="56.0" layoutY="104.0" prefHeight="26.0" prefWidth="292.0">
+         <children>
+            <DatePicker fx:id="eventDate" promptText="Event Date" />
+            <ComboBox fx:id="hour" prefWidth="150.0" promptText="Hour" visibleRowCount="24" />
+            <ComboBox fx:id="minute" prefHeight="26.0" prefWidth="142.0" promptText="Minute" visibleRowCount="4" />
+         </children>
+      </HBox>
+      <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
+   </children>
+</AnchorPane>

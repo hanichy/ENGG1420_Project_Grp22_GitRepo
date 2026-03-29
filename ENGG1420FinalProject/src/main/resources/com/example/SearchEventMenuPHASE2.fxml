@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageController">
+   <children>
+      <ScrollPane layoutX="245.0" layoutY="49.0" prefHeight="240.0" prefWidth="333.0">
+         <content>
+            <VBox fx:id="eventsContainer" prefHeight="240.0" prefWidth="333.0" />
+         </content></ScrollPane>
+      <TextField fx:id="eventSearchTitle" layoutX="300.0" layoutY="14.0" promptText="Event Title" />
+      <Button layoutX="460.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchByTitle" text="Search">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font>
+      </Button>
+      <VBox layoutX="145.0" layoutY="49.0" prefHeight="240.0" prefWidth="100.0">
+         <children>
+            <CheckBox fx:id="seminar" mnemonicParsing="false" onAction="#filteredDisplay" text="Seminars" />
+            <CheckBox fx:id="workshop" mnemonicParsing="false" onAction="#filteredDisplay" text="Workshops" />
+            <CheckBox fx:id="concerts" mnemonicParsing="false" onAction="#filteredDisplay" text="Concerts" />
+         </children>
+      </VBox>
+      <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back">
+         <font>
+            <Font name="Baskerville Old Face" size="12.0" />
+         </font>
+      </Button>
+      <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
+   </children>
+</AnchorPane>
