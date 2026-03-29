@@ -20,8 +20,6 @@ public abstract class Event implements Serializable {
     protected int capacity;
     protected boolean status; //True = active False = Cancelled
 
-    //protected static int totalEventCount = 0;
-
     //Constructor
     public Event(String eventId, String title, String dateTime, String location, int capacity) {
         if(capacity <= 0){

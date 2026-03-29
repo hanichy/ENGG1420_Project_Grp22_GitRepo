@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.BookingPageController">
+    <children>
+        <Button layoutX="14.0" layoutY="346.0" mnemonicParsing="false" onAction="#backToMenuE" text="Testing Back to Menu" />
+
+        <TextField fx:id="bookingID" layoutX="14.0" layoutY="48.0" promptText="Booking ID" />
+
+        <Button layoutX="300.0" layoutY="48.0" mnemonicParsing="false" onAction="#search" text="Search Booking" />
+        <Button layoutX="300.0" layoutY="103.0" mnemonicParsing="false" onAction="#displayList" text="Refresh List" />
+
+        <ScrollPane layoutX="14.0" layoutY="103.0" prefHeight="178.0" prefWidth="200.0">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="178.0" prefWidth="200.0">
+                    <children>
+                        <VBox fx:id="container" prefHeight="178.0" prefWidth="200.0" />
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+
+        <Button layoutX="212.0" layoutY="227.0" mnemonicParsing="false" onAction="#cancelBookingButton" text="CANCEL BOOKING">
+            <font>
+                <Font size="34.0" />
+            </font>
+        </Button>
+        <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
+    </children>
+</AnchorPane>

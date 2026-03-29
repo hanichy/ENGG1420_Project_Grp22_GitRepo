@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Ignoring copies in the target folder">
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/CreateUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/ListAllUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/UserManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/ViewUserDetailsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateUser.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/listUsers.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/viewUserDetails.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ENGG1420_Project_Grp22_GitRepo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ENGG1420_Project_Grp22_GitRepo.iml" afterDir="false" />
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="User Backend and Classes have been integrated with the Events Section.">
+      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Booking.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/BookingManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Waitlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/UserPageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CancelBookingMenuPHASE2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateBookingMenuPHASE2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateUserMenuPHASE2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventWaitlistMenuPHASE2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/ListUserMenuPHASE2.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/UserDetailsMenuPHASE2.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/BookingPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/BookingPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Event.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/events.csv" beforeDir="false" afterPath="$PROJECT_DIR$/events.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -364,7 +351,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774740581978</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="User Backend and Classes have been integrated with the Events Section.">
+      <option name="closed" value="true" />
+      <created>1774821823564</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1774821823564</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -395,6 +390,7 @@
     <MESSAGE value="Discovered error with fle saving in event. The search by title function was adjusted but will be adjusted back most likely." />
     <MESSAGE value="Added Csv File" />
     <MESSAGE value="Fixed Menu Panel layering issue in create events menu." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Menu Panel layering issue in create events menu." />
+    <MESSAGE value="User Backend and Classes have been integrated with the Events Section." />
+    <option name="LAST_COMMIT_MESSAGE" value="User Backend and Classes have been integrated with the Events Section." />
   </component>
 </project>
