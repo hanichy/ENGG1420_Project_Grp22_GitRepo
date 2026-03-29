@@ -374,15 +374,6 @@ public class EventsPageController {
         Integer selectedHour = hour.getValue();
         //Get Minute from ComboBox
         Integer selectedMinute = minute.getValue();
-        //Only create a string if the field is not empty
-        if(selectedMinute != null || selectedHour != null){
-            String eventMinute = selectedMinute.toString();
-            String eventHour = selectedHour.toString();
-            String dateTime = date+"T"+eventHour+":"+eventMinute;
-
-            return dateTime;
-        }
-
 
         //Check that user is booking in the future
         if(eventDate.getValue().isBefore(eventDate.getValue().now())){
@@ -393,6 +384,15 @@ public class EventsPageController {
             if (selectedTime.isBefore(LocalTime.now())) {
                 return null;
             }
+        }
+
+        //Only create a string if the field is not empty
+        if(selectedMinute != null || selectedHour != null){
+            String eventMinute = selectedMinute.toString();
+            String eventHour = selectedHour.toString();
+            String dateTime = date+"T"+eventHour+":"+eventMinute;
+
+            return dateTime;
         }
 
 
