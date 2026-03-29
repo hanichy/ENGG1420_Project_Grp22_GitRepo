@@ -18,9 +18,9 @@
       </Button>
       <VBox layoutX="145.0" layoutY="49.0" prefHeight="240.0" prefWidth="100.0">
          <children>
-            <CheckBox mnemonicParsing="false" text="Seminars" />
-            <CheckBox mnemonicParsing="false" text="Workshops" />
-            <CheckBox mnemonicParsing="false" text="Concerts" />
+            <CheckBox fx:id="seminar" mnemonicParsing="false" onAction="#filteredDisplay" text="Seminars" />
+            <CheckBox fx:id="workshop" mnemonicParsing="false" onAction="#filteredDisplay" text="Workshops" />
+            <CheckBox fx:id="concerts" mnemonicParsing="false" onAction="#filteredDisplay" text="Concerts" />
          </children>
       </VBox>
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back">

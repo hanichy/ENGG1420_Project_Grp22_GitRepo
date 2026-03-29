@@ -17,7 +17,7 @@
             <Font name="Baskerville Old Face" size="14.0" />
          </font></Button>
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
-      <Button layoutX="310.0" layoutY="314.0" mnemonicParsing="false" text="Cancel Event">
+      <Button layoutX="310.0" layoutY="314.0" mnemonicParsing="false" onAction="#cancelEvent" text="Cancel Event">
          <font>
             <Font name="Baskerville Old Face" size="30.0" />
          </font></Button>
