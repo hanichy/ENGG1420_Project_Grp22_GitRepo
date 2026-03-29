@@ -40,7 +40,7 @@ public class UserManagement implements Serializable{
 
     //File persistence
     public void saveUserState(String fileName){
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))){
             for (User u : userList){
                 StringBuilder sb = new StringBuilder();
 
@@ -66,6 +66,16 @@ public class UserManagement implements Serializable{
             System.out.println("Event saved successfully");
         }catch(IOException e){
             System.err.println("Error printing events to file" + e.getMessage());
+        }
+    }
+
+    //saves the list of user in file
+    public void saveFullSystemState(String fileName){
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
+            oos.writeObject(userList);
+            System.out.println("User saved successfully");
+        }catch(IOException e){
+            System.err.println("Error saving events to file: " + e.getMessage());
         }
     }
 
