@@ -45,7 +45,7 @@ public class EventManagement implements Serializable {
     //file persistence
     //save whole event state
     public void saveEventState(String fileName){
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true))){
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileName))){
             for (Event event : eventList){
                 StringBuilder sb = new StringBuilder();
 
@@ -162,6 +162,11 @@ public class EventManagement implements Serializable {
     public void createEvent(Event newEvent){
         this.eventList.add(newEvent);
         System.out.println("Event created successfully");
+
+        //overwrites the file with updated list to avoid duplicates
+        saveFullSystemState("system_state.ser");
+        //Updates the csv
+        saveEventState("events.csv");
     }
 
     //update event in system
@@ -184,6 +189,8 @@ public class EventManagement implements Serializable {
             //cast the event to workshop subclasses to be able to change topic
             ((Workshop)e).updateEvent(title, time, location, capacity, topic);
             saveFullSystemState("system_state.ser");
+            //Update the csv
+            saveEventState("events.csv");
         }
     }
 
@@ -194,6 +201,8 @@ public class EventManagement implements Serializable {
             //cast the event to seminar subclasses to be able to change speaker
             ((Seminar)e).updateEvent(title, time, location, capacity, speaker);
             saveFullSystemState("system_state.ser");
+            //Update the csv
+            saveEventState("events.csv");
         }
     }
 
@@ -204,6 +213,8 @@ public class EventManagement implements Serializable {
             //cast the event to concert subclasses to be able to change age restriction
             ((Concert)e).updateEvent(title, time, location, capacity, ageRestriction);
             saveFullSystemState("system_state.ser");
+            //Update the csv
+            saveEventState("events.csv");
         }
     }
 
@@ -274,6 +285,8 @@ public class EventManagement implements Serializable {
             e.cancelEvent();
             e.setStatus(false);
             saveFullSystemState("system_state.ser");
+            //Update the csv
+            saveEventState("events.csv");
         }
     }
 
