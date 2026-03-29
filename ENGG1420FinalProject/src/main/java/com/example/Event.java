@@ -58,10 +58,13 @@ public abstract class Event implements Serializable {
 
     //Update Event Information
     public void updateEvent(String newTitle, String newTime, String newLocation, int newCapacity){
-        title = newTitle;
-        dateTime = newTime;
-        location = newLocation;
-        capacity = newCapacity;
+        if(newCapacity <= 0){
+            throw new IllegalArgumentException("Error: Capacity must be greater than zero");
+        }
+        this.title = newTitle;
+        this.dateTime = newTime;
+        this.location = newLocation;
+        this.capacity = newCapacity;
         System.out.println("Event " + title + " has been updated");
     }
 

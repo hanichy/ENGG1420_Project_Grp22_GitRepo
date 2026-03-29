@@ -164,6 +164,49 @@ public class EventManagement implements Serializable {
         System.out.println("Event created successfully");
     }
 
+    //update event in system
+    //update basic event info
+    public void updateEvent(String eventId, String newTitle, String newTime, String newLocation, int newCapacity){
+        Event e = findEventById(eventId);
+        if(e != null){
+            //calls function from event class to update event
+            e.updateEvent(newTitle, newTime, newLocation, newCapacity);
+
+            //overwrites the file with updated list to avoid duplicates
+            saveFullSystemState("system_state.ser");
+        }
+    }
+
+    //update specialized for workshop(Topic)
+    public void updateWorkshop(String id, String title, String time, String location, int capacity, String topic){
+        Event e = findEventById(id);
+        if(e instanceof Workshop){
+            //cast the event to workshop subclasses to be able to change topic
+            ((Workshop)e).updateEvent(title, time, location, capacity, topic);
+            saveFullSystemState("system_state.ser");
+        }
+    }
+
+    //update specialized for Seminar(Speaker)
+    public void updateSeminar(String id, String title, String time, String location, int capacity, String speaker){
+        Event e = findEventById(id);
+        if(e instanceof Seminar){
+            //cast the event to seminar subclasses to be able to change speaker
+            ((Seminar)e).updateEvent(title, time, location, capacity, speaker);
+            saveFullSystemState("system_state.ser");
+        }
+    }
+
+    //update specialized for Concert(age restriction)
+    public void updateConcert(String id, String title, String time, String location, int capacity, String ageRestriction){
+        Event e = findEventById(id);
+        if(e instanceof Concert){
+            //cast the event to concert subclasses to be able to change age restriction
+            ((Concert)e).updateEvent(title, time, location, capacity, ageRestriction);
+            saveFullSystemState("system_state.ser");
+        }
+    }
+    
     //Search and Filter (PHASE 2)
     //Search by title
     public ArrayList<Event> searchByTitle(String title){
