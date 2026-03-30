@@ -99,18 +99,16 @@ public class CreateUserController {
                 break;
         }
 
-        //Save user
         UserManager.addUser(user);
+
         UserManager.saveToCSV();
 
-        System.out.println("User created successfully: " + user);
+        System.out.println("User created and saved to CSV: " + user);
 
-        //clear fields
         userIdField.clear();
         nameField.clear();
         emailField.clear();
         extraField.clear();
-        userTypeBox.setValue("Regular");
     }
 
     @FXML
