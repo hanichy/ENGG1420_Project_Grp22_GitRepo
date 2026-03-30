@@ -38,6 +38,5 @@
         </Button>
 
         <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
-      <Button layoutX="387.0" layoutY="83.0" mnemonicParsing="false" text="Button" />
     </children>
 </AnchorPane>

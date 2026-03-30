@@ -48,7 +48,7 @@
                                  <content>
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
-                                          <Button mnemonicParsing="false" onAction="switchToWaitlistPager text="View Event WaitList" />
+                                          <Button mnemonicParsing="false" text="View Event WaitList" />
                                           <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" text="Remove a WaitList Booking" />
                                        </children></VBox>
                                  </content>
