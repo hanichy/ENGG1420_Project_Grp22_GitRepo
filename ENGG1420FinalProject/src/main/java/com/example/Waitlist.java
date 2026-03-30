@@ -43,7 +43,7 @@ public class Waitlist implements Serializable {
             loadBookingsFromCSV(csvFile);
         }
         else{
-            loadBookingsFromCSV("booking.csv");
+            loadBookingsFromCSV("bookings.csv");
         }
     }
     //save bookings to csv file
@@ -82,11 +82,11 @@ public class Waitlist implements Serializable {
                 String bookingId = data[0];
                 String userId = data[1];
                 String eventId = data[2];
-                String createdAt = data[3];
-                String status = data[4];
+                String createdAt = data[3].trim();
+                String status = data[4].trim();
                 Booking b = new Booking(bookingId, userId, eventId, createdAt, status);
                 bookingList.add(b);
-                if(status.equals(Booking.Status_WAITLISTED)){
+                if(status.equalsIgnoreCase(Booking.Status_WAITLISTED)){
                     getWaitlistForEventInternal(eventId).add(b);
                 }
             }

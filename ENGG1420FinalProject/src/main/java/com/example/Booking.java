@@ -40,5 +40,8 @@ public class Booking implements Serializable {
     public String getUserId() {
         return userId;
     }
+    public String getCreatedAt(){
+        return createdAt;
+    }
 
 }

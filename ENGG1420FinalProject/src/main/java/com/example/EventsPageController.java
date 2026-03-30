@@ -555,12 +555,19 @@ public class EventsPageController {
     private void cancelEvent(ActionEvent ev){
         //Use Event Selected
         Event e = event.findEventById(selectedEventID);
-        event.cancelEvent(selectedEventID);
-        //Update Title to Cancelled
-        String title = "Cancelled "+e.getTitle();
-        event.updateEvent(selectedEventID, title, e.getDateTime(), e.getLocation(), e.getCapacity());
-        //Refresh UI
-        displayList();
+        if(e.getStatus()) {
+            event.cancelEvent(selectedEventID);
+            //Update Title to Cancelled
+            String title = "Cancelled " + e.getTitle();
+            event.updateEvent(selectedEventID, title, e.getDateTime(), e.getLocation(), e.getCapacity());
+            //Refresh UI
+            displayList();
+        }
+        else{
+            //Clear Old Vbox
+            selectedEventContainer.getChildren().clear();
+            selectedEventContainer.getChildren().add(new Label("Event is already cancelled."));
+        }
     }
 
     //VIEW EVENT ROSTER
@@ -587,7 +594,7 @@ public class EventsPageController {
                 //Booking ID
                 Label bID = new Label("Booking ID: "+ b.getBookingId());
                 Label uID = new Label("User ID: " + b.getUserId());
-                Label timeBooked = new Label ("Date Booked: "); //Add a method in Waitlist to get time booked
+                Label timeBooked = new Label ("Date Booked: "+ b.getCreatedAt()); //Add a method in Waitlist to get time booked
 
                 card.getChildren().addAll(bID, uID, timeBooked);
 
@@ -595,7 +602,7 @@ public class EventsPageController {
                 waitlistBookingsContainer.getChildren().add(card);
             }
         }
-        System.out.println("--> Finished displayWaitList. Container now has " + waitlistBookingsContainer.getChildren().size() + " items.");
+        System.out.println("--> Finished displayWaitList. Container now has " + waitlistBookingsContainer.getChildren().size() + " items.\nSelected Event ID "+selectedEventID);
     }
 
     //SEARCH EVENTS BY TITLE
