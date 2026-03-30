@@ -125,49 +125,42 @@ public class Waitlist implements Serializable {
         saveBookingsToCSV("bookings.csv");
         return newBooking;
     }
+
     //create booking by using ids
     public Booking createBookingByIds(String userId, String eventId){
         User user = UserManager.getInstance().findUserById(userId);
         Event event = EventManagement.getInstance().findEventById(eventId);
         return createBooking(user, event);
     }
-    //cancel booking and promote next waitlisted booking
-    public Booking cancelBooking(String bookingId){
-        Booking toCancel = findBookingById(bookingId);
-        if(toCancel == null){
-            throw new IllegalArgumentException("Booking ID not found.");
-        }
-        if(toCancel.getBookingStatus().equals(Booking.Status_CANCELLED)){
-            throw new IllegalArgumentException("Booking is already cancelled.");
-        }
-        String oldStatus = toCancel.getBookingStatus();
-        lastPromotedBooking = null;
-        toCancel.setBookingStatus(Booking.Status_CANCELLED);
-        if(oldStatus.equals(Booking.Status_WAITLISTED)){
-            removeWaitlistedBooking(toCancel);
-        }
-        else if(oldStatus.equals(Booking.Status_CONFIRMED)){
-            promoteNextBooking(toCancel.getEventId());
-        }
 
+    //cancel bookings
+    public Booking cancelBooking(String bookingId) {
+        Booking BookingToCancel = findBookingById(bookingId);
+        if (BookingToCancel == null) return null;
+        String eventId = BookingToCancel.getEventId();
+        String oldStatus = BookingToCancel.getBookingStatus();
+        BookingToCancel.setBookingStatus(Booking.Status_CANCELLED);
+        if (oldStatus.equals(Booking.Status_CONFIRMED)) {
+            promoteNextBooking(eventId);
+        }
         saveBookingsToCSV("bookings.csv");
-        return toCancel;
+        return BookingToCancel;
     }
 
-    //promote one person only to fill one empty spot
-    public Booking promoteNextBooking(String eventId){
+    //promote next booking
+    public Booking promoteNextBooking(String eventId) {
         ArrayList<Booking> eventWaitlist = getWaitlistForEventInternal(eventId);
 
-        while(!eventWaitlist.isEmpty()){
+        while (!eventWaitlist.isEmpty()) {
             Booking nextBooking = eventWaitlist.remove(0);
-
-            if(nextBooking.getBookingStatus().equals(Booking.Status_WAITLISTED)){
+            if (nextBooking.getBookingStatus().equals(Booking.Status_WAITLISTED)) {
                 nextBooking.setBookingStatus(Booking.Status_CONFIRMED);
-                lastPromotedBooking = nextBooking;
+                this.lastPromotedBooking = nextBooking;
                 saveBookingsToCSV("bookings.csv");
                 return nextBooking;
             }
         }
+        this.lastPromotedBooking = null;
         return null;
     }
 
@@ -282,6 +275,19 @@ public class Waitlist implements Serializable {
             }
         }
     }
+
+    public boolean hasActiveBooking(String userId, String eventId) {
+        for (Booking b : bookingList) {
+            if (b.getUserId().equalsIgnoreCase(userId) && b.getEventId().equalsIgnoreCase(eventId)) {
+                if (b.getBookingStatus().equals(Booking.Status_CONFIRMED) ||
+                        b.getBookingStatus().equals(Booking.Status_WAITLISTED)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
     //generate a unique booking id
     private String uniqueBookingId(){
         Random random = new Random();
