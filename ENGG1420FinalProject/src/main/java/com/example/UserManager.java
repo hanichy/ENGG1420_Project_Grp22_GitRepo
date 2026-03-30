@@ -46,7 +46,7 @@ public class UserManager {
     }
 
     public static void saveToCSV() {
-        try (FileWriter writer = new FileWriter("src/main/resources/users.csv")) {
+        try (FileWriter writer = new FileWriter("users.csv")) {
             writer.write("UserID,Name,Email,Type,Extra\n");
             for (User user : users) {
                 String extra = "";

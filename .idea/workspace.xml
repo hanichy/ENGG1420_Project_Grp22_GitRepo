@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="fix user saving; change file locations of csvs to root">
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="add waitlist duplicate checks, fix waitlist promotion bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/BookingPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/BookingPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Waitlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Waitlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/UserManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/BookingPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/BookingPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/UserManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/UserManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewUserDetailsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewUserDetailsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Waitlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Waitlist.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,7 +177,7 @@
       <workItem from="1774740715143" duration="4245000" />
       <workItem from="1774835899062" duration="1719000" />
       <workItem from="1774878718991" duration="8604000" />
-      <workItem from="1774904404462" duration="2495000" />
+      <workItem from="1774904404462" duration="4091000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Main Menu from a jumble of buttons to a navagation drawer.">
       <option name="closed" value="true" />
@@ -438,7 +435,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774905537568</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="add waitlist duplicate checks, fix waitlist promotion bug">
+      <option name="closed" value="true" />
+      <created>1774906963705</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1774906963705</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,7 +461,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creating an FXML that will specifically support the menu panel in all the pages" />
     <MESSAGE value="Created the Menu Panel that can now appear on every page without having to manually create it for every page. Now I am adding to the pages here and seeing how I can remove the button corresponding with the page it is already on." />
     <MESSAGE value="Added some things such as cancel event" />
     <MESSAGE value="Added View Event Roster UI" />
@@ -481,6 +485,7 @@
     <MESSAGE value="Add viewwaitlist.fxml; hook up main menu button" />
     <MESSAGE value="user waitlist now displays properly" />
     <MESSAGE value="fix user saving; change file locations of csvs to root" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix user saving; change file locations of csvs to root" />
+    <MESSAGE value="add waitlist duplicate checks, fix waitlist promotion bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="add waitlist duplicate checks, fix waitlist promotion bug" />
   </component>
 </project>
