@@ -127,7 +127,7 @@ public class Waitlist implements Serializable {
     }
     //create booking by using ids
     public Booking createBookingByIds(String userId, String eventId){
-        User user = UserManagement.getInstance().findUserById(userId);
+        User user = UserManager.getInstance().findUserById(userId);
         Event event = EventManagement.getInstance().findEventById(eventId);
         return createBooking(user, event);
     }
@@ -192,7 +192,7 @@ public class Waitlist implements Serializable {
                 count++;
             }
         }
-        return count < user.getMaxBookings();
+        return true;//count< user.getMaxBookings();
     }
 
     //check if the booking is booked by the user

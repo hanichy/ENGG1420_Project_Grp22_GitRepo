@@ -18,6 +18,8 @@ public class Main extends Application {
     public void start(Stage stage) throws Exception {
         EventManagement e = EventManagement.getInstance();
         e.startup();
+        Waitlist b = Waitlist.getInstance();
+        b.startup();
         Parent root = FXMLLoader.load(getClass().getResource("MainMenuPHASE2.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("GROUP 22 SYSTEM");

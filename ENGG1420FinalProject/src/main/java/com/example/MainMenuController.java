@@ -139,7 +139,7 @@ public class MainMenuController{
     //Book an com.example.Event Menu
     @FXML
     private void switchToCreateBooking(ActionEvent e) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateBookingMenuPHASE2.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("BookingEventPage.fxml"));
         root = loader.load();
 
         BookingPageController bookingPageController = loader.getController();
@@ -151,7 +151,7 @@ public class MainMenuController{
     //Cancel a Booking Menu
     @FXML
     private void switchToCancelBooking(ActionEvent e) throws IOException{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("CancelBookingMenuPHASE2.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("CancelBookingPage.fxml"));
         root = loader.load();
 
         BookingPageController bookingPageController = loader.getController();

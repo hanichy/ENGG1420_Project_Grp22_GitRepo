@@ -101,6 +101,7 @@ public class CreateUserController {
 
         //Save user
         UserManager.addUser(user);
+        UserManager.saveToCSV();
 
         System.out.println("User created successfully: " + user);
 
@@ -117,7 +118,7 @@ public class CreateUserController {
 
         try {
             Parent root = FXMLLoader.load(
-                    getClass().getResource("MainMenuPHASE2.fxml"));
+                    getClass().getResource("MainMenu.fxml"));
 
             Stage stage = (Stage) ((Node) event.getSource())
                     .getScene().getWindow();

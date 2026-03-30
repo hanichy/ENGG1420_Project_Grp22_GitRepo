@@ -39,8 +39,8 @@
                                  <content>
                                     <VBox prefHeight="200.0" prefWidth="100.0">
                                        <children>
-                                          <Button mnemonicParsing="false" text="Book an com.example.Event" />
-                                          <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" text="Cancel a Booking" />
+                                          <Button mnemonicParsing="false" onAction="#switchToCreateBooking" text="Book an Event" />
+                                          <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToCancelBooking" text="Cancel a Booking" />
                                        </children></VBox>
                                  </content>
                             </TitledPane>

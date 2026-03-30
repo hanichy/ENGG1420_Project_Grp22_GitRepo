@@ -31,6 +31,13 @@ public class EventsPageController {
     //VBox for Selected Items
     @FXML
     private VBox selectedEventContainer;
+    //VBox to Show Confirmed Bookings
+    @FXML
+    private VBox confirmedBookingsContainer;
+    //VBox to Show Waitlisted Bookings
+    @FXML
+    private VBox waitlistBookingsContainer;
+
 
     //TextFields
     @FXML
@@ -79,12 +86,13 @@ public class EventsPageController {
 
     //Get the List of Events Created before
     EventManagement event = EventManagement.getInstance();
+    //Get the List of Bookings
+    Waitlist bookings = Waitlist.getInstance();
 
     //Displays List of Events Upon Page Initialization
     @FXML
     private void initialize() {
         if (eventsContainer != null) {
-            //EventManagement.loadEventsFromCSV("events.csv");
             displayList();
         }
         hourInitialize();
@@ -152,6 +160,10 @@ public class EventsPageController {
                 if (eventTopic != null){
                     //Show Sub Attribute if necessary
                     showSubEventAttribute(e);
+                }
+
+                if (waitlistBookingsContainer!=null){
+                    displayWaitList();
                 }
             });
             eventsContainer.getChildren().addAll(statusLbl);
@@ -552,6 +564,39 @@ public class EventsPageController {
     }
 
     //VIEW EVENT ROSTER
+    //Display the Confirmed Bookings
+    @FXML
+    private void diplayConfirmed(){
+        //Clear Old Vbox Item
+
+    }
+    //Display the Waitlisted Bookings in Order
+    @FXML
+    private void displayWaitList(){
+        //Get Selected Event
+        Event e = event.findEventById(selectedEventID);
+        //Clear Old VBox Items
+        waitlistBookingsContainer.getChildren().clear();
+
+        ArrayList<Booking> waitlist = bookings.getWaitlistForEvent(selectedEventID);
+        for (Booking b : waitlist){
+            if (b != null) {
+                VBox card = new VBox(5);
+                card.setStyle("-fx-padding: 10; -fx-border-color: #cccccc; -fx-background-color: #f9f9f9; -fx-border-radius: 5;");
+
+                //Booking ID
+                Label bID = new Label("Booking ID: "+ b.getBookingId());
+                Label uID = new Label("User ID: " + b.getUserId());
+                Label timeBooked = new Label ("Date Booked: "); //Add a method in Waitlist to get time booked
+
+                card.getChildren().addAll(bID, uID, timeBooked);
+
+                // Add the card to the container
+                waitlistBookingsContainer.getChildren().add(card);
+            }
+        }
+        System.out.println("--> Finished displayWaitList. Container now has " + waitlistBookingsContainer.getChildren().size() + " items.");
+    }
 
     //SEARCH EVENTS BY TITLE
     @FXML
