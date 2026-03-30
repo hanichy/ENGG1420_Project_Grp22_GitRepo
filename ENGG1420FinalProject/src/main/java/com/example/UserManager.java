@@ -41,7 +41,7 @@ public class UserManager {
 
     public static void saveToCSV() {
 
-        try (FileWriter writer = new FileWriter("src/main/resources/users.csv")) {
+        try (FileWriter writer = new FileWriter("users.csv")) {
 
             writer.write("userId,name,email,type,extra\n");
 
@@ -74,7 +74,7 @@ public class UserManager {
         users.clear();
 
         try (BufferedReader reader = new BufferedReader(
-                new FileReader("src/main/resources/users.csv"))) {
+                new FileReader("users.csv"))) {
 
             String line;
             reader.readLine(); //skip header
