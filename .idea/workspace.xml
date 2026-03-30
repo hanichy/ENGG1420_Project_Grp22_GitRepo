@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Add viewwaitlist.fxml; hook up main menu button">
+      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/ViewWaitlistBookingRemove.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/users.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Waitlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Waitlist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/WaitlistPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/WaitlistPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MenuPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MenuPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/ViewWaitlist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/ViewWaitlist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/MenuPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/MenuPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Waitlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Waitlist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/WaitlistPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/WaitlistPageController.class" afterDir="false" />
     </list>
-    <list id="ca1f5bf5-cfd0-431d-9ee2-a1291d54e867" name="Changes by zadie" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +71,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
-    "Application.com.example.Main.executor": "Debug",
+    "Application.com.example.Main.executor": "Run",
     "Application.com.example.booking.Main.executor": "Run",
     "Maven.ENGG1420FinalProject [clean,install,-U].executor": "Run",
     "Maven.ENGG1420FinalProject [clean].executor": "Run",
@@ -173,7 +183,7 @@
       <workItem from="1774711245057" duration="4556000" />
       <workItem from="1774740715143" duration="4245000" />
       <workItem from="1774835899062" duration="1719000" />
-      <workItem from="1774878718991" duration="5606000" />
+      <workItem from="1774878718991" duration="8604000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Main Menu from a jumble of buttons to a navagation drawer.">
       <option name="closed" value="true" />
@@ -407,7 +417,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774883873702</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Add viewwaitlist.fxml; hook up main menu button">
+      <option name="closed" value="true" />
+      <created>1774884401632</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1774884401632</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

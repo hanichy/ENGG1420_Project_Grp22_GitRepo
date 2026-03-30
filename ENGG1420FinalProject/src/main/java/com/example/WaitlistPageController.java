@@ -6,19 +6,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
 
 public class WaitlistPageController {
 
     @FXML private TextField userIDField;
+    @FXML private TextField bookingIDField; // Specific ID to remove
     @FXML private VBox waitlistBookingsContainer;
     @FXML private Label statusLabel;
 
@@ -26,54 +24,58 @@ public class WaitlistPageController {
 
     @FXML
     public void searchWaitlistByUser(ActionEvent event) {
-        String userId = userIDField.getText().trim();
         waitlistBookingsContainer.getChildren().clear();
+        String userId = userIDField.getText().trim();
 
         if (userId.isEmpty()) {
             statusLabel.setText("Please enter a User ID.");
             return;
         }
 
+        ArrayList<Booking> allBookings = waitlist.getBookingList();
         boolean found = false;
-        // Search through the waitlistMap for this user
-        for (String eventId : waitlist.getWaitlistMap().keySet()) {
-            ArrayList<Booking> eventWaitlist = waitlist.getWaitlistForEvent(eventId);
-            for (Booking b : eventWaitlist) {
-                if (b.getUserId().equalsIgnoreCase(userId)) {
-                    addWaitlistCard(b);
-                    found = true;
-                }
+
+        for (Booking b : allBookings) {
+            if (b.getUserId().equalsIgnoreCase(userId) && b.getBookingStatus().equals(Booking.Status_WAITLISTED)) {
+                Label info = new Label(String.format("ID: %s | Event: %s", b.getBookingId(), b.getEventId()));
+                info.setStyle("-fx-font-family: 'Baskerville Old Face'; -fx-font-size: 14;");
+                waitlistBookingsContainer.getChildren().add(info);
+                found = true;
             }
         }
 
         if (!found) {
             statusLabel.setText("No waitlisted bookings found for this user.");
         } else {
-            statusLabel.setText("");
+            statusLabel.setText("Results found.");
         }
     }
 
-    private void addWaitlistCard(Booking booking) {
-        HBox card = new HBox(15);
-        card.setStyle("-fx-border-color: #cccccc; -fx-padding: 5; -fx-background-color: #fefefe;");
+    @FXML
+    public void handleRemoveWaitlist(ActionEvent event) {
+        String idToRemove = bookingIDField.getText().trim();
 
-        Label info = new Label("Event: " + booking.getEventId() + " | Booking ID: " + booking.getBookingId());
-        Button removeBtn = new Button("Remove");
-        removeBtn.setStyle("-fx-background-color: #ff4444; -fx-text-fill: white;");
+        if (idToRemove.isEmpty()) {
+            statusLabel.setText("Please enter a Booking ID to remove.");
+            return;
+        }
 
-        removeBtn.setOnAction(e -> {
-            waitlist.removeWaitlistedBooking(booking);
-            searchWaitlistByUser(null); // Refresh the list
-        });
+        // We use the boolean logic added to Waitlist logic in the previous step
+        boolean success = waitlist.removeBookingById(idToRemove);
 
-        card.getChildren().addAll(info, removeBtn);
-        waitlistBookingsContainer.getChildren().add(card);
+        if (success) {
+            statusLabel.setText("Booking " + idToRemove + " has been removed.");
+            bookingIDField.clear();
+            waitlistBookingsContainer.getChildren().clear(); // Clear results to force refresh
+        } else {
+            statusLabel.setText("Error: Booking ID not found in waitlist.");
+        }
     }
 
     @FXML
     public void backToMenu(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MainMenuPHASE2.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }

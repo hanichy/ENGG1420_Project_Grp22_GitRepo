@@ -184,6 +184,29 @@ public class Waitlist implements Serializable {
         return null;
     }
 
+    public boolean removeBookingById(String bookingId) {
+        Booking toRemove = null;
+        for (Booking b : bookingList) {
+            if (b.getBookingId().equalsIgnoreCase(bookingId)) {
+                toRemove = b;
+                break;
+            }
+        }
+
+        if (toRemove != null) {
+            bookingList.remove(toRemove);
+
+            ArrayList<Booking> eventWaitlist = waitlistMap.get(toRemove.getEventId());
+            if (eventWaitlist != null) {
+                eventWaitlist.removeIf(b -> b.getBookingId().equalsIgnoreCase(bookingId));
+            }
+
+            saveBookingsToCSV("bookings.csv");
+            return true;
+        }
+        return false;
+    }
+
     //check if user reached max bookings
     public boolean canUserBookMore(User user){
         int count = 0;
