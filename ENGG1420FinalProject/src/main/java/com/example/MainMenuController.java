@@ -162,7 +162,27 @@ public class MainMenuController{
     }
 
     //WAITLIST BUTTONS
-    //View com.example.Event Waitlist Menu
-    //Remove a Waitlist Booking Menu
+    //View Event Waitlist Menu
+    @FXML
+    private void switchToViewWaitlistBookingRemove(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewWaitlistBookingRemove.fxml"));
+        root = loader.load();
+        WaitlistPageController waitlistPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
+    //Remove a Waitlist Booking Menu
+    @FXML
+    private void switchToViewWaitlist(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewWaitlist.fxml"));
+        root = loader.load();
+        WaitlistPageController waitlistPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }

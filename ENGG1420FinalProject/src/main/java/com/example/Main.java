@@ -16,10 +16,13 @@ public class Main extends Application {
     //Sets up the Main Menu
     @Override
     public void start(Stage stage) throws Exception {
+        //Get the Information from the Files
         EventManagement e = EventManagement.getInstance();
         e.startup();
         Waitlist b = Waitlist.getInstance();
         b.startup();
+        UserManager.loadFromCSV();
+
         Parent root = FXMLLoader.load(getClass().getResource("MainMenuPHASE2.fxml"));
         Scene scene = new Scene(root);
         stage.setTitle("GROUP 22 SYSTEM");

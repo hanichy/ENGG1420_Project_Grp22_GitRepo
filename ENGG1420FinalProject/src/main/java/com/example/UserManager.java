@@ -15,15 +15,6 @@ public class UserManager {
         users.add(user);
     }
 
-    //find user by id num to make sure each id is unique
-    public User findUserById(String id) {
-        for (User u : users) {
-            if (u.getUserId().equalsIgnoreCase(id)) {
-                return u;
-            }
-        }
-        return null;
-    }
 
     public static UserManager getInstance()
     {

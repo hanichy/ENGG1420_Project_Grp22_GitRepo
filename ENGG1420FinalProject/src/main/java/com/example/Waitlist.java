@@ -127,7 +127,7 @@ public class Waitlist implements Serializable {
     }
     //create booking by using ids
     public Booking createBookingByIds(String userId, String eventId){
-        User user = UserManager.getInstance().findUserById(userId);
+        User user = UserManager.getInstance().getUserById(userId);
         Event event = EventManagement.getInstance().findEventById(eventId);
         return createBooking(user, event);
     }
@@ -182,6 +182,29 @@ public class Waitlist implements Serializable {
             }
         }
         return null;
+    }
+
+    public boolean removeBookingById(String bookingId) {
+        Booking toRemove = null;
+        for (Booking b : bookingList) {
+            if (b.getBookingId().equalsIgnoreCase(bookingId)) {
+                toRemove = b;
+                break;
+            }
+        }
+
+        if (toRemove != null) {
+            bookingList.remove(toRemove);
+
+            ArrayList<Booking> eventWaitlist = waitlistMap.get(toRemove.getEventId());
+            if (eventWaitlist != null) {
+                eventWaitlist.removeIf(b -> b.getBookingId().equalsIgnoreCase(bookingId));
+            }
+
+            saveBookingsToCSV("bookings.csv");
+            return true;
+        }
+        return false;
     }
 
     //check if user reached max bookings
@@ -240,8 +263,12 @@ public class Waitlist implements Serializable {
         return eventWaitlist;
     }
 
+    public Map<String, ArrayList<Booking>> getWaitlistMap() {
+        return waitlistMap;
+    }
+
     //remove waitlisted booking from waitlist if cancelled before promotion
-    private void removeWaitlistedBooking(Booking booking){
+    public void removeWaitlistedBooking(Booking booking){
         ArrayList<Booking> eventWaitlist = waitlistMap.get(booking.getEventId());
         if(eventWaitlist == null){
             return;
