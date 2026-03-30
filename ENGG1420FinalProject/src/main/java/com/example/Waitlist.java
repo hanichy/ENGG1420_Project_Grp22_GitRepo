@@ -240,8 +240,12 @@ public class Waitlist implements Serializable {
         return eventWaitlist;
     }
 
+    public Map<String, ArrayList<Booking>> getWaitlistMap() {
+        return waitlistMap;
+    }
+
     //remove waitlisted booking from waitlist if cancelled before promotion
-    private void removeWaitlistedBooking(Booking booking){
+    public void removeWaitlistedBooking(Booking booking){
         ArrayList<Booking> eventWaitlist = waitlistMap.get(booking.getEventId());
         if(eventWaitlist == null){
             return;

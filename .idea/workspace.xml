@@ -4,23 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Added booking and waitlist code. Issues with the interaction between user and waitlist have appeared.">
-      <change afterPath="$PROJECT_DIR$/bookings.csv" afterDir="false" />
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="add getmaxbooking method">
+      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/WaitListPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/BookingPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/BookingPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/CreateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/CreateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/UserManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Waitlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Waitlist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventRosterMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventRosterMenuPHASE2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MenuPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MenuPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/WaitlistPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/WaitlistPageController.java" afterDir="false" />
+    </list>
+    <list id="59f8f508-a65d-4267-8e60-17b6c338bac4" name="Changes by zadie" comment="">
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="56" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -33,7 +32,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,10 +45,14 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/hanichy/ENGG1420_Project_Grp22_GitRepo.git&quot;,
-    &quot;accountId&quot;: &quot;a0892907-ea2b-4bd6-99a5-e4bbb3f12049&quot;
+    &quot;url&quot;: &quot;https://github.com/hanichy/ENGG1420_Project_Grp22_GitRepo&quot;,
+    &quot;accountId&quot;: &quot;c899a9e2-fbb6-4525-8f16-11e8c52d89a6&quot;
   }
 }</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -57,29 +60,37 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "Application.com.example.Main.executor": "Run",
-    "Maven.ENGG1420FinalProject [clean,install,-U].executor": "Run",
-    "Maven.ENGG1420FinalProject [clean].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/grace/OneDrive/ENGG1420-Labs/ENGG1420_Project_Grp22_GitRepo",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.fileTypes",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.example.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.com.example.booking.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ENGG1420FinalProject [clean,install,-U].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ENGG1420FinalProject [clean].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/grace/OneDrive/ENGG1420-Labs/ENGG1420_Project_Grp22_GitRepo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\grace\OneDrive\ENGG1420-Labs\ENGG1420_Project_Grp22_GitRepo" />
@@ -138,8 +149,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-26cb7f24e5b0-intellij.indexing.shared.core-IU-253.29346.240" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.29346.240" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.30387.90" />
       </set>
     </attachedChunks>
   </component>
@@ -163,6 +174,8 @@
       <workItem from="1774118746710" duration="35546000" />
       <workItem from="1774711245057" duration="4556000" />
       <workItem from="1774740715143" duration="4245000" />
+      <workItem from="1774835899062" duration="1719000" />
+      <workItem from="1774878718991" duration="3862000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Main Menu from a jumble of buttons to a navagation drawer.">
       <option name="closed" value="true" />
