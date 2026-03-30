@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ViewUserDetailsController {
 
@@ -25,15 +26,39 @@ public class ViewUserDetailsController {
     private TextArea outputArea;
 
     @FXML
-    private void handleSearch(ActionEvent event) {
+    public void initialize() {
+        displayAllUsers();
+    }
 
-        String id = userIdField.getText();
+    private void displayAllUsers() {
+        ArrayList<User> allUsers = UserManager.getAllUsers();
+
+        if (allUsers.isEmpty()) {
+            outputArea.setText("No users currently registered in the system.");
+            return;
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (User user : allUsers) {
+            sb.append(user.toString()).append("\n");
+        }
+        outputArea.setText(sb.toString());
+    }
+
+    @FXML
+    private void handleSearch(ActionEvent event) {
+        String id = userIdField.getText().trim();
+
+        if (id.isEmpty()) {
+            displayAllUsers();
+            return;
+        }
         User user = UserManager.getUserById(id);
 
         if (user != null) {
-            outputArea.setText(user.toString());
+            outputArea.setText("--- User Found ---\n\n" + user.toString());
         } else {
-            outputArea.setText("User not found.");
+            outputArea.setText("User with ID '" + id + "' not found.");
         }
     }
 

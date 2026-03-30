@@ -103,32 +103,21 @@ public class CreateUserController {
         UserManager.addUser(user);
         UserManager.saveToCSV();
 
-        System.out.println("User created successfully: " + user);
+        System.out.println("User created and saved to CSV: " + user);
 
         //clear fields
         userIdField.clear();
         nameField.clear();
         emailField.clear();
         extraField.clear();
-        userTypeBox.setValue("Regular");
     }
 
     @FXML
-    private void switchToMainMenu(ActionEvent event) {
-
-        try {
-            Parent root = FXMLLoader.load(
-                    getClass().getResource("MainMenu.fxml"));
-
-            Stage stage = (Stage) ((Node) event.getSource())
-                    .getScene().getWindow();
-
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void backToMenu(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainMenuPHASE2.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML

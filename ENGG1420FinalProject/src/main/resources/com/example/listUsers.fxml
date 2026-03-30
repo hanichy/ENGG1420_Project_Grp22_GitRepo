@@ -20,7 +20,7 @@
 
       <Button layoutX="20.0" layoutY="350.0"
               text="Return"
-              onAction="#switchToMainMenu" />
+              onAction="#backToMenu" />
 
       <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
    </children>

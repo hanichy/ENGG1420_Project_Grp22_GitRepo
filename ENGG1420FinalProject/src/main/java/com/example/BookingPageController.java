@@ -44,21 +44,27 @@ public class BookingPageController {
 
     @FXML
     //use eventTitle as user id field and eventDate as event id field for now
-    public void createBookingButton(ActionEvent ev){
-        try{
-            String userId = eventTitle.getText();
-            String eventId = eventDate.getText();
+    public void createBookingButton(ActionEvent ev) {
+        try {
+            String userId = eventTitle.getText().trim();
+            String eventId = eventDate.getText().trim();
 
-            if(userId == null || userId.isBlank() || eventId == null || eventId.isBlank()){
-                showError("Validation Error", "Enter both User ID and Event ID.");
+            if (userId.isEmpty() || eventId.isEmpty()) {
+                showError("Input Error", "Please fill in both ID fields.");
                 return;
             }
 
-            Booking newBooking = waitlist.createBookingByIds(userId.trim(), eventId.trim());
-            showInfo("Success", "Booking created successfully. Booking ID: " + newBooking.getBookingId() + " Status: " + newBooking.getBookingStatus());
-            displayList();
-        }catch(IllegalArgumentException e){
-            showError("Booking Error", e.getMessage());
+            if (waitlist.hasActiveBooking(userId, eventId)) {
+                showError("Duplicate Booking", "User " + userId + " already has an active booking for event " + eventId);
+                return;
+            }
+            Booking b = waitlist.createBookingByIds(userId, eventId);
+            if (b != null) {
+                showInfo("Booking Created", "Status: " + b.getBookingStatus());
+                displayList();
+            }
+        } catch (Exception e) {
+            showError("Error", "Could not process booking.");
         }
     }
 
