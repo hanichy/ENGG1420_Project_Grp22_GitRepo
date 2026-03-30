@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="add WaitListPage.fxml">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/WaitListPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/ViewWaitlist.fxml" afterDir="false" />
-    </list>
-    <list id="699e93c9-b5fe-4687-ae11-01c454c7c765" name="Changes by zadie" comment="">
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="revert to working">
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/MenuPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/MenuPanel.fxml" afterDir="false" />
     </list>
+    <list id="ca1f5bf5-cfd0-431d-9ee2-a1291d54e867" name="Changes by zadie" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +173,7 @@
       <workItem from="1774711245057" duration="4556000" />
       <workItem from="1774740715143" duration="4245000" />
       <workItem from="1774835899062" duration="1719000" />
-      <workItem from="1774878718991" duration="4599000" />
+      <workItem from="1774878718991" duration="4981000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Main Menu from a jumble of buttons to a navagation drawer.">
       <option name="closed" value="true" />
@@ -395,14 +391,21 @@
       <option name="project" value="LOCAL" />
       <updated>1774882715010</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="revert to working">
+      <option name="closed" value="true" />
+      <created>1774883399462</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1774883399462</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Buttons are added but not yet functional. If you press the 3 lines the drawer will either go on or off screen depending on where it originally started." />
     <MESSAGE value="Added the Guelph logo and the Title of the system." />
     <MESSAGE value="Added the new Create Events Page and added the buttons to traverse between them." />
     <MESSAGE value="Adding Menu to all Pages currently." />
@@ -427,6 +430,7 @@
     <MESSAGE value="User Backend and Classes have been integrated with the Events Section." />
     <MESSAGE value="Added booking and waitlist code. Issues with the interaction between user and waitlist have appeared." />
     <MESSAGE value="add WaitListPage.fxml" />
-    <option name="LAST_COMMIT_MESSAGE" value="add WaitListPage.fxml" />
+    <MESSAGE value="revert to working" />
+    <option name="LAST_COMMIT_MESSAGE" value="revert to working" />
   </component>
 </project>

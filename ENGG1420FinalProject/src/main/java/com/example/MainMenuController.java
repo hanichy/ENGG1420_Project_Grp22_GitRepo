@@ -169,16 +169,16 @@ public class MainMenuController{
 //        stage.setScene(scene);
 //        stage.show();
 //    }
-
-//    private void switchToRemoveFromWaitlist(ActionEvent e){
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewWaitlist.fxml"));
-//        root = loader.load();
-//        WaitlistPageController waitlistPageController = loader.getController();
-//        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-//        scene = new Scene(root);
-//        stage.setScene(scene);
-//        stage.show();
-//    }
+    @FXML
+    private void switchToViewWaitlist(ActionEvent e) throws IOException{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewWaitlist.fxml"));
+        root = loader.load();
+        WaitlistPageController waitlistPageController = loader.getController();
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     //WAITLIST BUTTONS
     //View com.example.Event Waitlist Menu
