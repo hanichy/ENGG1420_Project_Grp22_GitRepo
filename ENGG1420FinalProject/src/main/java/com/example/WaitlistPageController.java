@@ -23,12 +23,17 @@ public class WaitlistPageController {
     private Waitlist waitlist = Waitlist.getInstance();
 
     @FXML
+    public void initialize() {
+        displayAllWaitlistedBookings();
+    }
+
+    @FXML
     public void searchWaitlistByUser(ActionEvent event) {
         waitlistBookingsContainer.getChildren().clear();
         String userId = userIDField.getText().trim();
-
         if (userId.isEmpty()) {
-            statusLabel.setText("Please enter a User ID.");
+            statusLabel.setText("No ID entered. Page refreshed.");
+            displayAllWaitlistedBookings();
             return;
         }
 
@@ -48,6 +53,23 @@ public class WaitlistPageController {
             statusLabel.setText("No waitlisted bookings found for this user.");
         } else {
             statusLabel.setText("Results found.");
+        }
+    }
+
+    private void displayAllWaitlistedBookings() {
+        waitlistBookingsContainer.getChildren().clear();
+        Waitlist waitlist = Waitlist.getInstance();
+        ArrayList<Booking> allBookings = waitlist.getBookingList();
+        for (Booking b : allBookings) {
+            if (Booking.Status_WAITLISTED.equals(b.getBookingStatus())) {
+                Label bookingLabel = new Label(
+                        String.format("ID: %s | User: %s | Event: %s",
+                                b.getBookingId(), b.getUserId(), b.getEventId())
+                );
+                bookingLabel.setStyle("-fx-padding: 5; -fx-border-color: #eeeeee; -fx-border-width: 0 0 1 0;");
+                bookingLabel.setPrefWidth(450);
+                waitlistBookingsContainer.getChildren().add(bookingLabel);
+            }
         }
     }
 

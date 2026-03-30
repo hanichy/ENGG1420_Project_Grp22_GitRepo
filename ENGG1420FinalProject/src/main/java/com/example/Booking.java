@@ -11,7 +11,7 @@ public class Booking implements Serializable {
     public String bookingStatus;
 
     public static final String Status_CONFIRMED = "Confirmed";
-    public static final String Status_WAITLISTED = "WaitListed";
+    public static final String Status_WAITLISTED = "Waitlisted";
     public static final String Status_CANCELLED = "Cancelled";
 
 

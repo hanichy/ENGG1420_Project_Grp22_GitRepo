@@ -172,15 +172,24 @@ public class MainMenuController{
     }
 
     @FXML
-    private void switchToViewWaitlist(ActionEvent e) throws IOException{
+    private void switchToViewWaitlist(ActionEvent e) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewWaitlist.fxml"));
-        root = loader.load();
-        WaitlistPageController waitlistPageController = loader.getController();
+        Parent root = loader.load(); // initialize() is called here
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
+        stage.setScene(new Scene(root));
         stage.show();
     }
+
+//    @FXML
+//    private void switchToViewWaitlist(ActionEvent e) throws IOException{
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewWaitlist.fxml"));
+//        root = loader.load();
+//        WaitlistPageController waitlistPageController = loader.getController();
+//        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+//        scene = new Scene(root);
+//        stage.setScene(scene);
+//        stage.show();
+//    }
 
     //WAITLIST BUTTONS
     //View com.example.Event Waitlist Menu

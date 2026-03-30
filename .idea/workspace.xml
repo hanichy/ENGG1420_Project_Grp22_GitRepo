@@ -4,17 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Add viewwaitlist.fxml; hook up main menu button">
-      <change afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/ViewWaitlistBookingRemove.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/users.csv" afterDir="false" />
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="fix viewwaitlistbookingremove file not showing up">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Booking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Waitlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Waitlist.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/WaitlistPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/WaitlistPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MenuPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/MenuPanel.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/ViewWaitlist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/ViewWaitlist.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/MenuPanel.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/MenuPanel.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Booking.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/BookingPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/BookingPageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlist.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlistBookingRemove.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlistBookingRemove.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Waitlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Waitlist.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/WaitlistPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/WaitlistPageController.class" afterDir="false" />
     </list>
@@ -83,7 +83,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "jon",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/grace/OneDrive/ENGG1420-Labs/ENGG1420_Project_Grp22_GitRepo",
