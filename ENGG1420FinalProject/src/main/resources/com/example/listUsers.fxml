@@ -9,7 +9,6 @@
             fx:controller="com.example.ListAllUserController">
 
    <children>
-
       <Label layoutX="220.0" layoutY="20.0" text="All Users" />
 
       <TextArea fx:id="outputArea"
@@ -20,7 +19,7 @@
 
       <Button layoutX="20.0" layoutY="350.0"
               text="Return"
-              onAction="#switchToMainMenu" />
+              onAction="#backToMenu" />
 
       <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
    </children>

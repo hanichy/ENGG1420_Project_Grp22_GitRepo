@@ -114,21 +114,11 @@ public class CreateUserController {
     }
 
     @FXML
-    private void switchToMainMenu(ActionEvent event) {
-
-        try {
-            Parent root = FXMLLoader.load(
-                    getClass().getResource("MainMenu.fxml"));
-
-            Stage stage = (Stage) ((Node) event.getSource())
-                    .getScene().getWindow();
-
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void backToMenu(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainMenuPHASE2.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML

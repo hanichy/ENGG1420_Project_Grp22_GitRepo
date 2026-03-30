@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="fix viewwaitlistbookingremove file not showing up">
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="user waitlist now displays properly">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/MainMenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/WaitlistPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/WaitlistPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Booking.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Booking.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/BookingPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/BookingPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlist.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlist.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlistBookingRemove.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlistBookingRemove.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Waitlist.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/Waitlist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/WaitlistPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/WaitlistPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/CreateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/CreateUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/ListAllUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/ListAllUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/BookingEventPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/BookingEventPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CancelBookingPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CancelBookingPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/CreateUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/listUsers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/listUsers.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/BookingEventPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/BookingEventPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/CancelBookingPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/CancelBookingPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/CreateUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/CreateUser.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/CreateUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/CreateUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ListAllUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ListAllUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/listUsers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/listUsers.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookings.csv" beforeDir="false" afterPath="$PROJECT_DIR$/bookings.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -425,14 +427,21 @@
       <option name="project" value="LOCAL" />
       <updated>1774884401632</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="user waitlist now displays properly">
+      <option name="closed" value="true" />
+      <created>1774898377996</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1774898377996</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added the new Create Events Page and added the buttons to traverse between them." />
     <MESSAGE value="Adding Menu to all Pages currently." />
     <MESSAGE value="Creating an FXML that will specifically support the menu panel in all the pages" />
     <MESSAGE value="Created the Menu Panel that can now appear on every page without having to manually create it for every page. Now I am adding to the pages here and seeing how I can remove the button corresponding with the page it is already on." />
@@ -457,6 +466,7 @@
     <MESSAGE value="add WaitListPage.fxml" />
     <MESSAGE value="revert to working" />
     <MESSAGE value="Add viewwaitlist.fxml; hook up main menu button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add viewwaitlist.fxml; hook up main menu button" />
+    <MESSAGE value="user waitlist now displays properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="user waitlist now displays properly" />
   </component>
 </project>
