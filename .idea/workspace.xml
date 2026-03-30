@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="The Event Roster now displays the waitlisted people for the events.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" afterDir="false" />
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Event Roster is completely finished.">
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventRosterMenuPHASE2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/resources/com/example/EventRosterMenuPHASE2.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -396,14 +395,21 @@
       <option name="project" value="LOCAL" />
       <updated>1774898478873</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Event Roster is completely finished.">
+      <option name="closed" value="true" />
+      <created>1774899509978</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1774899509978</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adding Menu to all Pages currently." />
     <MESSAGE value="Creating an FXML that will specifically support the menu panel in all the pages" />
     <MESSAGE value="Created the Menu Panel that can now appear on every page without having to manually create it for every page. Now I am adding to the pages here and seeing how I can remove the button corresponding with the page it is already on." />
     <MESSAGE value="Added some things such as cancel event" />
@@ -428,6 +434,7 @@
     <MESSAGE value="Added Jon and Zadie's Waitlist GUI and Backend" />
     <MESSAGE value="Fixed issue with User csv not showing in the GUI" />
     <MESSAGE value="The Event Roster now displays the waitlisted people for the events." />
-    <option name="LAST_COMMIT_MESSAGE" value="The Event Roster now displays the waitlisted people for the events." />
+    <MESSAGE value="Event Roster is completely finished." />
+    <option name="LAST_COMMIT_MESSAGE" value="Event Roster is completely finished." />
   </component>
 </project>

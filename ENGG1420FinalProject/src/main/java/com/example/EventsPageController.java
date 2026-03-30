@@ -594,7 +594,7 @@ public class EventsPageController {
                         //Booking ID
                         Label bID = new Label("Booking ID: "+ b.getBookingId());
                         Label uID = new Label("User ID: " + b.getUserId());
-                        Label timeBooked = new Label ("Date Booked: "+ b.getCreatedAt());
+                        Label timeBooked = new Label ("Booked At: "+ b.getCreatedAt());
 
                         card.getChildren().addAll(bID, uID, timeBooked);
 
@@ -623,7 +623,7 @@ public class EventsPageController {
                 //Booking ID
                 Label bID = new Label("Booking ID: "+ b.getBookingId());
                 Label uID = new Label("User ID: " + b.getUserId());
-                Label timeBooked = new Label ("Date Booked: "+ b.getCreatedAt());
+                Label timeBooked = new Label ("Booked At: "+ b.getCreatedAt());
 
                 card.getChildren().addAll(bID, uID, timeBooked);
 
