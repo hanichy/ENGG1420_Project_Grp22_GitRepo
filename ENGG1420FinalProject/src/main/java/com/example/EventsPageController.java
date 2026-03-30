@@ -162,8 +162,9 @@ public class EventsPageController {
                     showSubEventAttribute(e);
                 }
 
-                if (waitlistBookingsContainer!=null){
+                if (waitlistBookingsContainer!=null&&confirmedBookingsContainer!=null){
                     displayWaitList();
+                    diplayConfirmed();
                 }
             });
             eventsContainer.getChildren().addAll(statusLbl);
@@ -575,6 +576,34 @@ public class EventsPageController {
     @FXML
     private void diplayConfirmed(){
         //Clear Old Vbox Item
+        //Get Selected Event
+        Event e = event.findEventById(selectedEventID);
+        //Clear Old VBox Items
+        confirmedBookingsContainer.getChildren().clear();
+
+        ArrayList<Booking> confirmed = bookings.getBookingList();
+        for(Booking b: confirmed){
+            if (b != null) {
+                //Check that the Booking is for the Selected Event
+                if (b.getEventId().equals(selectedEventID)){
+                    //Check that the Booking is Confirmed
+                    if(b.getBookingStatus().equalsIgnoreCase("Confirmed")){
+                        VBox card = new VBox(5);
+                        card.setStyle("-fx-padding: 10; -fx-border-color: #cccccc; -fx-background-color: #f9f9f9; -fx-border-radius: 5;");
+
+                        //Booking ID
+                        Label bID = new Label("Booking ID: "+ b.getBookingId());
+                        Label uID = new Label("User ID: " + b.getUserId());
+                        Label timeBooked = new Label ("Date Booked: "+ b.getCreatedAt());
+
+                        card.getChildren().addAll(bID, uID, timeBooked);
+
+                        // Add the card to the container
+                        confirmedBookingsContainer.getChildren().add(card);
+                    }
+                }
+            }
+        }
 
     }
     //Display the Waitlisted Bookings in Order
@@ -594,7 +623,7 @@ public class EventsPageController {
                 //Booking ID
                 Label bID = new Label("Booking ID: "+ b.getBookingId());
                 Label uID = new Label("User ID: " + b.getUserId());
-                Label timeBooked = new Label ("Date Booked: "+ b.getCreatedAt()); //Add a method in Waitlist to get time booked
+                Label timeBooked = new Label ("Date Booked: "+ b.getCreatedAt());
 
                 card.getChildren().addAll(bID, uID, timeBooked);
 

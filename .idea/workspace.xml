@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Fixed issue with User csv not showing in the GUI">
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="The Event Roster now displays the waitlisted people for the events.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Booking.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Waitlist.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/Waitlist.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -390,14 +388,21 @@
       <option name="project" value="LOCAL" />
       <updated>1774896154477</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="The Event Roster now displays the waitlisted people for the events.">
+      <option name="closed" value="true" />
+      <created>1774898478872</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1774898478873</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added the new Create Events Page and added the buttons to traverse between them." />
     <MESSAGE value="Adding Menu to all Pages currently." />
     <MESSAGE value="Creating an FXML that will specifically support the menu panel in all the pages" />
     <MESSAGE value="Created the Menu Panel that can now appear on every page without having to manually create it for every page. Now I am adding to the pages here and seeing how I can remove the button corresponding with the page it is already on." />
@@ -422,6 +427,7 @@
     <MESSAGE value="Attempted to finish event roster but ran into issues gettin gthe waitlist." />
     <MESSAGE value="Added Jon and Zadie's Waitlist GUI and Backend" />
     <MESSAGE value="Fixed issue with User csv not showing in the GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue with User csv not showing in the GUI" />
+    <MESSAGE value="The Event Roster now displays the waitlisted people for the events." />
+    <option name="LAST_COMMIT_MESSAGE" value="The Event Roster now displays the waitlisted people for the events." />
   </component>
 </project>
