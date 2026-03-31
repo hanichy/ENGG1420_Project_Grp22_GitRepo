@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Fixed Event Roster GUI so that the booking time was fully visible.">
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Remove debugging print statements">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/CreateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/CreateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/EventsPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/ViewUserDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/ViewUserDetailsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/CreateUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/CreateUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/EventManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/EventManagement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/EventsPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/EventsPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewUserDetailsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewUserDetailsController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlistBookingRemove.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlistBookingRemove.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/users.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +169,7 @@
       <workItem from="1774118746710" duration="35546000" />
       <workItem from="1774711245057" duration="4556000" />
       <workItem from="1774740715143" duration="4245000" />
-      <workItem from="1774965846231" duration="2491000" />
+      <workItem from="1774965846231" duration="3245000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Main Menu from a jumble of buttons to a navagation drawer.">
       <option name="closed" value="true" />
@@ -421,7 +427,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774899932788</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Remove debugging print statements">
+      <option name="closed" value="true" />
+      <created>1774970020117</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1774970020117</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -439,7 +453,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Created the Menu Panel that can now appear on every page without having to manually create it for every page. Now I am adding to the pages here and seeing how I can remove the button corresponding with the page it is already on." />
     <MESSAGE value="Added some things such as cancel event" />
     <MESSAGE value="Added View Event Roster UI" />
     <MESSAGE value="Added Search Events UI trying to make the menu panel always stay at the front" />
@@ -464,6 +477,7 @@
     <MESSAGE value="The Event Roster now displays the waitlisted people for the events." />
     <MESSAGE value="Event Roster is completely finished." />
     <MESSAGE value="Fixed Event Roster GUI so that the booking time was fully visible." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Event Roster GUI so that the booking time was fully visible." />
+    <MESSAGE value="Remove debugging print statements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove debugging print statements" />
   </component>
 </project>

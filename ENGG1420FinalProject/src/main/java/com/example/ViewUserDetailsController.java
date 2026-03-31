@@ -56,7 +56,7 @@ public class ViewUserDetailsController {
         User user = UserManager.getUserById(id);
 
         if (user != null) {
-            outputArea.setText("--- User Found ---\n\n" + user.toString());
+            outputArea.setText("Found user:\n\n" + user.toString());
         } else {
             outputArea.setText("User with ID '" + id + "' not found.");
         }
