@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.EventsPageController">
+   <children>
+      <TextField fx:id="eventID" layoutX="300.0" layoutY="14.0" promptText="Event ID" />
+      <Button layoutX="460.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchByID" text="Search">
+         <font>
+            <Font name="Baskerville Old Face" size="14.0" />
+         </font>
+      </Button>
+      <ScrollPane layoutX="245.0" layoutY="49.0" prefHeight="238.0" prefWidth="334.0">
+         <content>
+            <VBox fx:id="eventsContainer" prefHeight="240.0" prefWidth="333.0" />
+         </content></ScrollPane>
+      <Button layoutX="14.0" layoutY="360.0" mnemonicParsing="false" onAction="#backToMenu" text="Back">
+         <font>
+            <Font name="Baskerville Old Face" size="12.0" />
+         </font></Button>
+      <Button layoutX="310.0" layoutY="314.0" mnemonicParsing="false" onAction="#updateEvent" text="Update Event">
+         <font>
+            <Font name="Baskerville Old Face" size="30.0" />
+         </font>
+      </Button>
+      <TextField fx:id="eventTitle" layoutX="15.0" layoutY="192.0" promptText="New Event Title" />
+      <TextField fx:id="eventLocation" layoutX="15.0" layoutY="226.0" promptText="New Event Location" />
+      <TextField fx:id="eventCapacity" layoutX="15.0" layoutY="261.0" promptText="New Event Capacity" />
+      <HBox layoutX="14.0" layoutY="300.0" prefHeight="26.0" prefWidth="286.0">
+         <children>
+            <DatePicker fx:id="eventDate" prefHeight="26.0" prefWidth="129.0" promptText="New Event Date" />
+            <ComboBox fx:id="hour" prefHeight="26.0" prefWidth="79.0" promptText="Hour" />
+            <ComboBox fx:id="minute" prefHeight="26.0" prefWidth="83.0" promptText="Minute" />
+         </children>
+      </HBox>
+      <Pane layoutX="15.0" layoutY="77.0" prefHeight="107.0" prefWidth="190.0">
+         <children>
+            <VBox fx:id="selectedEventContainer" prefHeight="107.0" prefWidth="190.0" />
+         </children>
+      </Pane>
+      <Label layoutX="20.0" layoutY="49.0" text="Event Currently Selected">
+         <font>
+            <Font name="Baskerville Old Face" size="15.0" />
+         </font>
+      </Label>
+      <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
+      <TextField fx:id="eventTopic" layoutX="16.0" layoutY="330.0" promptText="New Event Topic" visible="false" />
+      <TextField fx:id="eventSpeaker" layoutX="16.0" layoutY="330.0" promptText="New Event Speaker" visible="false" />
+      <TextField fx:id="eventAgeRestriction" layoutX="16.0" layoutY="330.0" prefHeight="26.0" prefWidth="166.0" promptText="New Event Age Restriction" visible="false" />
+   </children>
+</AnchorPane>

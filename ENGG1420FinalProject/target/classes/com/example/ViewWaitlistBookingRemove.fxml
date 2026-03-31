@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.WaitlistPageController">
+    <children>
+        <Label alignment="CENTER" layoutX="127.0" layoutY="25.0" text="Remove Waitlist Entry">
+            <font>
+                <Font name="Baskerville Old Face" size="36.0" />
+            </font>
+        </Label>
+
+        <TextField fx:id="userIDField" layoutX="133.0" layoutY="104.0" prefHeight="26.0" prefWidth="180.0" promptText="Enter User ID to find ID" />
+        <Button layoutX="323.0" layoutY="104.0" mnemonicParsing="false" onAction="#searchWaitlistByUser" text="Search My Bookings">
+            <font>
+                <Font name="Baskerville Old Face" size="14.0" />
+            </font>
+        </Button>
+
+        <ScrollPane layoutX="55.0" layoutY="146.0" prefHeight="150.0" prefWidth="490.0">
+            <content>
+                <VBox fx:id="waitlistBookingsContainer" prefWidth="475.0" spacing="5.0" style="-fx-padding: 10;" />
+            </content>
+        </ScrollPane>
+
+        <TextField fx:id="bookingIDField" layoutX="133.0" layoutY="308.0" prefHeight="26.0" prefWidth="180.0" promptText="Enter Booking ID to Remove" />
+        <Button layoutX="323.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleRemoveWaitlist" text="Confirm Removal">
+            <font>
+                <Font name="Baskerville Old Face" size="14.0" />
+            </font>
+        </Button>
+
+        <Label fx:id="statusLabel" layoutX="133.0" layoutY="353.0">
+            <font>
+                <Font name="Baskerville Old Face" size="14.0" />
+            </font>
+        </Label>
+
+        <Button layoutX="35.0" layoutY="351.0" mnemonicParsing="false" onAction="#backToMenu" text="Back" />
+        <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
+    </children>
+</AnchorPane>
