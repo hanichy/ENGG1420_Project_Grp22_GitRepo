@@ -52,28 +52,21 @@ public class CreateUserController {
         String name = nameField.getText();
         String email = emailField.getText();
         String type = userTypeBox.getValue();
-
         //basic validation
-        if (userId.isEmpty() || name.isEmpty() || email.isEmpty() || type == null) {
+        if (userId.isEmpty() || name.isEmpty() || email.isEmpty() || type == null || UserManager.getUserById(userId) != null) {
             //System.out.println("Please fill all required fields.");
             return;
         }
-
         User user;
-
         switch (type) {
-
             case "Staff":
                 String department = extraField.getText();
-
                 if (department.isEmpty()) {
                     //System.out.println("Please enter department.");
                     return;
                 }
-
                 user = new Staff(userId, name, email, department);
                 break;
-
             case "Student":
                 try {
                     int studentId = Integer.parseInt(extraField.getText());
@@ -83,7 +76,6 @@ public class CreateUserController {
                     return;
                 }
                 break;
-
             case "Guest":
                 String org = extraField.getText();
 
@@ -93,12 +85,10 @@ public class CreateUserController {
                     user = new Guest(userId, name, email, org);
                 }
                 break;
-
             default:
                 user = new RegularUser(userId, name, email);
                 break;
         }
-
         //Save user
         UserManager.addUser(user);
         UserManager.saveToCSV();
