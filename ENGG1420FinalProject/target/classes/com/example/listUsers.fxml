@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.ListAllUserController">
+
+   <children>
+
+      <Label layoutX="220.0" layoutY="20.0" text="All Users" />
+
+      <TextArea fx:id="outputArea"
+                layoutX="50.0" layoutY="80.0"
+                prefHeight="250.0"
+                prefWidth="500.0"
+                editable="false" />
+
+      <Button layoutX="20.0" layoutY="350.0"
+              text="Return"
+              onAction="#backToMenu" />
+
+      <fx:include fx:id="menuPanel" source="MenuPanel.fxml" />
+   </children>
+</AnchorPane>

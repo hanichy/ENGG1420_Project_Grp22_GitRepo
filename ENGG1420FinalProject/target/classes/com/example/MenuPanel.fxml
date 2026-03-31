@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane pickOnBounds="false" prefHeight="150.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.MainMenuController">
+   <children>
+      <StackPane pickOnBounds="false" prefHeight="150.0" prefWidth="200.0" translateY="50.0">
+         <children>
+            <BorderPane pickOnBounds="false" prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <VBox fx:id="drawer" pickOnBounds="false" prefHeight="200.0" prefWidth="200.0" translateX="-200.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Accordion pickOnBounds="false">
+                          <panes>
+                            <TitledPane animated="false" text="User">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#switchToCreateUser" text="Create User" />
+                                          <Button mnemonicParsing="false" onAction="#switchToUserDetails" text="View User Details" />
+                                          <Button mnemonicParsing="false" onAction="#switchToUserList" text="List All Users" />
+                                       </children></VBox>
+                                 </content>
+                            </TitledPane>
+                            <TitledPane animated="false" text="Events">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#switchToCreateEvent" text="Create Event" />
+                                          <Button mnemonicParsing="false" onAction="#switchToUpdateEvent" text="Update Event Information" />
+                                          <Button layoutX="20.0" layoutY="45.0" mnemonicParsing="false" onAction="#switchToCancelEvent" text="Cancel Event" />
+                                          <Button layoutX="20.0" layoutY="71.0" mnemonicParsing="false" onAction="#switchToEventRoster" text="View Event Roster" />
+                                          <Button layoutX="20.0" layoutY="96.0" mnemonicParsing="false" onAction="#switchToEventSearch" text="Search Event By Title" />
+                                       </children></VBox>
+                                 </content>
+                            </TitledPane>
+                            <TitledPane animated="false" text="Booking">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#switchToCreateBooking" text="Book an Event" />
+                                          <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToCancelBooking" text="Cancel a Booking" />
+                                       </children></VBox>
+                                 </content>
+                            </TitledPane>
+                              <TitledPane animated="false" layoutX="10.0" layoutY="61.0" text="WaitList">
+                                 <content>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" onAction="#switchToViewWaitlist" text="View Event WaitList" />
+                                          <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#switchToViewWaitlistBookingRemove" text="Remove a WaitList Booking" />
+                                       </children></VBox>
+                                 </content>
+                              </TitledPane>
+                          </panes>
+                        </Accordion>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </children>
+      </StackPane>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#openMenu" rotate="90.0" text="|||" />
+   </children>
+</AnchorPane>

@@ -71,7 +71,7 @@ public class EventManagement implements Serializable {
                 bw.write(sb.toString());
                 bw.newLine();
             }
-            System.out.println("Event saved successfully");
+            //System.out.println("Event saved successfully");
         } catch(IOException e){
             System.err.println("Error saving events to file: " + e.getMessage());
         }
@@ -81,7 +81,7 @@ public class EventManagement implements Serializable {
     public void saveFullSystemState(String fileName){
         try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(fileName))){
             oos.writeObject(eventList);
-            System.out.println("Event saved successfully");
+            //System.out.println("Event saved successfully");
         }catch(IOException e){
             System.err.println("Error saving events to file: " + e.getMessage());
         }
@@ -97,7 +97,7 @@ public class EventManagement implements Serializable {
         try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fileName))){
             //restore static list
             eventList = (ArrayList<Event>) ois.readObject();
-            System.out.println("Events restored successfully from " + fileName);
+            //System.out.println("Events restored successfully from " + fileName);
         } catch (IOException | ClassNotFoundException e) {
             System.err.println("Error restoring events from file");
         }
@@ -161,7 +161,7 @@ public class EventManagement implements Serializable {
     //create events
     public void createEvent(Event newEvent){
         this.eventList.add(newEvent);
-        System.out.println("Event created successfully");
+        //System.out.println("Event created successfully");
 
         //overwrites the file with updated list to avoid duplicates
         saveFullSystemState("system_state.ser");
@@ -292,15 +292,15 @@ public class EventManagement implements Serializable {
 
     //List Events
     public void listEvents(){
-        System.out.println("Event List: " + eventList.size());
+        //System.out.println("Event List: " + eventList.size());
         if(eventList.isEmpty()){
-            System.out.println("No events found");
+            //System.out.println("No events found");
             return;
         }
 
         for(Event e : eventList){
             String state = e.status ? "[ACTIVE]" : "[CANCELLED]";
-            System.out.println(state + "ID:" + e.getEventId() + "| Title:" + e.getTitle() + "| Location:" + e.getLocation());
+            //System.out.println(state + "ID:" + e.getEventId() + "| Title:" + e.getTitle() + "| Location:" + e.getLocation());
         }
     }
 

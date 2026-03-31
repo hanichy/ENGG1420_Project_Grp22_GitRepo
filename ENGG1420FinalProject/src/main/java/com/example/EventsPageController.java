@@ -631,7 +631,7 @@ public class EventsPageController {
                 waitlistBookingsContainer.getChildren().add(card);
             }
         }
-        System.out.println("--> Finished displayWaitList. Container now has " + waitlistBookingsContainer.getChildren().size() + " items.\nSelected Event ID "+selectedEventID);
+        //System.out.println("--> Finished displayWaitList. Container now has " + waitlistBookingsContainer.getChildren().size() + " items.\nSelected Event ID "+selectedEventID);
     }
 
     //SEARCH EVENTS BY TITLE
