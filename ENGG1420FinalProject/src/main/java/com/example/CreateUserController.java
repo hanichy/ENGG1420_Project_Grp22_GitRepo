@@ -55,7 +55,7 @@ public class CreateUserController {
 
         //basic validation
         if (userId.isEmpty() || name.isEmpty() || email.isEmpty() || type == null) {
-            System.out.println("Please fill all required fields.");
+            //System.out.println("Please fill all required fields.");
             return;
         }
 
@@ -67,7 +67,7 @@ public class CreateUserController {
                 String department = extraField.getText();
 
                 if (department.isEmpty()) {
-                    System.out.println("Please enter department.");
+                    //System.out.println("Please enter department.");
                     return;
                 }
 
@@ -79,7 +79,7 @@ public class CreateUserController {
                     int studentId = Integer.parseInt(extraField.getText());
                     user = new Student(userId, name, email, studentId);
                 } catch (NumberFormatException e) {
-                    System.out.println("Invalid Student ID (must be a number).");
+                    //System.out.println("Invalid Student ID (must be a number).");
                     return;
                 }
                 break;
@@ -103,7 +103,7 @@ public class CreateUserController {
         UserManager.addUser(user);
         UserManager.saveToCSV();
 
-        System.out.println("User created and saved to CSV: " + user);
+        //System.out.println("User created and saved to CSV: " + user);
 
         //clear fields
         userIdField.clear();
