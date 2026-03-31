@@ -95,6 +95,9 @@ public class UserManager {
                         user = new Staff(id, name, email, extra);
                         break;
                     case "Student":
+                        if (extra == ""){
+                            extra = "0";
+                        }
                         user = new Student(id, name, email, Integer.parseInt(extra));
                         break;
                     case "Guest":

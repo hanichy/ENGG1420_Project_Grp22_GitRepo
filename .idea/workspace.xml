@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Remove debugging print statements">
+    <list default="true" id="923d7d31-4762-458c-9fa3-46ac00628f47" name="Changes" comment="Fixed events csv">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/CreateUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/CreateUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/ViewUserDetailsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/ViewUserDetailsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/CreateUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/CreateUserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/EventManagement.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/EventManagement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/EventsPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/EventsPageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewUserDetailsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewUserDetailsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlistBookingRemove.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/target/classes/com/example/ViewWaitlistBookingRemove.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/UserManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ENGG1420FinalProject/src/main/java/com/example/UserManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/users.csv" beforeDir="false" afterPath="$PROJECT_DIR$/users.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -29,9 +23,22 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <excluded-from-favorite>
+      <branch-storage>
+        <map>
+          <entry type="LOCAL">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </excluded-from-favorite>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="main-2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,12 +50,12 @@
     &quot;assignee&quot;: &quot;gscinocc&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/hanichy/ENGG1420_Project_Grp22_GitRepo",
-    "accountId": "65828b17-6df0-4af3-a017-35d500bb3517"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/hanichy/ENGG1420_Project_Grp22_GitRepo.git&quot;,
+    &quot;accountId&quot;: &quot;a0892907-ea2b-4bd6-99a5-e4bbb3f12049&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -69,7 +76,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Rebasing main",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/grace/OneDrive/ENGG1420-Labs/ENGG1420_Project_Grp22_GitRepo/ENGG1420FinalProject/src/main/resources/com/example",
@@ -138,6 +145,8 @@
       <list>
         <item itemvalue="Application.com.example.Main" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.com.example.Main" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -170,6 +179,7 @@
       <workItem from="1774711245057" duration="4556000" />
       <workItem from="1774740715143" duration="4245000" />
       <workItem from="1774965846231" duration="3245000" />
+      <workItem from="1774983143868" duration="892000" />
     </task>
     <task id="LOCAL-00001" summary="Changed Main Menu from a jumble of buttons to a navagation drawer.">
       <option name="closed" value="true" />
